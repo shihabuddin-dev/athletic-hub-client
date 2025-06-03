@@ -7,12 +7,13 @@ import ResetPassword from "../pages/auth/ResetPassword";
 import MyProfile from "../pages/myprofile/MyProfile";
 import PrivateRoutes from "./PrivateRoutes";
 import NotFound from "../pages/notFound/NotFound";
+import CreateEvent from "../pages/createEvent/CreateEvent";
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
-    errorElement: <NotFound/>,
+    errorElement: <NotFound />,
     children: [
       {
         index: true,
@@ -31,6 +32,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <MyProfile />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/create-event",
+        element: (
+          <PrivateRoutes>
+            <CreateEvent />
           </PrivateRoutes>
         ),
       },

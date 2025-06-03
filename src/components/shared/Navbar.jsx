@@ -11,10 +11,10 @@ import {
 import Button from "../ui/Button";
 import Swal from "sweetalert2";
 import {
+  MdAddBusiness,
   MdAssignmentAdd,
   MdEvent,
   MdManageHistory,
-  MdOutlineRoundaboutRight,
 } from "react-icons/md";
 import ThemeToggle from "../ui/ThemeToggle";
 import userLogo from "../../assets/user-logo.png";
@@ -172,9 +172,9 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about" className={linksClass}>
-              <MdOutlineRoundaboutRight />
-              About
+            <NavLink to="/create-event" className={linksClass}>
+              <MdAddBusiness />
+              Create Event
             </NavLink>
           </li>
 
@@ -264,9 +264,13 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/about" onClick={toggleMenu} className={linksClass}>
-                <MdOutlineRoundaboutRight />
-                About
+              <NavLink
+                to="/create-event"
+                onClick={toggleMenu}
+                className={linksClass}
+              >
+                <MdAddBusiness />
+                Create Event
               </NavLink>
             </li>
 

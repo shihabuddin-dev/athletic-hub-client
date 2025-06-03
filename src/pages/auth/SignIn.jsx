@@ -11,7 +11,7 @@ import signIn from "../../assets/lotti/signIn.json";
 import useAuth from "../../hooks/useAuth";
 
 const inputBase =
-  "w-full border-2 border-base-content/20 px-4 py-2 rounded-md focus:outline-none  focus:border-secondary transition duration-200 bg-base-100 text-base-content";
+  "w-full border-2 border-base-content/20 px-4 py-1.5 md:py-2 rounded-md focus:outline-none  focus:border-secondary transition duration-200 bg-base-100 text-base-content";
 
 const SignIn = () => {
   const { signInUser, createUserWithGoogle, setUser, user } = useAuth();
@@ -108,7 +108,7 @@ const SignIn = () => {
 
   return (
     <div className="flex gap-4 flex-col md:flex-row justify-center items-center max-w-5xl">
-      <title>Sign In || Athletic Hub</title>
+      <title>Sign In | Athletic Hub</title>
       <div className="flex-1">
         <Lottie
           animationData={signIn}

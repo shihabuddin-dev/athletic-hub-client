@@ -61,7 +61,7 @@ const ResetPassword = () => {
 
   return (
     <div className="flex gap-4 flex-col md:flex-row justify-center items-center max-w-5xl">
-      <title>Reset Password || Athletic Hub</title>
+      <title>Reset Password | Athletic Hub</title>
       <div className="flex-1">
         <Lottie
           animationData={resetAnimation}
@@ -88,12 +88,12 @@ const ResetPassword = () => {
               type="email"
               name="email"
               placeholder="Enter Your Email"
-              className="w-full border-2 border-base-content/20 px-4 py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content"
+              className="w-full border-2 border-base-content/20 px-4 py-1.5 md:py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content"
             />
           </div>
 
           {/* Submit Button */}
-          <Button type="submit" className="w-full mt-2 py-2">
+          <Button type="submit" className="w-full mt-2">
             Send Reset Link
           </Button>
 

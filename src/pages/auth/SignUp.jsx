@@ -11,7 +11,7 @@ import Lottie from "lottie-react";
 import useAuth from "../../hooks/useAuth";
 
 const inputBase =
-  "w-full border-2 border-base-content/20 px-4 py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content";
+  "w-full border-2 border-base-content/20 px-4 py-1.5 md:py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content";
 
 const SignUp = () => {
   const { createUser, setUser, createUserWithGoogle, updateUser, user } =

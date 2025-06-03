@@ -65,13 +65,13 @@ const HeroSlider = () => {
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103 group-hover:brightness-95"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-black/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-center items-center text-center px-4">
-                <h2 className="text-white drop-shadow-lg text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 tracking-tight animate-fade-in-up">
+                <h2 className="text-white drop-shadow-lg text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight animate-fade-in-up">
                   {slide.title}
                 </h2>
-                <p className="text-white text-lg md:text-2xl mb-6 animate-fade-in-up delay-100">
+                <p className="text-white text-base md:text-xl mb-6 animate-fade-in-up delay-100">
                   {slide.subtitle}
                 </p>
-                <div className="flex gap-3 mt-2 animate-fade-in-up delay-200">
+                <div className="flex flex-wrap justify-center gap-3 mt-2 animate-fade-in-up delay-200">
                   <Link to="/signup">
                     <Button>Get Started</Button>
                   </Link>
