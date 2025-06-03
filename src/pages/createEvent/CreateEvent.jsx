@@ -10,6 +10,9 @@ import {
   FaRegEdit,
 } from "react-icons/fa";
 import { MdAddToPhotos, MdEventAvailable } from "react-icons/md";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const inputBase =
   "w-full border-2 border-base-content/20 px-4 py-1.5 md:py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content";
@@ -28,6 +31,7 @@ const eventTypes = [
 ];
 
 const CreateEvent = () => {
+  const navigate = useNavigate();
   const { user } = useAuth();
   const [form, setForm] = useState({
     eventName: "",
@@ -46,10 +50,22 @@ const CreateEvent = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    axios
+      .post(`${import.meta.env.VITE_API_URL}/events`, form)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((error) => console.log(error));
 
     console.log(form);
     setTimeout(() => {
-      alert("Event created successfully!");
+      Swal.fire({
+        icon: "success",
+        title: "Event created successfully!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate("/events");
       //   setForm({
       //     eventName: "",
       //     eventType: "",

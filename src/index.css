@@ -75,3 +75,8 @@ input[type="number"] {
 .hero-swiper .swiper-slide {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
+
+.bg-events{
+  background-image: url('/bg-events.jpg');
+  background-size: cover;
+}
