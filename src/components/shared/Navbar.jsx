@@ -1,5 +1,5 @@
 import { NavLink, Link } from "react-router";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import {
   FaBars,
   FaClipboardList,
@@ -14,14 +14,13 @@ import Swal from "sweetalert2";
 import { MdLibraryAdd } from "react-icons/md";
 import ThemeToggle from "../ui/ThemeToggle";
 import userLogo from "../../assets/user-logo.png";
+import athleticLogo from "../../assets/athletic-logo.png";
 import { FaUsersViewfinder } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
   const { user, signOutUser } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
-  const dropdownRef = useRef(null);
   const toggleMenu = () => setIsOpen(!isOpen);
 
   // logout user
@@ -58,26 +57,18 @@ const Navbar = () => {
   const linksClass =
     "hover:text-primary text-base-content flex items-center gap-1";
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShowDropdown(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
   return (
     <nav className="bg-base-200 shadow-sm border-b-1 border-base-300 fixed top-0 left-0 right-0 z-50 w-full">
       <div className="max-w-7xl mx-auto py-2 px-4 md:px-6 lg:px-8 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <FaParachuteBox className="w-8 h-8 text-primary" />
-          <span className="text-2xl -ml-1 font-bold text-primary">
-            Career Code
+        <Link to="/" className="flex items-center gap-1">
+          <img
+            src={athleticLogo}
+            alt="logo"
+            className="w-10 h-10 object-contain"
+          />
+          <span className="text-2xl -ml-1 font-bold text-secondary">
+            Athletic Hub
           </span>
         </Link>
 
@@ -125,36 +116,36 @@ const Navbar = () => {
             </Button>
           )}
           {user ? (
-            <div
-              className="relative cursor-pointer z-10"
-              onClick={() => setShowDropdown(!showDropdown)}
-              ref={dropdownRef}
-            >
-              <img
-                src={user?.photoURL ? user?.photoURL : userLogo}
-                alt="profile"
-                title={user?.displayName}
-                className="w-10 h-10 rounded-full border border-secondary"
-              />
-              <div
-                className={`absolute right-0 mt-2 w-40 bg-base-100 border border-primary rounded-md shadow-lg transition-opacity duration-200 ${
-                  showDropdown ? "opacity-100" : "opacity-0 pointer-events-none"
-                }`}
-              >
-                <p className="px-4 py-2 text-sm font-medium text-primary">
-                  {user?.displayName}
-                </p>
-                <hr className="text-primary" />
-                <Link to="/my-profile">
-                  <p className="px-4 py-2 text-sm font-medium "> My Profile</p>
-                </Link>
-                <hr className=" border-dashed" />
-                <button
-                  onClick={handleLogOut}
-                  className="flex items-center gap-2 px-4 py-2 text-sm text-primary w-full text-left cursor-pointer"
+            <div className="relative z-10">
+              <div className="cursor-pointer group/avatar">
+                <img
+                  src={user?.photoURL ? user?.photoURL : userLogo}
+                  alt="profile"
+                  title={user?.displayName}
+                  className="w-10 h-10 rounded-full border-secondary"
+                />
+                <div
+                  className="absolute -left-15  mt-0 w-40 bg-base-100 border border-secondary rounded-md shadow-lg transition-opacity duration-200 opacity-0 invisible group-hover/avatar:opacity-100 group-hover/avatar:visible"
+                  style={{ pointerEvents: "auto" }}
                 >
-                  <FaSignOutAlt /> Signout
-                </button>
+                  <p className="px-4 py-2 text-sm font-medium text-secondary">
+                    {user?.displayName}
+                  </p>
+                  <hr className="text-secondary border-dashed" />
+                  <Link to="/my-profile">
+                    <p className="px-4 py-2 text-sm font-medium text-secondary">
+                      {" "}
+                      My Profile
+                    </p>
+                  </Link>
+                  <hr className="text-secondary border-dashed" />
+                  <button
+                    onClick={handleLogOut}
+                    className="flex text-secondary items-center gap-2 px-4 py-2 text-sm w-full text-left cursor-pointer"
+                  >
+                    <FaSignOutAlt /> Signout
+                  </button>
+                </div>
               </div>
             </div>
           ) : (

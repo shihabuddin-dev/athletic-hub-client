@@ -37,11 +37,11 @@ const MyProfile = () => {
   };
   return (
     <div className="flex justify-center items-center min-h-[70vh]">
-      <title>Profile | AthleticHub</title>
+      <title>Profile | Athletic Hub</title>
       <div className="card w-full max-w-md bg-base-100 shadow-sm border-t-4 border-b-4 border-secondary p-6">
         <div className="flex flex-col items-center gap-3">
           <div className="avatar">
-            <div className="w-24 h-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <div className="w-24 h-24 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
               <img
                 src={user.photoURL || "/src/assets/user-logo.png"}
                 alt="User"
@@ -51,7 +51,7 @@ const MyProfile = () => {
           <h2 className="text-2xl font-bold text-primary mb-1">
             {user.displayName || "User Name"}
           </h2>
-          <span className="badge badge-outline badge-primary mb-2">
+          <span className="badge badge-outline badge-secondary mb-2">
             {user.email}
           </span>
         </div>
