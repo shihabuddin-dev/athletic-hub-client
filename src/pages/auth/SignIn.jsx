@@ -111,7 +111,7 @@ const SignIn = () => {
       <title>Sign In || Athletic Hub</title>
       <div className="flex-1">
         <Lottie
-        animationData={signIn}
+          animationData={signIn}
           className="w-full h-[200px] md:h-[400px]"
         />
       </div>{" "}

@@ -1,26 +1,30 @@
 import { NavLink, Link } from "react-router";
 import { useState } from "react";
 import {
+  FaAddressBook,
   FaBars,
-  FaClipboardList,
   FaHome,
-  FaParachuteBox,
-  FaRegSave,
+  FaRegArrowAltCircleDown,
   FaSignOutAlt,
   FaTimes,
 } from "react-icons/fa";
 import Button from "../ui/Button";
 import Swal from "sweetalert2";
-import { MdLibraryAdd } from "react-icons/md";
+import {
+  MdAssignmentAdd,
+  MdEvent,
+  MdManageHistory,
+  MdOutlineRoundaboutRight,
+} from "react-icons/md";
 import ThemeToggle from "../ui/ThemeToggle";
 import userLogo from "../../assets/user-logo.png";
 import athleticLogo from "../../assets/athletic-logo.png";
-import { FaUsersViewfinder } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
   const { user, signOutUser } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  const [showMobileProfile, setShowMobileProfile] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
   // logout user
@@ -57,8 +61,91 @@ const Navbar = () => {
   const linksClass =
     "hover:text-primary text-base-content flex items-center gap-1";
 
+  const ProfilePrivateLink = (
+    <div className="relative">
+      <button
+        onClick={() => setShowMobileProfile((prev) => !prev)}
+        className="hover:text-primary text-base-content flex items-center gap-1 cursor-pointer lg:hidden "
+        aria-expanded={showMobileProfile}
+        aria-controls="mobile-profile-dropdown"
+      >
+        <FaRegArrowAltCircleDown /> Profile
+      </button>
+      <ul
+        className={`dropdown menu w-52 rounded-box bg-base-100 shadow-sm absolute left-0 mt-2 z-50 border border-secondary ${
+          showMobileProfile ? "block" : "hidden"
+        } lg:hidden`}
+        id="mobile-profile-dropdown"
+      >
+        <li>
+          <NavLink
+            to="/bookEvent"
+            onClick={() => setShowMobileProfile(false)}
+            className={linksClass}
+          >
+            <MdAssignmentAdd />
+            Book Event
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/myBookings"
+            onClick={() => setShowMobileProfile(false)}
+            className={linksClass}
+          >
+            <FaAddressBook />
+            My Bookings
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/manageEvents"
+            onClick={() => setShowMobileProfile(false)}
+            className={linksClass}
+          >
+            <MdManageHistory />
+            Manage Events
+          </NavLink>
+        </li>
+      </ul>
+      {/* Desktop version (popover/hover) */}
+      <button
+        popoverTarget="popover-1"
+        className="hover:text-primary text-base-content hidden lg:flex items-center gap-1 cursor-pointer"
+        style={{ anchorName: "--anchor-1" }}
+      >
+        <FaRegArrowAltCircleDown /> Profile
+      </button>
+      <ul
+        className="dropdown menu w-52 rounded-box bg-base-100 border border-secondary shadow-sm hidden lg:block"
+        popover="auto"
+        id="popover-1"
+        style={{ positionAnchor: "--anchor-1" }}
+      >
+        <li>
+          <NavLink to="/bookEvent" className={linksClass}>
+            <MdAssignmentAdd />
+            Book Event
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/myBookings" className={linksClass}>
+            <FaAddressBook />
+            My Bookings
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/manageEvents" className={linksClass}>
+            <MdManageHistory />
+            Manage Events
+          </NavLink>
+        </li>
+      </ul>
+    </div>
+  );
+
   return (
-    <nav className="bg-secondary/10 fixed top-0 left-0 right-0 z-50 w-full">
+    <nav className="bg-gradient-to-t from-secondary/8 via-base-100 to-secondary/8 fixed top-0 left-0 right-0 z-50 w-full border-b-2 border-secondary/15">
       <div className="max-w-7xl mx-auto py-2 px-4 md:px-6 lg:px-8 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-1">
@@ -67,13 +154,11 @@ const Navbar = () => {
             alt="logo"
             className="w-10 h-10 object-contain"
           />
-          <span className="text-2xl -ml-1 font-bold text-secondary">
-            Athletic Hub
-          </span>
+          <p className="text-2xl font-bold text-secondary">Athletic Hub</p>
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden lg:flex gap-5 font-semibold text-[#1a1a1a]">
+        <ul className="hidden lg:flex gap-5 font-semibold text-white">
           <li>
             <NavLink to="/" className={linksClass}>
               <FaHome />
@@ -81,31 +166,19 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/find-job" className={linksClass}>
-              <FaUsersViewfinder />
-              Find Job
+            <NavLink to="/events" className={linksClass}>
+              <MdEvent />
+              Events
             </NavLink>
           </li>
           <li>
-            <NavLink to="/recruiters" className={linksClass}>
-              <MdLibraryAdd />
-              Recruiters
+            <NavLink to="/about" className={linksClass}>
+              <MdOutlineRoundaboutRight />
+              About
             </NavLink>
           </li>
-          <li>
-            <NavLink to="/my-recipes" className={linksClass}>
-              <FaClipboardList />
-              My Job
-            </NavLink>
-          </li>
-          {user && (
-            <li>
-              <NavLink to="/wishlist" className={linksClass}>
-                <FaRegSave />
-                Wishlist
-              </NavLink>
-            </li>
-          )}
+
+          {user && <li>{ProfilePrivateLink}</li>}
         </ul>
 
         {/* Login / Avatar */}
@@ -168,7 +241,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed left-0 right-0 top-[64px] z-40 transition-all duration-300 ${
+        className={`lg:hidden fixed left-0 right-0 top-[56px] z-40 transition-all duration-300 ${
           isOpen
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-8 pointer-events-none"
@@ -185,45 +258,19 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="/find-job"
-                onClick={toggleMenu}
-                className={linksClass}
-              >
-                <FaUsersViewfinder />
-                Find Job
+              <NavLink to="/events" onClick={toggleMenu} className={linksClass}>
+                <MdEvent />
+                Events
               </NavLink>
             </li>
             <li>
-              <NavLink
-                to="/recruiters"
-                onClick={toggleMenu}
-                className={linksClass}
-              >
-                <MdLibraryAdd />
-                Recruiters
+              <NavLink to="/about" onClick={toggleMenu} className={linksClass}>
+                <MdOutlineRoundaboutRight />
+                About
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/my-recipes"
-                onClick={toggleMenu}
-                className={linksClass}
-              >
-                <FaClipboardList />
-                My Job
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/wishlist"
-                onClick={toggleMenu}
-                className={linksClass}
-              >
-                <FaRegSave />
-                Wishlist
-              </NavLink>
-            </li>
+
+            {user && <li>{ProfilePrivateLink}</li>}
             <li className="space-x-2">
               {user ? (
                 <div className="flex gap-4 items-center">
@@ -233,12 +280,12 @@ const Navbar = () => {
                     className="w-9 h-9 rounded-full border border-secondary"
                   />
                   <div>
-                    <p className="text-sm text-primary font-medium">
+                    <p className="text-sm text-secondary font-medium">
                       {user?.displayName}
                     </p>
                     <button
                       onClick={handleLogOut}
-                      className="flex items-center gap-2 text-sm text-primary w-full"
+                      className="flex items-center gap-2 text-sm text-secondary w-full"
                     >
                       <FaSignOutAlt /> Sign Out
                     </button>

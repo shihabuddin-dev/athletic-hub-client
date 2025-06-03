@@ -6,107 +6,162 @@ import {
   FaEnvelope,
   FaPhoneAlt,
   FaMapMarkerAlt,
+  FaLinkedin,
 } from "react-icons/fa";
-import Button from "../ui/Button";
 import { Link } from "react-router";
+import athleticLogo from "../../assets/athletic-logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary/10 text-base-content pt-12 pb-8 ">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+    <footer className="bg-gradient-to-t from-secondary/8 via-base-100 to-secondary/8 text-base-content pt-12 pb-0 border-t-2 border-secondary/15 ">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-5 gap-10">
         {/* Brand Info */}
-        <div>
-          <h2 className="text-2xl font-bold text-primary mb-3">Career Code</h2>
-          <p className="text-sm">
-            Discover, Search, share, and enjoy with Career Code.
+        <div className="md:col-span-2 flex flex-col gap-2">
+          <div className="flex items-center gap-2 mb-2">
+            <img
+              src={athleticLogo}
+              alt="Athletic Hub Logo"
+              className="w-10 h-10 object-contain"
+            />
+            <h2 className="text-2xl font-bold text-secondary">Athletic Hub</h2>
+          </div>
+          <p className="text-base text-primary font-semibold">
+            The Ultimate Platform for Athletic Events
           </p>
+          <p className="text-sm text-base-content/80">
+            Effortlessly discover, book, and manage your spot in local sports
+            events.
+            <br />
+            <span className="text-secondary font-semibold">
+              Empowering athletes, organizers, and sports fans to connect and
+              compete.
+            </span>
+          </p>
+          <div className="flex gap-3 mt-3">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-125 transition-transform text-secondary bg-base-100 p-2 rounded-full border border-secondary"
+              aria-label="Facebook"
+            >
+              <FaFacebookF size={18} />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-125 transition-transform text-secondary bg-base-100 p-2 rounded-full border border-secondary"
+              aria-label="Twitter"
+            >
+              <FaTwitter size={18} />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-125 transition-transform text-secondary bg-base-100 p-2 rounded-full border border-secondary"
+              aria-label="Instagram"
+            >
+              <FaInstagram size={18} />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-125 transition-transform text-secondary bg-base-100 p-2 rounded-full border border-secondary"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={18} />
+            </a>
+          </div>
         </div>
 
-        {/* Quick Links */}
+        {/* Useful Links */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
-          <ul className="space-y-2 text-sm text-base-content">
+          <h3 className="text-lg font-bold mb-3 text-secondary">
+            Useful Links
+          </h3>
+          <ul className="space-y-2 text-sm">
             <li>
-              <Link to="/" className="hover:text-secondary">
+              <Link to="/" className="hover:text-secondary font-medium">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/all-recipes" className="hover:text-secondary">
-                Recruiters
+              <Link to="/browseEvents" className="hover:text-secondary font-medium">
+                Browse Events
               </Link>
             </li>
             <li>
-              <Link to="/add-recipe" className="hover:text-secondary">
-                Add Recipe
+              <Link to="/organizations" className="hover:text-secondary font-medium">
+                See Event Organizers
               </Link>
             </li>
             <li>
-              <Link to="/my-recipes" className="hover:text-secondary">
-                My Job
+              <Link to="/myBookings" className="hover:text-secondary font-medium">
+                See My Bookings
               </Link>
             </li>
-          </ul>
-        </div>
-        {/* Contact Info */}
-        <div>
-          <h3 className="text-lg font-semibold mb-3">Contact</h3>
-          <ul className="space-y-3 text-sm text-base-content">
-            <li className="flex items-center gap-2">
-              <FaEnvelope /> info@traditionalrecipe.com
-            </li>
-            <li className="flex items-center gap-2">
-              <FaPhoneAlt /> +880 1234-567890
-            </li>
-            <li className="flex items-center gap-2">
-              <FaMapMarkerAlt /> Bogura, Bangladesh
+            <li>
+              <Link to="/my-profile" className="hover:text-secondary font-medium">
+                See Profile
+              </Link>
             </li>
           </ul>
         </div>
 
-        {/* Newsletter */}
+        {/* Resources */}
         <div>
-          <h3 className="text-lg font-semibold mb-3">Subscribe</h3>
-          <p className="text-sm mb-3">Get the best Job news every week!</p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
-            <input
-              type="email"
-              placeholder="Your email"
-              className="px-4 py-2 rounded-md border border-secondary focus:outline-none focus:ring-1 focus:ring-secondary text-sm w-full"
-            />
-            <Button type="submit">Subscribe</Button>
-          </div>
+          <h3 className="text-lg font-bold mb-3 text-secondary">Resources</h3>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <a href="#" className="hover:text-secondary font-medium">
+                How It Works
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-secondary font-medium">
+                FAQs
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-secondary font-medium">
+                Blog
+              </a>
+            </li>
+            <li>
+              <a href="#" className="hover:text-secondary font-medium">
+                Support
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Contact Info */}
+        <div>
+          <h3 className="text-lg font-bold mb-3 text-secondary">Contact</h3>
+          <ul className="space-y-3 text-sm">
+            <li className="flex items-center gap-2">
+              <FaEnvelope className="text-secondary" /> support@athletichub.com
+            </li>
+            <li className="flex items-center gap-2">
+              <FaPhoneAlt className="text-secondary" /> +880 1234-567890
+            </li>
+            <li className="flex items-center gap-2">
+              <FaMapMarkerAlt className="text-secondary" /> Bogura, Bangladesh
+            </li>
+          </ul>
         </div>
       </div>
 
       {/* Bottom line */}
-      <div className="mt-8 border-t border-secondary border-dashed pt-6 text-center text-sm">
-        <p>
-          &copy; {new Date().getFullYear()} Career Code All rights reserved.
+      <div className="mt-12 py-4 border-t-2 border-secondary/15 border-dashed text-center text-sm">
+        <p className="font-medium text-primary text-center">
+          &copy; {new Date().getFullYear()}{" "}
+          <span className="text-secondary font-bold">Athletic Hub</span>. All
+          rights reserved.
         </p>
-        <div className="flex justify-center mt-3 space-x-4 text-secondary">
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebookF size={18} />
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaTwitter size={18} />
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaInstagram size={18} />
-          </a>
-        </div>
       </div>
     </footer>
   );
