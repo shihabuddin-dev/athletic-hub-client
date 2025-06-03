@@ -12,7 +12,7 @@ import { Link } from "react-router";
 
 const Footer = () => {
   return (
-    <footer className="bg-base-200 text-base-content pt-12 pb-8 border-t border-base-300">
+    <footer className="bg-secondary/10 text-base-content pt-12 pb-8 ">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
         {/* Brand Info */}
         <div>
@@ -80,7 +80,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom line */}
-      <div className="mt-8 border-t border-base-300 pt-6 text-center text-sm">
+      <div className="mt-8 border-t border-secondary border-dashed pt-6 text-center text-sm">
         <p>
           &copy; {new Date().getFullYear()} Career Code All rights reserved.
         </p>

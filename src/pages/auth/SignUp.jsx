@@ -183,7 +183,7 @@ const SignUp = () => {
     <div className="flex gap-4 flex-col md:flex-row justify-center items-center max-w-5xl">
       <title>Sign Up | Athletic Hub </title>
       <div className="flex-1">
-        <Lottie animationData={signUp} className="w-full h-[300px]"></Lottie>
+        <Lottie animationData={signUp} className="w-full h-[200px] md:h-[400px]"></Lottie>
       </div>{" "}
       <form
         onSubmit={handleSignUp}

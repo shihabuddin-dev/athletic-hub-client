@@ -58,7 +58,7 @@ const Navbar = () => {
     "hover:text-primary text-base-content flex items-center gap-1";
 
   return (
-    <nav className="bg-base-200 shadow-sm border-b-1 border-base-300 fixed top-0 left-0 right-0 z-50 w-full">
+    <nav className="bg-secondary/10 fixed top-0 left-0 right-0 z-50 w-full">
       <div className="max-w-7xl mx-auto py-2 px-4 md:px-6 lg:px-8 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-1">
@@ -129,7 +129,7 @@ const Navbar = () => {
                   style={{ pointerEvents: "auto" }}
                 >
                   <p className="px-4 py-2 text-sm font-medium text-secondary">
-                    {user?.displayName}
+                    Hi, {user?.displayName}
                   </p>
                   <hr className="text-secondary border-dashed" />
                   <Link to="/my-profile">
@@ -138,13 +138,6 @@ const Navbar = () => {
                       My Profile
                     </p>
                   </Link>
-                  <hr className="text-secondary border-dashed" />
-                  <button
-                    onClick={handleLogOut}
-                    className="flex text-secondary items-center gap-2 px-4 py-2 text-sm w-full text-left cursor-pointer"
-                  >
-                    <FaSignOutAlt /> Signout
-                  </button>
                 </div>
               </div>
             </div>
