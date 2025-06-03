@@ -119,6 +119,11 @@ const Navbar = () => {
 
         {/* Login / Avatar */}
         <div className="hidden space-x-2 lg:flex items-center">
+          {user && (
+            <Button onClick={handleLogOut} variant="danger">
+              Sign Out
+            </Button>
+          )}
           {user ? (
             <div
               className="relative cursor-pointer z-10"
@@ -129,7 +134,7 @@ const Navbar = () => {
                 src={user?.photoURL ? user?.photoURL : userLogo}
                 alt="profile"
                 title={user?.displayName}
-                className="w-9 h-9 rounded-full border border-secondary"
+                className="w-10 h-10 rounded-full border border-secondary"
               />
               <div
                 className={`absolute right-0 mt-2 w-40 bg-base-100 border border-primary rounded-md shadow-lg transition-opacity duration-200 ${
@@ -140,7 +145,7 @@ const Navbar = () => {
                   {user?.displayName}
                 </p>
                 <hr className="text-primary" />
-                 <Link to="/my-profile">
+                <Link to="/my-profile">
                   <p className="px-4 py-2 text-sm font-medium "> My Profile</p>
                 </Link>
                 <hr className=" border-dashed" />
@@ -148,18 +153,18 @@ const Navbar = () => {
                   onClick={handleLogOut}
                   className="flex items-center gap-2 px-4 py-2 text-sm text-primary w-full text-left cursor-pointer"
                 >
-                  <FaSignOutAlt /> Logout
+                  <FaSignOutAlt /> Signout
                 </button>
               </div>
             </div>
           ) : (
             <>
               <Link to="/signin">
-                <Button variant="outline">Sign In</Button>
+                <Button className="border-none">Sign In</Button>
               </Link>
-              <Link to="/signup">
+              {/* <Link to="/signup">
                 <Button>Sign Up</Button>
-              </Link>
+              </Link> */}
             </>
           )}
           <ThemeToggle />
@@ -251,7 +256,7 @@ const Navbar = () => {
                       onClick={handleLogOut}
                       className="flex items-center gap-2 text-sm text-primary w-full"
                     >
-                      <FaSignOutAlt /> Logout
+                      <FaSignOutAlt /> Sign Out
                     </button>
                   </div>
                 </div>
@@ -260,9 +265,9 @@ const Navbar = () => {
                   <Link to="/signin" onClick={toggleMenu}>
                     <Button variant="outline">Sign In</Button>
                   </Link>
-                  <Link to="/signup" onClick={toggleMenu}>
+                  {/* <Link to="/signup" onClick={toggleMenu}>
                     <Button>Sign Up</Button>
-                  </Link>
+                  </Link> */}
                 </>
               )}
             </li>

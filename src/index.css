@@ -1,29 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
 @import "tailwindcss";
 
 @plugin "daisyui" {
   themes: light --default;
+  /* themes: light --default; */
 }
 
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: #3C65F5;
-  --color-secondary: #007eff;
-  --color-accent: #706f6f;
+  --color-primary: #0D124B;
+  --color-secondary: #5046E5;
+  --color-base-100: #FFFFFF;
+  --color-base-200: #F5F5F7;
+  --color-base-300: #F3F3F3;
+  --color-base-300: #E7E7E7;
+  --color-accent: #706F6F;
 }
 
 @plugin "daisyui/theme" {
   name: "dark";
-  --color-primary: #3C65F5;
-  --color-secondary: #007eff;
-  --color-accent: #706f6f;
+  color-scheme: dark;
+  --color-primary: #5F6CE0;
+  --color-secondary: #EB4899;
+  --color-base-100: #060826;
+  --color-base-200: #02031f;
+  --color-base-300: #2A2A3C;
+  --color-accent: #E7E7E7;
+
 }
 
 
 a.active {
-  color: #3C65F5;
+  color: var(--color-secondary);
 }
 
-a.pending {
-  color: blue;
+
+/* input type number default arrow reset */
+/* For Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* For Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+
+/* swiper slider */
+
+.hero-swiper .swiper-pagination-bullet {
+  background: white;
+  opacity: 0.6;
+  width: 10px;
+  height: 10px;
+  transition: all 0.3s;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  width: 30px;
+  border-radius: 5px;
+}
+
+.hero-swiper .swiper-slide {
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }

@@ -11,7 +11,7 @@ import Lottie from "lottie-react";
 import useAuth from "../../hooks/useAuth";
 
 const inputBase =
-  "w-full border-2 border-base-content/20 px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-secondary focus:border-secondary transition duration-200 bg-base-100 text-base-content";
+  "w-full border-2 border-base-content/20 px-4 py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content";
 
 const SignUp = () => {
   const { createUser, setUser, createUserWithGoogle, updateUser, user } =
@@ -181,7 +181,7 @@ const SignUp = () => {
 
   return (
     <div className="flex gap-4 flex-col md:flex-row justify-center items-center max-w-5xl">
-      <title>Sign Up || Career Code</title>
+      <title>Sign Up | AthleticHub </title>
       <div className="flex-1">
         <Lottie animationData={signUp} className="w-full h-[300px]"></Lottie>
       </div>{" "}
@@ -190,7 +190,7 @@ const SignUp = () => {
         className="flex-1 max-w-md p-6 bg-base-100 rounded shadow space-y-2 border-2 border-secondary"
       >
         <h2 className="text-2xl md:text-3xl font-semibold mb-4 flex justify-center items-center gap-3 text-base-content">
-          <GiArchiveRegister className="text-primary" /> Sign Up
+          <GiArchiveRegister className="text-secondary" /> Sign Up
         </h2>
         <label className="block mb-2 text-sm font-medium text-base-content">
           Name
@@ -278,7 +278,7 @@ const SignUp = () => {
         </Button>{" "}
         <p className="text-sm mt-4 text-base-content">
           Already have an account?{" "}
-          <Link to="/signIn" className="text-primary underline">
+          <Link to="/signIn" className="text-secondary underline">
             Sign In
           </Link>
         </p>

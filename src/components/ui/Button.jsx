@@ -9,16 +9,16 @@ const Button = ({
   ...props
 }) => {
   let styles =
-    "px-4 py-1.5 rounded font-medium transition duration-200 focus:outline-none ";
+    "px-4 py-1 cursor-pointer md:py-1.5 border-2 rounded font-medium transition duration-200 focus:outline-none ";
 
   if (variant === "primary") {
-    styles += "bg-[#3C65F5] text-white";
+    styles += "bg-secondary border-secondary text-white";
   } else if (variant === "secondary") {
-    styles += "bg-white bg-[#3C65F5]";
+    styles += "bg-white bg-secondary";
   } else if (variant === "outline") {
-    styles += "border border-[#3C65F5] text-[#3C65F5] hover:bg-indigo-50";
+    styles += " border-secondary text-secondary hover:bg-secondary/20";
   } else if (variant === "danger") {
-    styles += "bg-red-600 text-white hover:bg-red-500";
+    styles += "bg-red-600  border-none text-white hover:bg-red-500";
   } else {
     styles += "bg-gray-200 text-black";
   }

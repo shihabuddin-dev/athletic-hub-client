@@ -11,10 +11,10 @@ import signIn from "../../assets/lotti/signIn.json";
 import useAuth from "../../hooks/useAuth";
 
 const inputBase =
-  "w-full border-2 border-base-content/20 px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-secondary focus:border-secondary transition duration-200 bg-base-100 text-base-content";
+  "w-full border-2 border-base-content/20 px-4 py-2 rounded-md focus:outline-none  focus:border-secondary transition duration-200 bg-base-100 text-base-content";
 
 const SignIn = () => {
-  const { signInUser, createUserWithGoogle, setUser, user } = useAuth()
+  const { signInUser, createUserWithGoogle, setUser, user } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -108,7 +108,7 @@ const SignIn = () => {
 
   return (
     <div className="flex gap-4 flex-col md:flex-row justify-center items-center max-w-5xl">
-      <title>Sign In || Career Code</title>
+      <title>Sign In || AthleticHub</title>
       <div className="flex-1">
         <Lottie
           animationData={signIn}
@@ -117,7 +117,7 @@ const SignIn = () => {
       </div>{" "}
       <div className="flex-1 max-w-md p-6 bg-base-100 rounded shadow border-2 border-secondary">
         <h2 className="text-2xl md:text-3xl font-semibold mb-4 flex justify-center items-center gap-3 text-base-content">
-          <MdLogin className="text-primary" />
+          <MdLogin className="text-secondary" />
           Sign in
         </h2>
         <form onSubmit={handleSignIn} className="space-y-2">
@@ -148,7 +148,7 @@ const SignIn = () => {
             />
             <Link
               to="/reset-password"
-              className="text-xs text-primary underline"
+              className="text-xs text-secondary underline"
             >
               Forget Password
             </Link>
@@ -174,7 +174,7 @@ const SignIn = () => {
         </Button>{" "}
         <p className="text-sm mt-4 text-base-content">
           Don&apos;t have an account?{" "}
-          <Link to="/signUp" className="text-primary underline">
+          <Link to="/signUp" className="text-secondary underline">
             Sign up
           </Link>
         </p>

@@ -61,7 +61,7 @@ const ResetPassword = () => {
 
   return (
     <div className="flex gap-4 flex-col md:flex-row justify-center items-center max-w-5xl">
-      <title>Reset Password || Career Code</title>
+      <title>Reset Password || AthleticHub</title>
       <div className="flex-1">
         <Lottie
           animationData={resetAnimation}
@@ -70,7 +70,7 @@ const ResetPassword = () => {
       </div>
       <div className="flex-1 bg-base-100 rounded p-6 sm:p-8 md:p-10 w-full max-w-md border-2 border-secondary">
         <h2 className="text-2xl md:text-3xl font-semibold mb-6 flex justify-center items-center gap-3">
-          <MdLockReset className="text-primary" />
+          <MdLockReset className="text-secondary" />
           Reset Password
         </h2>
         <p className="text-center text-sm mb-6">
@@ -88,7 +88,7 @@ const ResetPassword = () => {
               type="email"
               name="email"
               placeholder="Enter Your Email"
-              className="w-full border-2 border-base-content/20 px-4 py-2 rounded-md focus:outline-none focus:ring-1 focus:ring-secondary focus:border-secondary transition duration-200 bg-base-100 text-base-content"
+              className="w-full border-2 border-base-content/20 px-4 py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content"
             />
           </div>
 
@@ -100,7 +100,7 @@ const ResetPassword = () => {
           {/* Redirect to Login */}
           <div className="mt-2 text-center text-sm">
             Remember your password?{" "}
-            <Link to="/signin" className="text-primary underline font-medium">
+            <Link to="/signin" className="text-secondary underline font-medium">
               Sign In
             </Link>
           </div>
