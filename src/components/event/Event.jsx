@@ -7,9 +7,9 @@ const Event = ({ event }) => {
     eventType,
     eventDate,
     description,
-    imageUrl,
-    userName,
-    userPhoto,
+    eventImage,
+    creatorName,
+    creatorPhoto,
   } = event || {};
 
   return (
@@ -17,7 +17,7 @@ const Event = ({ event }) => {
       {/* Image with overlay */}
       <div className="relative h-48 overflow-hidden">
         <img
-          src={imageUrl}
+          src={eventImage}
           alt={eventName}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
@@ -54,10 +54,10 @@ const Event = ({ event }) => {
             <div className="flex items-center gap-3">
               <div className="avatar">
                 <div className="w-9 h-9 rounded-full ring-2 ring-primary ring-offset-2 ring-offset-base-100">
-                  <img src={userPhoto} alt={userName} />
+                  <img src={creatorPhoto} alt={creatorName} />
                 </div>
               </div>
-              <p className="text-sm font-medium text-primary">{userName}</p>
+              <p className="text-sm font-medium text-primary">{creatorName}</p>
             </div>
 
             {/* CTA button */}

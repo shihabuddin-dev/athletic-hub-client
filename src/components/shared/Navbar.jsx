@@ -110,6 +110,7 @@ const Navbar = () => {
       </ul>
       {/* Desktop version (popover/hover) */}
       <button
+        onClick={() => setShowMobileProfile((prev) => !prev)}
         popoverTarget="popover-1"
         className="hover:text-primary text-base-content hidden lg:flex items-center gap-1 cursor-pointer"
         style={{ anchorName: "--anchor-1" }}
@@ -117,25 +118,38 @@ const Navbar = () => {
         <FaRegArrowAltCircleDown /> Profile
       </button>
       <ul
-        className="dropdown menu w-52 rounded-box bg-base-100 border border-secondary shadow-sm hidden lg:block"
-        popover="auto"
+        className={`dropdown menu w-52 rounded-box bg-base-100 shadow-sm absolute left-0 mt-2 z-50 border border-secondary ${
+          showMobileProfile ? "block" : "hidden"
+        } `}
         id="popover-1"
         style={{ positionAnchor: "--anchor-1" }}
       >
         <li>
-          <NavLink to="/bookEvent" className={linksClass}>
+          <NavLink
+            to="/bookEvent"
+            className={linksClass}
+            onClick={() => setShowMobileProfile(false)}
+          >
             <MdAssignmentAdd />
             Book Event
           </NavLink>
         </li>
         <li>
-          <NavLink to="/myBookings" className={linksClass}>
+          <NavLink
+            to="/myBookings"
+            className={linksClass}
+            onClick={() => setShowMobileProfile(false)}
+          >
             <FaAddressBook />
             My Bookings
           </NavLink>
         </li>
         <li>
-          <NavLink to="/manageEvents" className={linksClass}>
+          <NavLink
+            to="/manageEvents"
+            className={linksClass}
+            onClick={() => setShowMobileProfile(false)}
+          >
             <MdManageHistory />
             Manage Events
           </NavLink>

@@ -12,9 +12,9 @@ import {
 import { MdAddToPhotos, MdEventAvailable } from "react-icons/md";
 import axios from "axios";
 import Swal from "sweetalert2";
-import MyEventsTable from "../events/MyEventsTable";
 import { myEventsPromise } from "../../api/myEventsPromise";
 import Spinner from "../../components/ui/Spinner";
+import MyEventsTable from "../../components/event/MyEventsTable";
 
 const inputBase =
   "w-full border-2 border-base-content/20 px-4 py-1.5 md:py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content";
@@ -39,10 +39,10 @@ const CreateEvent = () => {
     eventType: "",
     eventDate: "",
     description: "",
-    imageUrl: "",
-    userName: user?.displayName,
-    userEmail: user?.email,
-    userPhoto: user?.photoURL,
+    eventImage: "",
+    creatorName: user?.displayName,
+    creatorEmail: user?.email,
+    creatorPhoto: user?.photoURL,
   });
 
   const handleChange = (e) => {
@@ -72,7 +72,7 @@ const CreateEvent = () => {
       //     eventType: "",
       //     eventDate: "",
       //     description: "",
-      //     imageUrl: "",
+      //     eventImage: "",
       //   });
     }, 1000);
   };
@@ -140,6 +140,7 @@ const CreateEvent = () => {
               className={inputBase}
               required
               min={minDate}
+              max={`${yyyy + 1}-12-31`}
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -148,8 +149,8 @@ const CreateEvent = () => {
             </label>
             <input
               type="url"
-              name="imageUrl"
-              value={form.imageUrl}
+              name="eventImage"
+              value={form.eventImage}
               onChange={handleChange}
               className={inputBase}
               placeholder="https://example.com/image.jpg"

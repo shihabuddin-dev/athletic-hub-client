@@ -1,6 +1,6 @@
 import axios from "axios";
 import { use, useState } from "react";
-import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaEye, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 
@@ -41,14 +41,12 @@ const MyEventsTable = ({ myEventsPromise }) => {
     });
   };
 
-  
-
   return (
-    <div className="max-w-7xl mx-auto px-4">
+    <div className="max-w-6xl mx-auto px-4">
       <div className="overflow-x-auto shadow-md rounded">
         <table className="min-w-full bg-base-200 overflow-x-scroll text-left border border-secondary/10">
           {events.length === 0 ? (
-            <p className="text-center bg-base-100 py-4">Not Event Found</p>
+            <p className="text-center bg-base-100  py-4">Not Event Found</p>
           ) : (
             <thead className="bg-secondary/10 text-secondary text-sm">
               <tr>
@@ -78,7 +76,7 @@ const MyEventsTable = ({ myEventsPromise }) => {
               >
                 <td className="px-4 py-3 border-b border-secondary/10">
                   <img
-                    src={event?.imageUrl}
+                    src={event?.eventImage}
                     className="h-16 w-24 object-cover rounded"
                   />
                 </td>
@@ -92,15 +90,21 @@ const MyEventsTable = ({ myEventsPromise }) => {
                   {event?.eventDate}
                 </td>
 
-                <td className="px-4 py-3 border-b border-secondary/10 text-center space-y-1 lg:space-y-0 space-x-2">
+                <td className="px-4 py-3 border-b border-secondary/10 text-center space-y-1 lg:space-y-0 space-x-2 md:space-x-3  ">
+                  <button>
+                    <Link to={`/events/${event._id}`}>
+                      {" "}
+                      <FaEye className="text-lg text-secondary" />
+                    </Link>
+                  </button>
                   <button>
                     {" "}
-                    <Link>
-                      <FaEdit />
+                    <Link to={`/updateEvent/${event._id}`}>
+                      <FaEdit className="text-lg text-primary" />
                     </Link>
                   </button>
                   <button onClick={() => handleDeleteEvent(event._id)}>
-                    <FaTrashAlt />
+                    <FaTrashAlt className="text-red-500 cursor-pointer" />
                   </button>
                 </td>
               </tr>

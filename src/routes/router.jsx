@@ -7,9 +7,11 @@ import ResetPassword from "../pages/auth/ResetPassword";
 import MyProfile from "../pages/myprofile/MyProfile";
 import PrivateRoutes from "./PrivateRoutes";
 import NotFound from "../pages/notFound/NotFound";
-import CreateEvent from "../pages/createEvent/CreateEvent";
+import CreateEvent from "../pages/events/CreateEvent";
 import Events from "../pages/events/Events";
-import Spinner from "../components/ui/Spinner";
+import DetailsEvent from "../pages/events/DetailsEvent";
+import UpdateEvent from "../pages/events/UpdateEvent";
+import ManageEvents from "../pages/events/ManageEvents";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,19 @@ const router = createBrowserRouter([
       { path: "/signup", Component: SignUp },
       { path: "/reset-password", Component: ResetPassword },
       { path: "/events", Component: Events },
+
+      {
+        path: "/events/:id",
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/events/${params.id}`),
+        Component: DetailsEvent,
+      },
+      {
+        path: "/updateEvent/:id",
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/events/${params.id}`),
+        Component: UpdateEvent,
+      },
       // { path: '/blogs', Component: spi },
 
       //  loader: () => fetch(`${import.meta.env.VITE_API_URL}/events`),
@@ -43,6 +58,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <CreateEvent />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/manageEvents",
+        element: (
+          <PrivateRoutes>
+            <ManageEvents/>
           </PrivateRoutes>
         ),
       },
