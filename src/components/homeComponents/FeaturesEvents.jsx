@@ -1,6 +1,7 @@
 import React from "react";
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import EventsCard from "../event/EventsCard";
+import Button from "../ui/Button";
 
 const FeaturesEvents = () => {
   const events = useLoaderData();
@@ -14,6 +15,11 @@ const FeaturesEvents = () => {
           <EventsCard event={event} />
         ))}
       </div>
+      <Link to="/events" className="flex justify-center">
+        <Button variant="outline" className="mt-10">
+          See All Events
+        </Button>
+      </Link>
     </div>
   );
 };

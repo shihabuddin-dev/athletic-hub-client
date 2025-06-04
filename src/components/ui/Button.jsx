@@ -17,9 +17,6 @@ const Button = ({
     styles += "bg-white bg-secondary";
   } else if (variant === "outline") {
     styles += "px-4 border-secondary text-secondary hover:bg-secondary/20";
-  } else if (variant === "outlineLite") {
-    styles +=
-      "btn btn-outline btn-sm border-base-content/20 hover:border-secondary hover:bg-secondary/10 hover:text-secondary flex items-center gap-1";
   } else if (variant === "danger") {
     styles += "bg-red-600 border-none text-white hover:bg-red-500";
   } else {

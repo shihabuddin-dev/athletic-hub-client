@@ -17,9 +17,9 @@ const Events = () => {
   }, [search]);
 
   return (
-    <div>
+    <div className="space-y-10 md:space-y-14">
       <header
-        className="w-full rounded h-100 bg-cover bg-center py-16 flex items-center justify-center shadow-md mb-10 relative transition-transform duration-700 hover:scale-101 brightness-95 hover:brightness-100"
+        className="w-full rounded h-100 bg-cover bg-center py-16 flex items-center justify-center shadow-md relative transition-transform duration-700 hover:scale-101 brightness-95 hover:brightness-100"
         style={{ backgroundImage: `url("${bgEvents}")` }}
       >
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-black/50 via-secondary/20 to-black/40"></div>
@@ -36,14 +36,14 @@ const Events = () => {
         </div>
       </header>
 
-      <form className="pb-8 flex flex-col md:flex-row justify-center items-center gap-2">
+      <form className="flex flex-col md:flex-row justify-center items-center gap-2">
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           required
           placeholder="Search by Event Name or Location"
-          className="w-sm border-2 border-base-content/40 px-4 py-1.5 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content"
+          className="md:w-sm border-2 border-base-content/40 px-4 py-1.5 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content"
         />
         <Button>Search</Button>
       </form>

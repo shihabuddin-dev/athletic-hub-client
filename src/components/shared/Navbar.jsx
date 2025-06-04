@@ -197,7 +197,7 @@ const Navbar = () => {
         </ul>
 
         {/* Login / Avatar */}
-        <div className="hidden space-x-2 lg:flex items-center">
+        <div className="hidden space-x-3 lg:flex items-center">
           {user && (
             <Button onClick={handleLogOut} variant="danger">
               Sign Out
@@ -210,7 +210,7 @@ const Navbar = () => {
                   src={user?.photoURL ? user?.photoURL : userLogo}
                   alt="profile"
                   title={user?.displayName}
-                  className="w-10 h-10 rounded-full border-secondary"
+                  className="w-10 h-10 rounded-full ring-1 ring-primary ring-offset-base-100 ring-offset-2"
                 />
                 <div
                   className="absolute -left-15  mt-0 w-40 bg-base-100 border border-secondary rounded-md shadow-lg transition-opacity duration-200 opacity-0 invisible group-hover/avatar:opacity-100 group-hover/avatar:visible"

@@ -6,7 +6,7 @@ import {
   FiAward,
   FiArrowRight,
 } from "react-icons/fi";
-import Button from "../ui/Button";
+import { Link } from "react-router";
 
 const EventsCard = ({ event }) => {
   const {
@@ -30,15 +30,17 @@ const EventsCard = ({ event }) => {
     day: "numeric",
   });
   const formattedYear = new Date(eventDate).getFullYear();
+  const miniButton =
+    "btn btn-primary btn-sm rounded px-3 shadow-md hover:shadow-lg hover:bg-primary-focus transition-all";
 
   return (
-    <div className="card bg-base-100 shadow hover:shadow-md border border-base-200/50 hover:border-secondary/30 transition-all duration-700 flex flex-col h-full group transform hover:-translate-y-2">
+    <div className="card bg-base-100 shadow-sm hover:shadow-md border border-base-200/50 hover:border-secondary/30 transition-all duration-900 flex flex-col h-full group transform hover:-translate-y-2">
       {/* Image container */}
       <figure className="relative h-52 overflow-hidden">
         <img
           src={eventImage}
           alt={eventName}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-900 group-hover:scale-105"
           loading="lazy"
         />
 
@@ -46,7 +48,7 @@ const EventsCard = ({ event }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
         {/* Date ribbon */}
-        <div className="absolute top-4 left-4 flex flex-col items-center justify-center bg-primary text-white text-center px-3 py-2 rounded-lg shadow-md">
+        <div className="absolute top-4 left-4 flex flex-col items-center justify-center bg-primary text-white text-center px-3 py-2 rounded shadow-md">
           <span className="text-lg font-bold leading-none">
             {formattedDate.split(" ")[1]}
           </span>
@@ -57,7 +59,7 @@ const EventsCard = ({ event }) => {
 
         {/* Event badges */}
         <div className="absolute top-4 right-4 flex flex-col gap-2 items-end">
-          <span className="badge badge-secondary badge-lg font-semibold px-3 py-2 shadow-md">
+          <span className="badge badge-secondary rounded badge-lg text-white px-2 py-2 shadow-md">
             {eventType}
           </span>
         </div>
@@ -75,10 +77,11 @@ const EventsCard = ({ event }) => {
 
         {/* Highlights */}
         {highlights && (
-          <div className="flex items-center bg-secondary/10 rounded-lg px-3 py-2 mb-3">
+          <div className="flex items-center bg-secondary/10 rounded px-3 py-2 mb-3">
             <FiAward className="text-secondary mr-2" size={16} />
             <span className="text-sm font-medium text-secondary line-clamp-1">
-              {highlights}
+              {highlights.slice(0, 35)}
+              {highlights.length > 35 ? "..." : ""}
             </span>
           </div>
         )}
@@ -118,11 +121,11 @@ const EventsCard = ({ event }) => {
 
         {/* Footer */}
         <div className="mt-auto pt-4 border-t border-base-200">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-wrap gap-3 justify-center sm:justify-between items-center">
             {/* Creator info */}
             <div className="flex items-center gap-3">
               <div className="avatar">
-                <div className="w-10 h-10 rounded-full ring-2 ring-primary ring-offset-base-100 ring-offset-2">
+                <div className="w-10 h-10 rounded-full ring-1 ring-primary ring-offset-base-100 ring-offset-2">
                   <img
                     src={creatorPhoto}
                     alt={creatorName}
@@ -139,14 +142,14 @@ const EventsCard = ({ event }) => {
             </div>
 
             {/* CTA buttons */}
-            <div className="flex gap-2">
-              <Button variant="outlineLite"><span>Details</span>
-                <FiArrowRight size={14} /></Button>
-             
-          
-              <button className="btn btn-primary btn-sm rounded-full px-4 shadow-md hover:shadow-lg hover:bg-primary-focus transition-all">
-                Join Now
-              </button>
+            <div className="flex flex-wrap gap-2">
+              <button className={miniButton}>Join Now</button>
+              <Link to={`/events/${_id}`}>
+                <button className={`${miniButton} btn-outline`}>
+                  <span>Details</span>
+                  <FiArrowRight size={14} />
+                </button>
+              </Link>
             </div>
           </div>
         </div>
