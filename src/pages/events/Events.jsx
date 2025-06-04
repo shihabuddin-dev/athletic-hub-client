@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Button from "../../components/ui/Button";
-import Event from "../../components/event/Event";
 import bgEvents from "../../assets/bg-events.jpg";
+import EventsCard from "../../components/event/EventsCard";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -49,7 +49,7 @@ const Events = () => {
       </form>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {events.map((event) => (
-          <Event key={event._id} event={event} />
+          <EventsCard key={event._id} event={event} />
         ))}
       </div>
     </div>
