@@ -47,7 +47,7 @@ const UpdateEvent = () => {
   const dd = String(today.getDate()).padStart(2, "0");
   const minDate = `${yyyy}-${mm}-${dd}`;
 
-  const handleSubmit = async (e) => {
+  const handleUpdateEvent = async (e) => {
     e.preventDefault();
     await axios.put(
       `${import.meta.env.VITE_API_URL}/events/${event._id}`,
@@ -69,7 +69,7 @@ const UpdateEvent = () => {
         <span>Update Event</span>
       </h2>
       <form
-        onSubmit={handleSubmit}
+        onSubmit={handleUpdateEvent}
         className="grid grid-cols-1 md:grid-cols-2 gap-6"
       >
         <div className="flex flex-col gap-2">

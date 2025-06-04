@@ -5,6 +5,7 @@ import {
   FaBars,
   FaHome,
   FaRegArrowAltCircleDown,
+  FaRegUserCircle,
   FaSignOutAlt,
   FaTimes,
 } from "react-icons/fa";
@@ -220,9 +221,9 @@ const Navbar = () => {
                   </p>
                   <hr className="text-secondary border-dashed" />
                   <Link to="/my-profile">
-                    <p className="px-4 py-2 text-sm font-medium text-secondary">
+                    <p className="px-4 py-2 text-sm flex items-center gap-2 font-medium text-secondary">
                       {" "}
-                      My Profile
+                      <FaRegUserCircle /> My Profile
                     </p>
                   </Link>
                 </div>
@@ -298,8 +299,14 @@ const Navbar = () => {
                     className="w-9 h-9 rounded-full border border-secondary"
                   />
                   <div>
-                    <p className="text-sm text-secondary font-medium">
-                      {user?.displayName}
+                    <p className="text-sm text-secondary font-medium ">
+                      <Link
+                        onClick={toggleMenu}
+                        to="/my-profile"
+                        className="flex gap-1 items-center"
+                      >
+                        <FaRegUserCircle /> {user?.displayName} Profile
+                      </Link>
                     </p>
                     <button
                       onClick={handleLogOut}

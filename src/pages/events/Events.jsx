@@ -19,7 +19,7 @@ const Events = () => {
   return (
     <div>
       <header
-        className="w-full rounded h-100 bg-cover bg-center py-16 flex items-center justify-center shadow-md mb-10 relative"
+        className="w-full rounded h-100 bg-cover bg-center py-16 flex items-center justify-center shadow-md mb-10 relative transition-transform duration-700 hover:scale-101 brightness-95 hover:brightness-100"
         style={{ backgroundImage: `url("${bgEvents}")` }}
       >
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-black/50 via-secondary/20 to-black/40"></div>

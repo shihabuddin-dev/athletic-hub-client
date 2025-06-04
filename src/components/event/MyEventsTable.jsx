@@ -46,7 +46,9 @@ const MyEventsTable = ({ myEventsPromise }) => {
       <div className="overflow-x-auto shadow-md rounded">
         <table className="min-w-full bg-base-200 overflow-x-scroll text-left border border-secondary/10">
           {events.length === 0 ? (
-            <p className="text-center bg-base-100  py-4">Not Event Found</p>
+            <p className="text-center bg-base-100 text-red-500 text-xl md:text-2xl py-4">
+              No Event Found
+            </p>
           ) : (
             <thead className="bg-secondary/10 text-secondary text-sm">
               <tr>
@@ -90,7 +92,7 @@ const MyEventsTable = ({ myEventsPromise }) => {
                   {event?.eventDate}
                 </td>
 
-                <td className="px-4 py-3 border-b border-secondary/10 text-center space-y-1 lg:space-y-0 space-x-2 md:space-x-3  ">
+                <td className="px-4 py-3 border-b border-secondary/10 text-center space-y-1 lg:space-y-0 space-x-1 md:space-x-3  ">
                   <button>
                     <Link to={`/events/${event._id}`}>
                       {" "}

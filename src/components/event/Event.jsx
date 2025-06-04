@@ -1,5 +1,5 @@
 import React from "react";
-import { FiCalendar, FiUser, FiArrowRight } from "react-icons/fi";
+import { FiCalendar, FiArrowRight } from "react-icons/fi";
 
 const Event = ({ event }) => {
   const {

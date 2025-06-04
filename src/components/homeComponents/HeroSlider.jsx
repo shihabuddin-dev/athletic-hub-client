@@ -62,7 +62,7 @@ const HeroSlider = () => {
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103 group-hover:brightness-95"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-101 brightness-95 group-hover:brightness-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-black/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-700 flex flex-col justify-center items-center text-center px-4">
                 <h2 className="text-white drop-shadow-lg text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight animate-fade-in-up">
