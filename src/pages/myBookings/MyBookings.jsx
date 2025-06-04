@@ -5,15 +5,24 @@ import useAuth from "../../hooks/useAuth";
 import Spinner from "../../components/ui/Spinner";
 import MyBookingsCard from "../../components/booking/MyBookingsCard";
 import { FaThLarge, FaTable } from "react-icons/fa";
+import { Slide } from "react-awesome-reveal";
 
 const MyBookings = () => {
   const { user } = useAuth();
   const [toggle, setToggle] = useState(true);
   return (
     <div>
-      <h2 className="text-center text-2xl text-primary md:text-4xl font-semibold mb-4 md:mb-6">
-        My <span className="text-secondary">Bookings</span>
-      </h2>
+      <Slide direction="left" delay={300} duration={1000}>
+        <h2 className="text-center text-3xl text-primary md:text-4xl font-semibold mb-2">
+          My <span className="text-secondary">Bookings</span>
+        </h2>
+      </Slide>
+      <Slide direction="right" delay={300} duration={1000}>
+        <p className="text-accent mb-6 max-w-2xl mx-auto text-center">
+          View, manage, and keep track of all your event bookings in one
+          convenient and organized place.
+        </p>
+      </Slide>
 
       <div className="flex justify-center mb-10 gap-4">
         <button

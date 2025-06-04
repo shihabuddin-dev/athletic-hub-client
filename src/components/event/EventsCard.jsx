@@ -35,15 +35,15 @@ const EventsCard = ({ event }) => {
     "btn btn-primary btn-sm rounded px-3 shadow-md hover:shadow-lg hover:bg-primary-focus transition-all";
 
   return (
-    <Fade>
-      <div className="card bg-base-100 shadow-md hover:shadow-md border border-base-200/50 hover:border-secondary/30 transition-all duration-900 flex flex-col h-full group transform hover:-translate-y-2">
+    <Fade delay={700}>
+      <div className="card bg-base-100 shadow-md hover:shadow-md border border-base-200/50 hover:border-secondary/30 transition-all duration-900 flex flex-col h-full group transform hover:-translate-y-2 rounded">
         {/* Image container */}
         <Fade>
-          <figure className="relative h-52 overflow-hidden">
+          <figure className="relative h-52 overflow-hidden rounded rounded-b-none">
             <img
               src={eventImage}
               alt={eventName}
-              className="w-full h-full object-cover transition-transform duration-900 group-hover:scale-105"
+              className="w-full h-full rounded object-cover transition-transform duration-900 group-hover:scale-105"
               loading="lazy"
             />
 

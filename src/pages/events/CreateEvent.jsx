@@ -24,6 +24,7 @@ import {
   FaTrophy,
   FaStar,
 } from "react-icons/fa";
+import { Slide } from "react-awesome-reveal";
 
 const inputBase =
   "w-full border-2 border-base-content/20 px-4 py-1.5 md:py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content";
@@ -83,13 +84,13 @@ const CreateEvent = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      //   setForm({
-      //     eventName: "",
-      //     eventType: "",
-      //     eventDate: "",
-      //     description: "",
-      //     eventImage: "",
-      //   });
+      setForm({
+        eventName: "",
+        eventType: "",
+        eventDate: "",
+        description: "",
+        eventImage: "",
+      });
     }, 1000);
   };
 
@@ -323,9 +324,17 @@ const CreateEvent = () => {
         </form>
       </div>
       <div className="mt-20">
-        <h2 className="text-center text-2xl text-primary md:text-3xl font-semibold mb-8">
-          My <span className="text-secondary">Created</span> Events
-        </h2>
+        <Slide direction="left" delay={300} duration={1000}>
+          <h2 className="text-center text-3xl text-primary md:text-4xl font-semibold mb-2">
+            My <span className="text-secondary">Created</span> Events
+          </h2>
+        </Slide>
+        <Slide direction="right" delay={300} duration={1000}>
+          <p className="text-accent mb-8 max-w-2xl mx-auto text-center">
+            Effortlessly view, manage, and track all the events you have created
+            in one convenient place.
+          </p>
+        </Slide>
         <Suspense fallback={<Spinner />}>
           <MyEventsTable myEventsPromise={myEventsPromise(user.email)} />
         </Suspense>
