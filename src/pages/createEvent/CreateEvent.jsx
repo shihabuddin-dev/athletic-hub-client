@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Suspense, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import Button from "../../components/ui/Button";
 import {
@@ -12,8 +12,9 @@ import {
 import { MdAddToPhotos, MdEventAvailable } from "react-icons/md";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router";
 import MyEventsTable from "../events/MyEventsTable";
+import { myEventsPromise } from "../../api/myEventsPromise";
+import Spinner from "../../components/ui/Spinner";
 
 const inputBase =
   "w-full border-2 border-base-content/20 px-4 py-1.5 md:py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content";
@@ -32,7 +33,6 @@ const eventTypes = [
 ];
 
 const CreateEvent = () => {
-  const navigate = useNavigate();
   const { user } = useAuth();
   const [form, setForm] = useState({
     eventName: "",
@@ -67,7 +67,6 @@ const CreateEvent = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      navigate("/events");
       //   setForm({
       //     eventName: "",
       //     eventType: "",
@@ -206,11 +205,13 @@ const CreateEvent = () => {
           </div>
         </form>
       </div>
-      <div>
-        <h2 className="text-center text-2xl text-primary md:text-3xl font-semibold my-6">
+      <div className="mt-20">
+        <h2 className="text-center text-2xl text-primary md:text-3xl font-semibold mb-8">
           My <span className="text-secondary">Created</span> Events
         </h2>
-        <MyEventsTable />
+        <Suspense fallback={<Spinner />}>
+          <MyEventsTable myEventsPromise={myEventsPromise(user.email)} />
+        </Suspense>
       </div>
     </div>
   );

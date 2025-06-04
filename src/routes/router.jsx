@@ -24,13 +24,10 @@ const router = createBrowserRouter([
       { path: "/signin", Component: SignIn },
       { path: "/signup", Component: SignUp },
       { path: "/reset-password", Component: ResetPassword },
-      {
-        path: "/events",
-        Component: Events,
-      },
+      { path: "/events", Component: Events },
       // { path: '/blogs', Component: spi },
 
-      //  loader: () => fetch(`${import.meta.env.VITE_API_URL}/recipes`),
+      //  loader: () => fetch(`${import.meta.env.VITE_API_URL}/events`),
 
       // private routes
       {

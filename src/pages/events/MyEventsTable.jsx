@@ -1,47 +1,110 @@
-import { FaEdit, FaTrashAlt, FaHeart } from "react-icons/fa";
+import axios from "axios";
+import { use, useState } from "react";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router";
+import Swal from "sweetalert2";
 
-const MyEventsTable = () => {
+const MyEventsTable = ({ myEventsPromise }) => {
+  const myEvents = use(myEventsPromise);
+  const [events, setEvents] = useState(myEvents);
+
+  // delete event using single id
+  const handleDeleteEvent = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#5046E5",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`${import.meta.env.VITE_API_URL}/events/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount) {
+              const remainingEvents = events.filter(
+                (event) => event._id !== id
+              );
+              setEvents(remainingEvents);
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your Event has been deleted.",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+            }
+          });
+      }
+    });
+  };
+
   
+
   return (
-    <div className="max-w-7xl min-h-[calc(100vh-300px)] mx-auto px-4">
+    <div className="max-w-7xl mx-auto px-4">
       <div className="overflow-x-auto shadow-md rounded">
         <table className="min-w-full bg-base-200 overflow-x-scroll text-left border border-secondary/10">
-          <thead className="bg-secondary/10 text-secondary text-sm">
-            <tr>
-              <th className="px-4 py-3 border-b border-secondary/10">Photo</th>
-              <th className="px-4 py-3 border-b border-secondary/10">Title</th>
-              <th className="px-4 py-3 border-b border-secondary/10">
-                Like Counts
-              </th>
-              <th className="px-4 py-3 border-b border-secondary/10 text-center">
-                Actions
-              </th>
-            </tr>
-          </thead>
+          {events.length === 0 ? (
+            <p className="text-center bg-base-100 py-4">Not Event Found</p>
+          ) : (
+            <thead className="bg-secondary/10 text-secondary text-sm">
+              <tr>
+                <th className="px-4 py-3 border-b border-secondary/10">
+                  Event Photo
+                </th>
+                <th className="px-4 py-3 border-b border-secondary/10">
+                  Event Name
+                </th>
+                <th className="px-4 py-3 border-b border-secondary/10">
+                  Event Type
+                </th>
+                <th className="px-4 py-3 border-b border-secondary/10">
+                  Event Date
+                </th>
+                <th className="px-4 py-3 border-b border-secondary/10 text-center">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+          )}
           <tbody>
-            <tr className="hover:bg-secondary/5 transition duration-200">
-              <td className="px-4 py-3 border-b border-secondary/10">
-                <img className="h-16 w-24 object-cover rounded" />
-              </td>
-              <td className="px-4 py-3 border-b border-secondary/10 font-medium text-primary">
-                fggf
-              </td>
-              <td className="px-4 py-3 border-b border-secondary/10 text-center">
-                <div className="flex items-center justify-center gap-1 text-red-500">
-                  <FaHeart className="text-red-400" />
-                </div>
-              </td>
+            {events?.map((event) => (
+              <tr
+                key={event._id}
+                className="hover:bg-secondary/5 transition duration-200"
+              >
+                <td className="px-4 py-3 border-b border-secondary/10">
+                  <img
+                    src={event?.imageUrl}
+                    className="h-16 w-24 object-cover rounded"
+                  />
+                </td>
+                <td className="px-4 py-3 border-b border-secondary/10 font-medium text-primary">
+                  {event?.eventName}
+                </td>
+                <td className="px-4 py-3 border-b border-secondary/10 font-medium text-primary">
+                  {event?.eventType}
+                </td>
+                <td className="px-4 py-3 border-b border-secondary/10 font-medium text-primary">
+                  {event?.eventDate}
+                </td>
 
-              <td className="px-4 py-3 border-b border-secondary/10 text-center space-y-1 lg:space-y-0 space-x-2">
-                <Link className="btn btn-xs md:btn-sm btn-outline btn-primary">
-                  <FaEdit className="mr-1" /> Edit
-                </Link>
-                <button className="btn btn-xs md:btn-sm btn-outline btn-error">
-                  <FaTrashAlt className="mr-1" /> Delete
-                </button>
-              </td>
-            </tr>
+                <td className="px-4 py-3 border-b border-secondary/10 text-center space-y-1 lg:space-y-0 space-x-2">
+                  <button>
+                    {" "}
+                    <Link>
+                      <FaEdit />
+                    </Link>
+                  </button>
+                  <button onClick={() => handleDeleteEvent(event._id)}>
+                    <FaTrashAlt />
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
