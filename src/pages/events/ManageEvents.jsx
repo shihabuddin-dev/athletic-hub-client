@@ -8,7 +8,7 @@ const ManageEvents = () => {
   const { user } = useAuth();
   return (
     <div>
-      <h2 className="text-center text-2xl text-primary md:text-3xl font-semibold mb-8">
+      <h2 className="text-center text-2xl text-primary md:text-4xl font-semibold mb-10">
         Manage <span className="text-secondary">Your Own</span> Events
       </h2>
       <Suspense fallback={<Spinner />}>

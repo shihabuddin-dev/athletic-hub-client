@@ -72,7 +72,7 @@ const HeroSlider = () => {
                   {slide.subtitle}
                 </p>
                 <div className="flex flex-wrap justify-center gap-3 mt-2 animate-fade-in-up delay-200">
-                  <Link to="/signup">
+                  <Link to="/create-event">
                     <Button>Get Started</Button>
                   </Link>
                   <Link to="/events">

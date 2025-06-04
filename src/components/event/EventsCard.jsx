@@ -1,8 +1,16 @@
-import React from "react";
-import { FiCalendar, FiClock, FiMapPin, FiUsers, FiAward, FiArrowRight } from "react-icons/fi";
+import {
+  FiCalendar,
+  FiClock,
+  FiMapPin,
+  FiUsers,
+  FiAward,
+  FiArrowRight,
+} from "react-icons/fi";
+import Button from "../ui/Button";
 
 const EventsCard = ({ event }) => {
   const {
+    _id,
     eventName,
     eventType,
     eventDate,
@@ -20,97 +28,124 @@ const EventsCard = ({ event }) => {
   const formattedDate = new Date(eventDate).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
-    year: "numeric",
   });
+  const formattedYear = new Date(eventDate).getFullYear();
 
   return (
-    <div className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-primary/30 flex flex-col h-full">
+    <div className="card bg-base-100 shadow hover:shadow-md border border-base-200/50 hover:border-secondary/30 transition-all duration-700 flex flex-col h-full group transform hover:-translate-y-2">
       {/* Image container */}
-      <div className="relative h-48 overflow-hidden">
+      <figure className="relative h-52 overflow-hidden">
         <img
           src={eventImage}
           alt={eventName}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        
+
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-        
-        {/* Event type badge */}
-        <span className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-primary text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wide">
-          {eventType}
-        </span>
-        
-        {/* Difficulty level */}
-        <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-gray-800 text-xs font-semibold px-2.5 py-1 rounded-full">
-          {difficulty}
-        </span>
-      </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+        {/* Date ribbon */}
+        <div className="absolute top-4 left-4 flex flex-col items-center justify-center bg-primary text-white text-center px-3 py-2 rounded-lg shadow-md">
+          <span className="text-lg font-bold leading-none">
+            {formattedDate.split(" ")[1]}
+          </span>
+          <span className="text-xs uppercase tracking-wider">
+            {formattedDate.split(" ")[0]}
+          </span>
+        </div>
+
+        {/* Event badges */}
+        <div className="absolute top-4 right-4 flex flex-col gap-2 items-end">
+          <span className="badge badge-secondary badge-lg font-semibold px-3 py-2 shadow-md">
+            {eventType}
+          </span>
+        </div>
+      </figure>
 
       {/* Content */}
-      <div className="flex-1 p-5 flex flex-col">
-        {/* Event title */}
-        <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-2 leading-tight">
-          {eventName}
-        </h3>
-        
+      <div className="card-body flex-1 flex flex-col p-6">
+        {/* Event title and year */}
+        <div className="flex justify-between items-start mb-2">
+          <h3 className="card-title text-2xl font-bold line-clamp-2 leading-tight text-primary">
+            {eventName}
+          </h3>
+          <span className="text-sm text-base-content/60">{formattedYear}</span>
+        </div>
+
         {/* Highlights */}
         {highlights && (
-          <div className="flex items-center text-sm text-primary mb-2">
-            <FiAward className="mr-1" size={14} />
-            <span className="line-clamp-1">{highlights}</span>
+          <div className="flex items-center bg-secondary/10 rounded-lg px-3 py-2 mb-3">
+            <FiAward className="text-secondary mr-2" size={16} />
+            <span className="text-sm font-medium text-secondary line-clamp-1">
+              {highlights}
+            </span>
           </div>
         )}
-        
+
         {/* Meta info */}
-        <div className="grid grid-cols-2 gap-2 mb-3">
-          <div className="flex items-center text-sm text-gray-600">
-            <FiCalendar className="mr-1 text-primary" size={14} />
-            {formattedDate}
+        <div className="grid grid-cols-2 gap-3 mb-4">
+          <div className="flex items-center">
+            <FiMapPin className="text-primary mr-2" size={16} />
+            <span className="text-sm font-medium text-base-content line-clamp-1">
+              {location}
+            </span>
           </div>
-          <div className="flex items-center text-sm text-gray-600">
-            <FiClock className="mr-1 text-primary" size={14} />
-            {eventTime}
+          <div className="flex items-center">
+            <FiClock className="text-primary mr-2" size={16} />
+            <span className="text-sm font-medium text-base-content">
+              {eventTime}
+            </span>
           </div>
-          <div className="flex items-center text-sm text-gray-600">
-            <FiMapPin className="mr-1 text-primary" size={14} />
-            <span className="line-clamp-1">{location}</span>
+          <div className="flex items-center">
+            <FiCalendar className="text-primary mr-2" size={16} />
+            <span className="text-sm font-medium text-base-content">
+              {difficulty}
+            </span>
           </div>
-          <div className="flex items-center text-sm text-gray-600">
-            <FiUsers className="mr-1 text-primary" size={14} />
-            {participantLimit} spots
+          <div className="flex items-center">
+            <FiUsers className="text-primary mr-2" size={16} />
+            <span className="text-sm font-medium text-base-content">
+              {participantLimit} spots
+            </span>
           </div>
         </div>
 
         {/* Description */}
-        <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+        <p className="text-base-content/80 text-sm mb-5 line-clamp-3">
           {description}
         </p>
 
         {/* Footer */}
-        <div className="mt-auto pt-3 border-t border-gray-100">
+        <div className="mt-auto pt-4 border-t border-base-200">
           <div className="flex justify-between items-center">
             {/* Creator info */}
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-primary">
-                <img 
-                  src={creatorPhoto} 
-                  alt={creatorName} 
-                  className="w-full h-full object-cover"
-                />
+            <div className="flex items-center gap-3">
+              <div className="avatar">
+                <div className="w-10 h-10 rounded-full ring-2 ring-primary ring-offset-base-100 ring-offset-2">
+                  <img
+                    src={creatorPhoto}
+                    alt={creatorName}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
-              <p className="text-sm font-medium text-gray-700">{creatorName}</p>
+              <div>
+                <p className="text-xs text-base-content/60">Organized by</p>
+                <p className="text-sm font-semibold text-primary">
+                  {creatorName}
+                </p>
+              </div>
             </div>
 
             {/* CTA buttons */}
             <div className="flex gap-2">
-              <button className="flex items-center text-sm font-medium text-primary hover:text-primary-dark transition-colors">
-                View Details
-                <FiArrowRight className="ml-1" size={16} />
-              </button>
-              <button className="btn btn-sm btn-primary rounded-full px-4 shadow-md hover:shadow-lg transition-shadow">
-                Join
+              <Button variant="outlineLite"><span>Details</span>
+                <FiArrowRight size={14} /></Button>
+             
+          
+              <button className="btn btn-primary btn-sm rounded-full px-4 shadow-md hover:shadow-lg hover:bg-primary-focus transition-all">
+                Join Now
               </button>
             </div>
           </div>

@@ -26,7 +26,7 @@
 @plugin "daisyui/theme" {
   name: "dark";
   color-scheme: dark;
-  --color-primary: #5F6CE0;
+  --color-primary: #5046E5;
   --color-secondary: #EB4899;
   --color-base-100: #060826;
   --color-base-200: #02031f;
@@ -76,7 +76,7 @@ input[type="number"] {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.bg-events{
+.bg-events {
   background-image: url('/bg-events.jpg');
   background-size: cover;
 }

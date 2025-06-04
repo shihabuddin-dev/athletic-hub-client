@@ -12,6 +12,7 @@ import Events from "../pages/events/Events";
 import DetailsEvent from "../pages/events/DetailsEvent";
 import UpdateEvent from "../pages/events/UpdateEvent";
 import ManageEvents from "../pages/events/ManageEvents";
+import Spinner from "../components/ui/Spinner";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,8 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        hydrateFallbackElement: <Spinner />,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/events/featured`),
         Component: Home,
       },
       { path: "/signin", Component: SignIn },
@@ -65,7 +68,7 @@ const router = createBrowserRouter([
         path: "/manageEvents",
         element: (
           <PrivateRoutes>
-            <ManageEvents/>
+            <ManageEvents />
           </PrivateRoutes>
         ),
       },

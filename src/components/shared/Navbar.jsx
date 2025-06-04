@@ -35,7 +35,7 @@ const Navbar = () => {
       text: "You won't be able to revert this!",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
+      confirmButtonColor: "#5046E5",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, Sign out!",
     }).then((result) => {
@@ -221,9 +221,9 @@ const Navbar = () => {
                   </p>
                   <hr className="text-secondary border-dashed" />
                   <Link to="/my-profile">
-                    <p className="px-4 py-2 text-sm flex items-center gap-2 font-medium text-secondary">
+                    <p className="px-4 hover:underline py-2 text-sm flex items-center gap-2 font-medium text-secondary">
                       {" "}
-                      <FaRegUserCircle /> My Profile
+                      <FaRegUserCircle /> Your Profile
                     </p>
                   </Link>
                 </div>

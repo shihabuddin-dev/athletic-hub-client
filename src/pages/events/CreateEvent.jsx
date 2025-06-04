@@ -114,6 +114,7 @@ const CreateEvent = () => {
 
   return (
     <div className="space-y-8">
+      <title>Create Event | Athletic Hub</title>
       <div className="max-w-4xl mx-auto mt-10 p-8 bg-base-100 rounded border-2 border-secondary">
         <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center flex items-center justify-center gap-2">
           <MdAddToPhotos className="text-secondary text-3xl" />
