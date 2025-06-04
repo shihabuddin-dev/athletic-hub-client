@@ -13,6 +13,7 @@ import DetailsEvent from "../pages/events/DetailsEvent";
 import UpdateEvent from "../pages/events/UpdateEvent";
 import ManageEvents from "../pages/events/ManageEvents";
 import Spinner from "../components/ui/Spinner";
+import MyBookings from "../pages/myBookings/MyBookings";
 
 const router = createBrowserRouter([
   {
@@ -69,6 +70,16 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <ManageEvents />
+          </PrivateRoutes>
+        ),
+      },
+
+      // **Bookings**
+      {
+        path: "/myBookings",
+        element: (
+          <PrivateRoutes>
+            <MyBookings />
           </PrivateRoutes>
         ),
       },
