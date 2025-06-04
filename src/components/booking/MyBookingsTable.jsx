@@ -54,7 +54,7 @@ const MyBookingsTable = ({ myBookingsPromise }) => {
         <table className="min-w-full bg-base-200 overflow-x-scroll text-left border border-secondary/10">
           {bookings.length === 0 ? (
             <p className="text-center bg-base-100 text-red-500 text-xl md:text-2xl py-4">
-              No Bookings Found
+              Bookings Data Not Found
             </p>
           ) : (
             <thead className="bg-secondary/10 text-secondary text-sm">

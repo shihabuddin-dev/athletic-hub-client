@@ -55,7 +55,7 @@ const MyEventsTable = ({ myEventsPromise }) => {
         <table className="min-w-full bg-base-200 overflow-x-scroll text-left border border-secondary/10">
           {events.length === 0 ? (
             <p className="text-center bg-base-100 text-red-500 text-xl md:text-2xl py-4">
-              No Event Found
+              Event Data Not Found
             </p>
           ) : (
             <thead className="bg-secondary/10 text-secondary text-sm">

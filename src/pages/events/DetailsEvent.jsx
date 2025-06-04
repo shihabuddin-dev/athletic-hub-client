@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import Button from "../../components/ui/Button";
 import axios from "axios";
@@ -14,11 +14,10 @@ import {
 
 const DetailsEvent = () => {
   const event = useLoaderData();
-  const { id } = useParams();
-  console.log(id);
 
   const { user } = useAuth();
   const [booking, setBooking] = useState(false);
+  const [isBooked, setIsBooked] = useState(false);
 
   const {
     eventName,
@@ -41,11 +40,23 @@ const DetailsEvent = () => {
 
   const handleBookNow = () => {
     if (!user) return;
-    const currentEvent = { ...event, user_email: user.email };
+    if (isBooked) {
+      Swal.fire({
+        icon: "warning",
+        title: "Already booked!",
+        text: "You have already booked this event.",
+        showConfirmButton: true,
+      });
+      return;
+    }
+    // Remove _id so MongoDB generates a new one for the booking
+    const { _id, ...eventWithoutId } = event;
+    const currentEvent = { ...eventWithoutId, user_email: user.email };
     setBooking(true);
     axios
       .post(`${import.meta.env.VITE_API_URL}/bookings`, currentEvent)
       .then(() => {
+        setIsBooked(true);
         Swal.fire({
           icon: "success",
           title: "Booking successful!",
@@ -148,11 +159,13 @@ const DetailsEvent = () => {
           </div>
         </div>
         <Button
-          className="mt-4 md:mt-0 w-full md:w-auto"
+          className={`mt-4 md:mt-0 w-full md:w-auto ${
+            isBooked ? "btn-error" : "btn-primary"
+          }`}
           onClick={handleBookNow}
           disabled={booking}
         >
-          {booking ? "Booking..." : "Book Now"}
+          {booking ? "Booking..." : isBooked ? "Booked" : "Book Now"}
         </Button>
       </div>
     </div>

@@ -32,23 +32,7 @@ const router = createBrowserRouter([
       { path: "/reset-password", Component: ResetPassword },
       { path: "/events", Component: Events },
 
-      {
-        path: "/events/:id",
-        loader: ({ params }) =>
-          fetch(`${import.meta.env.VITE_API_URL}/events/${params.id}`),
-        Component: DetailsEvent,
-      },
-      {
-        path: "/updateEvent/:id",
-        loader: ({ params }) =>
-          fetch(`${import.meta.env.VITE_API_URL}/events/${params.id}`),
-        Component: UpdateEvent,
-      },
-      // { path: '/blogs', Component: spi },
-
-      //  loader: () => fetch(`${import.meta.env.VITE_API_URL}/events`),
-
-      // private routes
+      // private routes Protected
       {
         path: "/my-profile",
         element: (
@@ -70,6 +54,26 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <ManageEvents />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/events/:id",
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/events/${params.id}`),
+        element: (
+          <PrivateRoutes>
+            <DetailsEvent />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/updateEvent/:id",
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API_URL}/events/${params.id}`),
+        element: (
+          <PrivateRoutes>
+            <UpdateEvent />
           </PrivateRoutes>
         ),
       },
