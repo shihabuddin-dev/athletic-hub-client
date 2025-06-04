@@ -24,10 +24,15 @@ const Events = () => {
       >
         <div className="absolute inset-0 z-0 bg-gradient-to-br from-black/50 via-secondary/20 to-black/40"></div>
         <div className="b from-black/40 via-black/10 to-white/0"></div>
-        <div className="w-full flex items-center justify-center py-8 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-semibold text-white text-center tracking-wide drop-shadow">
+        <div className="w-full flex flex-col items-center justify-center py-8 relative z-10 text-white">
+          <h1 className="text-4xl md:text-5xl font-semibold  text-center tracking-wide drop-shadow">
             ALL Events
-          </h1>
+          </h1>{" "}
+          <br />
+          <p>
+            The Ultimate Platform for Athletic Events Effortlessly discover, and
+            manage your spot in local sports events.
+          </p>
         </div>
       </header>
 
@@ -42,7 +47,7 @@ const Events = () => {
         />
         <Button>Search</Button>
       </form>
-      <div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {events.map((event) => (
           <Event key={event._id} event={event} />
         ))}

@@ -9,6 +9,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import NotFound from "../pages/notFound/NotFound";
 import CreateEvent from "../pages/createEvent/CreateEvent";
 import Events from "../pages/events/Events";
+import Spinner from "../components/ui/Spinner";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,10 @@ const router = createBrowserRouter([
       { path: "/signin", Component: SignIn },
       { path: "/signup", Component: SignUp },
       { path: "/reset-password", Component: ResetPassword },
-      { path: "/events", Component: Events },
+      {
+        path: "/events",
+        Component: Events,
+      },
       // { path: '/blogs', Component: spi },
 
       //  loader: () => fetch(`${import.meta.env.VITE_API_URL}/recipes`),
