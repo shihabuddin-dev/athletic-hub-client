@@ -81,7 +81,7 @@ const sports = [
 const PopularSports = () => (
   <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
     <Slide direction="left" delay={300} duration={1000}>
-      <h2 className="text-3xl text-primary md:text-4xl font-semibold mb-2 text-center">
+      <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 text-center">
         <span className="text-secondary">Popular</span> Sports
       </h2>
     </Slide>

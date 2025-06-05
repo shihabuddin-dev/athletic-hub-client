@@ -14,7 +14,7 @@ const MyBookings = () => {
     <div>
       <title>My Bookings | Athletic Hub</title>
       <Slide direction="left" delay={300} duration={1000}>
-        <h2 className="text-center text-3xl text-primary md:text-4xl font-semibold mb-2">
+        <h2 className="text-center text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2">
           My <span className="text-secondary">Bookings</span>
         </h2>
       </Slide>

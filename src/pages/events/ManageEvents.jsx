@@ -11,7 +11,7 @@ const ManageEvents = () => {
     <div>
       <title>Manage Events | Athletic Hub</title>
       <Slide direction="left" delay={300} duration={1000}>
-        <h2 className="text-center text-3xl text-primary md:text-4xl font-semibold mb-2">
+        <h2 className="text-center text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2">
           Manage <span className="text-secondary">Your Own</span> Events
         </h2>
       </Slide>

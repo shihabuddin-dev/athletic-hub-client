@@ -14,6 +14,11 @@ import UpdateEvent from "../pages/events/UpdateEvent";
 import ManageEvents from "../pages/events/ManageEvents";
 import Spinner from "../components/ui/Spinner";
 import MyBookings from "../pages/myBookings/MyBookings";
+import HowItWorks from "../pages/static/HowItWorks";
+import FAQs from "../pages/static/FAQs";
+import Support from "../pages/static/Support";
+import Blog from "../pages/static/Blog";
+import TermsAndConditions from "../pages/static/TermsAndConditions";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +36,13 @@ const router = createBrowserRouter([
       { path: "/signup", Component: SignUp },
       { path: "/reset-password", Component: ResetPassword },
       { path: "/events", Component: Events },
+
+      // static pages
+      { path: "/blog", Component: Blog },
+      { path: "/faq", Component: FAQs },
+      { path: "/support", Component: Support },
+      { path: "/howItWorks", Component: HowItWorks },
+      { path: "/terms&Conditions", Component: TermsAndConditions },
 
       // private routes Protected
       {

@@ -101,7 +101,7 @@ const Footer = () => {
                 to="/organizations"
                 className="hover:text-secondary font-medium"
               >
-                See Event Organizers
+                Event Organizers
               </Link>
             </li>
             <li>
@@ -109,7 +109,7 @@ const Footer = () => {
                 to="/myBookings"
                 className="hover:text-secondary font-medium"
               >
-                See My Bookings
+                My Bookings
               </Link>
             </li>
             <li>
@@ -128,24 +128,36 @@ const Footer = () => {
           <h3 className="text-lg font-bold mb-3 text-secondary">Resources</h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href="#" className="hover:text-secondary font-medium">
-                How It Works
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-secondary font-medium">
-                FAQs
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:text-secondary font-medium">
+              <Link to="/blog" className="hover:text-secondary font-medium">
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-secondary font-medium">
+              <Link to="/faq" className="hover:text-secondary font-medium">
+                FAQs
+              </Link>
+            </li>
+
+            <li>
+              <Link to="/support" className="hover:text-secondary font-medium">
                 Support
-              </a>
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/howItWorks"
+                className="hover:text-secondary font-medium"
+              >
+                How It Works
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/terms&Conditions"
+                className="hover:text-secondary font-medium"
+              >
+                Terms & Conditions
+              </Link>
             </li>
           </ul>
         </div>
