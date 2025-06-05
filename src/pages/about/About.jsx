@@ -1,10 +1,35 @@
 import React from "react";
 import athleticLogo from "../../assets/athletic-logo.png";
 import { Slide } from "react-awesome-reveal";
-import Button from "../../components/ui/Button";
 import { Link } from "react-router";
+import { FaArrowDown } from "react-icons/fa";
 
 const About = () => {
+  // Reusable InfoCard component
+  const InfoCard = ({
+    icon,
+    title,
+    description,
+    to,
+    btnText,
+    delay = 0,
+    direction = "up",
+  }) => (
+    <Slide direction={direction} delay={delay}>
+      <div className="bg-base-100 rounded-xl shadow-sm p-6 flex flex-col items-center hover:shadow-md transition-all border-l-4 border-secondary/30 hover:border-secondary">
+        <span className="text-secondary text-3xl mb-3">{icon}</span>
+        <h3 className="font-bold text-secondary mb-1">{title}</h3>
+        <p className="text-accent text-center text-sm mb-2">{description}</p>
+        <Link
+          to={to}
+          className="btn btn-sm bg-gradient-to-r from-secondary to-primary text-white rounded mt-2"
+        >
+          {btnText}
+        </Link>
+      </div>
+    </Slide>
+  );
+
   return (
     <div className="max-w-5xl mx-auto px-4 md:px-8 relative">
       <title>About Us | Athletic Hub</title>
@@ -68,7 +93,7 @@ const About = () => {
               <img
                 src={athleticLogo}
                 alt="Athletic Hub Logo"
-                className="w-72 h-72 object-contain rounded shadow-md border-6 border-secondary group-hover:scale-105 transition-transform duration-500"
+                className="w-54 md:w-72 h-54 md:h-72 object-contain rounded shadow-md border-5 border-secondary group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
@@ -79,7 +104,7 @@ const About = () => {
           </h2>
           <div className="grid md:grid-cols-3 gap-10">
             <div className="flex flex-col items-center text-center">
-              <span className="text-5xl mb-3 animate-bounce">🏅</span>
+              <span className="text-4xl mb-3 animate-bounce">🏅</span>
               <h3 className="font-semibold text-xl mb-2 text-secondary">
                 Elite Experience
               </h3>
@@ -89,7 +114,7 @@ const About = () => {
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
-              <span className="text-5xl mb-3 animate-bounce">🌍</span>
+              <span className="text-4xl mb-3 animate-bounce">🌍</span>
               <h3 className="font-semibold text-xl mb-2 text-secondary">
                 Global Community
               </h3>
@@ -99,7 +124,7 @@ const About = () => {
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
-              <span className="text-5xl mb-3 animate-bounce">💡</span>
+              <span className="text-4xl mb-3 animate-bounce">💡</span>
               <h3 className="font-semibold text-xl mb-2 text-secondary">
                 Cutting-Edge Features
               </h3>
@@ -110,6 +135,7 @@ const About = () => {
             </div>
           </div>
         </div>
+
         <div className="mt-20 text-center animate-fade-in">
           <h2 className="text-3xl font-semibold text-primary mb-3">
             Ready to Join the Movement?
@@ -119,9 +145,65 @@ const About = () => {
             near you. Athletic Hub is your ticket to a more connected, active,
             and inspiring sports world.
           </p>
-          <Link to="/">
-            <Button>Get Started</Button>
-          </Link>
+
+          <button className="btn bg-gradient-to-r from-secondary to-primary text-white rounded mt-2">
+            Explore Here <FaArrowDown className="animate-bounce" />
+          </button>
+        </div>
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+          <InfoCard
+            icon="📝"
+            title="Blog"
+            description="Read the latest stories, tips, and updates from Athletic Hub."
+            to="/blog"
+            btnText="Go to Blog"
+            direction="up"
+          />
+          <InfoCard
+            icon="❓"
+            title="FAQs"
+            description="Find answers to common questions about using Athletic Hub."
+            to="/faq"
+            btnText="Go to FAQs"
+            direction="left"
+            delay={100}
+          />
+          <InfoCard
+            icon="💬"
+            title="Support"
+            description="Need help? Reach out to our support team for assistance."
+            to="/support"
+            btnText="Go to Support"
+            direction="right"
+            delay={200}
+          />
+          <InfoCard
+            icon="⚙️"
+            title="How It Works"
+            description="Learn how to get the most out of Athletic Hub's features."
+            to="/howItWorks"
+            btnText="How It Works"
+            direction="left"
+            delay={300}
+          />
+          <InfoCard
+            icon="📜"
+            title="Terms & Conditions"
+            description="Review our terms and policies for using Athletic Hub."
+            to="/terms&Conditions"
+            btnText="View Terms"
+            direction="down"
+            delay={400}
+          />
+          <InfoCard
+            icon="👥"
+            title="Event Organizers"
+            description="Meet the passionate organizers behind our vibrant events."
+            to="/eventOrganizers"
+            btnText="Meet Organizers"
+            direction="up"
+            delay={500}
+          />
         </div>
       </div>
     </div>
