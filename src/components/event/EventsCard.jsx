@@ -36,7 +36,7 @@ const EventsCard = ({ event }) => {
 
   return (
     <Fade delay={700}>
-      <div className="card bg-base-100 shadow-md hover:shadow-md border border-base-200/50 hover:border-secondary/30 transition-all duration-900 flex flex-col h-full group transform hover:-translate-y-2 rounded">
+      <div className="card bg-gradient-to-br from-base-100 via-base-200 to-secondary/10 shadow-md hover:shadow-md border border-base-200/50 hover:border-secondary/30 transition-all duration-900 flex flex-col h-full group transform hover:-translate-y-2 rounded">
         {/* Image container */}
         <Fade>
           <figure className="relative h-52 overflow-hidden rounded rounded-b-none">
@@ -46,9 +46,8 @@ const EventsCard = ({ event }) => {
               className="w-full h-full rounded object-cover transition-transform duration-900 group-hover:scale-105"
               loading="lazy"
             />
-
             {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <div className="absolute transition transform duration-700 inset-0 hover:bg-gradient-to-t hover:from-secondary/50 hover:via-transparent hover:to-transparent" />
 
             {/* Date ribbon */}
             <div className="absolute top-4 left-4 flex flex-col items-center justify-center bg-primary text-white text-center px-3 py-2 rounded shadow-md">

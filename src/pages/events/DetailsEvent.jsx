@@ -53,7 +53,15 @@ const DetailsEvent = () => {
       return;
     }
     const { _id, ...eventWithoutId } = event;
-    const currentEvent = { ...eventWithoutId, user_email: user.email };
+    const eventData = { ...eventWithoutId };
+    delete eventData.creatorName;
+    delete eventData.creatorPhoto;
+    delete eventData.creatorEmail;
+    const currentEvent = {
+      ...eventData,
+      user_email: user.email,
+      user_name: user.displayName,
+    };
     setBooking(true);
     axios
       .post(`${import.meta.env.VITE_API_URL}/bookings`, currentEvent)
@@ -68,10 +76,10 @@ const DetailsEvent = () => {
       })
       .catch(() => {
         Swal.fire({
-          icon: "error",
-          title: "Booking failed!",
-          showConfirmButton: false,
-          timer: 1500,
+          icon: "warning",
+          title: "Already booked!",
+          text: "You have already booked this event.",
+          showConfirmButton: true,
         });
       })
       .finally(() => {
@@ -214,7 +222,6 @@ const DetailsEvent = () => {
               <h3 className="text-xl font-bold">Join This Event</h3>
               <p className="text-white/80">Secure your spot now</p>
             </div>
-
             <div className="p-6">
               <div className="space-y-4 mb-6">
                 <div className="relative">

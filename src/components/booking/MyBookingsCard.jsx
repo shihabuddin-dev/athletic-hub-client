@@ -53,7 +53,7 @@ const MyBookingsCard = ({ myBookingsPromise }) => {
     <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 max-w-6xl mx-auto px-4">
       {bookings.map((booking, idx) => (
         <Fade key={booking._id} duration={700} delay={idx * 80}>
-          <div className="card bg-gradient-to-br from-base-100 via-base-200 to-base-100 shadow-md border border-base-200 flex flex-col h-full group relative duration-700 transition-all hover:-translate-y-2">
+          <div className="card bg-gradient-to-br from-base-100 via-base-200 to-base-100 shadow-md border border-base-200 rounded flex flex-col h-full group relative duration-700 transition-all hover:-translate-y-2">
             <div className="relative">
               <img
                 src={booking.eventImage}

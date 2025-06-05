@@ -163,7 +163,7 @@ const Footer = () => {
         </div>
 
         {/* Contact Info */}
-        <div>
+        <div className="font-medium">
           <h3 className="text-lg font-bold mb-3 text-secondary">Contact</h3>
           <ul className="space-y-3 text-sm">
             <li className="flex items-center gap-2">
