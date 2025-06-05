@@ -4,6 +4,7 @@ import athleticLogo from "../../assets/athletic-logo.png";
 
 const HowItWorks = () => (
   <section className="max-w-7xl mx-auto px-4">
+    <title>How It Works | Athletic Hub</title>
     <Slide direction="left" delay={300} duration={1000}>
       <h2 className="text-center text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2">
         How <span className="text-secondary">Athletic Hub</span> Works
@@ -24,7 +25,7 @@ const HowItWorks = () => (
       {/* Left: Steps 1 & 2 */}
       <div className="flex flex-col gap-8">
         <Slide direction="left" delay={300} duration={1000}>
-          <div className="flex items-start gap-4 bg-base-200 rounded-md shadow-md p-6 border-l-4 hover:border-secondary border-secondary/15 hover:scale-102 transition-all">
+          <div className="flex items-start gap-4 bg-secondary/8 rounded-md shadow-md p-6 border-l-4 hover:border-secondary border-secondary/15 hover:scale-102 transition-all">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-secondary/15 text-2xl font-bold text-secondary shadow-sm">
               1
             </div>
@@ -38,7 +39,7 @@ const HowItWorks = () => (
               </p>
             </div>
           </div>
-          <div className="flex items-start gap-4 bg-base-200 rounded-md shadow-md p-6 border-l-4 hover:border-primary border-primary/15 hover:scale-102 transition-all">
+          <div className="flex items-start gap-4 bg-secondary/8 rounded-md shadow-md p-6 border-l-4 hover:border-primary border-primary/15 hover:scale-102 transition-all">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-2xl font-bold text-primary shadow-sm">
               2
             </div>
@@ -61,7 +62,7 @@ const HowItWorks = () => (
             <img
               src={athleticLogo}
               alt="How Athletic Hub Works"
-              className="w-64 h-64 p-2 object-contain rounded-md shadow-md border-4 border-secondary/15 bg-base-200 transition-all duration-300 hover:grayscale"
+              className="w-64 h-64 p-2 object-contain rounded-md shadow-md border-4 border-secondary/15 bg-secondary/8 transition-all duration-300 hover:grayscale-30"
             />
           </div>
         </Fade>
@@ -69,7 +70,7 @@ const HowItWorks = () => (
       {/* Right: Steps 3 & 4 */}
       <Slide direction="right" delay={300} duration={1000}>
         <div className="flex flex-col gap-8">
-          <div className="flex items-start gap-4 bg-base-200 rounded-md shadow-md p-6 border-l-4 hover:border-secondary border-secondary/15 hover:scale-102 transition-all">
+          <div className="flex items-start gap-4 bg-secondary/8 rounded-md shadow-md p-6 border-l-4 hover:border-secondary border-secondary/15 hover:scale-102 transition-all">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-secondary/15 text-2xl font-bold text-secondary shadow-sm">
               3
             </div>
@@ -83,7 +84,7 @@ const HowItWorks = () => (
               </p>
             </div>
           </div>
-          <div className="flex items-start gap-4 bg-base-200 rounded-md shadow-md p-6 border-l-4 hover:border-primary border-primary/15 hover:scale-102 transition-all">
+          <div className="flex items-start gap-4 bg-secondary/8 rounded-md shadow-md p-6 border-l-4 hover:border-primary border-primary/15 hover:scale-102 transition-all">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary/10 text-2xl font-bold text-primary shadow-sm">
               4
             </div>

@@ -264,7 +264,7 @@ const Navbar = () => {
         style={{ minHeight: isOpen ? "calc(100vh - 72px)" : 0 }}
         aria-hidden={!isOpen}
       >
-        <div className="px-4 pt-2 pb-4 bg-base-100 border-b border-base-300 shadow-lg rounded-b-xl">
+        <div className="px-4 pt-2 pb-4 bg-base-100 border-b border-base-300 shadow-lg rounded-b-sm">
           <ul className="flex flex-col gap-4 font-semibold text-[#1a1a1a]">
             <li>
               <NavLink to="/" onClick={toggleMenu} className={linksClass}>

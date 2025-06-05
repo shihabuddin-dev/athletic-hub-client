@@ -89,16 +89,13 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link
-                to="/browseEvents"
-                className="hover:text-secondary font-medium"
-              >
+              <Link to="/events" className="hover:text-secondary font-medium">
                 Browse Events
               </Link>
             </li>
             <li>
               <Link
-                to="/organizations"
+                to="/eventOrganizers"
                 className="hover:text-secondary font-medium"
               >
                 Event Organizers

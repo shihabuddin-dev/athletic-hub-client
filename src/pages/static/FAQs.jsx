@@ -39,6 +39,7 @@ const FAQs = () => {
 
   return (
     <section className="max-w-3xl mx-auto px-4">
+      <title>FAQs | Athletic Hub</title>
       <div className="flex flex-col items-center mb-10">
         <div className="bg-gradient-to-r from-primary to-secondary p-4 rounded-full shadow-lg mb-4">
           <FiHelpCircle className="text-white text-4xl" />

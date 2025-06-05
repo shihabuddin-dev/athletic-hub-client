@@ -5,6 +5,7 @@ import { FiMail, FiPhone, FiMessageCircle, FiHelpCircle } from "react-icons/fi";
 const Support = () => {
   return (
     <section className="max-w-2xl mx-auto px-4">
+        <title>Support | Athletic Hub</title>
       <Fade direction="up">
         <div className="flex flex-col items-center mb-10">
           <div className="bg-gradient-to-r from-primary to-secondary p-4 rounded-full shadow-lg mb-4">

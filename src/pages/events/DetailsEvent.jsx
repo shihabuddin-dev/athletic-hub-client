@@ -52,11 +52,23 @@ const DetailsEvent = () => {
       });
       return;
     }
-    const { _id, ...eventWithoutId } = event;
-    const eventData = { ...eventWithoutId };
-    delete eventData.creatorName;
-    delete eventData.creatorPhoto;
-    delete eventData.creatorEmail;
+    // Create a reusable eventData object with only the fields you want to keep
+    const {
+      eventName,
+      eventType,
+      eventDate,
+      highlights,
+      description,
+      eventImage,
+    } = event;
+    const eventData = {
+      eventName,
+      eventType,
+      eventDate,
+      highlights,
+      description,
+      eventImage,
+    };
     const currentEvent = {
       ...eventData,
       user_email: user.email,

@@ -62,6 +62,7 @@ const blogPosts = [
 const Blog = () => {
   return (
     <section className="max-w-6xl mx-auto px-4">
+      <title>Blog | Athletic Hub</title>
       <Fade direction="up">
         <div className="flex flex-col items-center mb-12">
           <div className="bg-gradient-to-r from-primary to-secondary p-4 rounded-full shadow-lg mb-4 animate-bounce-slow">

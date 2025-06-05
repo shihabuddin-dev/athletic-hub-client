@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Button from "../../components/ui/Button";
 import bgEvents from "../../assets/bg-events.jpg";
 import EventsCard from "../../components/event/EventsCard";
-import { Fade } from "react-awesome-reveal";
+import { Fade, Slide } from "react-awesome-reveal";
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -28,14 +28,18 @@ const Events = () => {
           <div className="absolute rounded inset-0 z-0 bg-gradient-to-br from-black/50 via-secondary/20 to-black/40"></div>
           <div className="b from-black/40 via-black/10 to-white/0"></div>
           <div className="w-full flex flex-col items-center justify-center py-8 relative z-10 text-white">
-            <h1 className="text-4xl md:text-5xl font-semibold  text-center tracking-wide drop-shadow">
-              ALL Events
-            </h1>{" "}
+            <Slide direction="left" delay={300} duration={1000}>
+              <h1 className="text-4xl md:text-5xl font-semibold text-center tracking-wide drop-shadow">
+                ALL Events
+              </h1>
+            </Slide>
             <br />
-            <p>
-              The Ultimate Platform for Athletic Events Effortlessly discover,
-              and manage your spot in local sports events.
-            </p>
+            <Slide direction="right" delay={300} duration={1000}>
+              <p>
+                The Ultimate Platform for Athletic Events Effortlessly discover,
+                and manage your spot in local sports events.
+              </p>
+            </Slide>
           </div>
         </header>
       </Fade>
