@@ -14,7 +14,7 @@ import athleticLogo from "../../assets/athletic-logo.png";
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-t from-secondary/8 via-base-100 to-secondary/8 text-base-content pt-12 pb-0 border-t-2 border-secondary/15 ">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-5 gap-10">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-5 gap-5 lg:gap-10">
         {/* Brand Info */}
         <div className="md:col-span-2 flex flex-col gap-2">
           <div className="flex items-center gap-2 mb-2">
@@ -89,22 +89,34 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link to="/browseEvents" className="hover:text-secondary font-medium">
+              <Link
+                to="/browseEvents"
+                className="hover:text-secondary font-medium"
+              >
                 Browse Events
               </Link>
             </li>
             <li>
-              <Link to="/organizations" className="hover:text-secondary font-medium">
+              <Link
+                to="/organizations"
+                className="hover:text-secondary font-medium"
+              >
                 See Event Organizers
               </Link>
             </li>
             <li>
-              <Link to="/myBookings" className="hover:text-secondary font-medium">
+              <Link
+                to="/myBookings"
+                className="hover:text-secondary font-medium"
+              >
                 See My Bookings
               </Link>
             </li>
             <li>
-              <Link to="/my-profile" className="hover:text-secondary font-medium">
+              <Link
+                to="/my-profile"
+                className="hover:text-secondary font-medium"
+              >
                 See Profile
               </Link>
             </li>
@@ -143,10 +155,10 @@ const Footer = () => {
           <h3 className="text-lg font-bold mb-3 text-secondary">Contact</h3>
           <ul className="space-y-3 text-sm">
             <li className="flex items-center gap-2">
-              <FaEnvelope className="text-secondary" /> support@athletichub.com
+              <FaEnvelope className="text-secondary" /> info@ah.com
             </li>
             <li className="flex items-center gap-2">
-              <FaPhoneAlt className="text-secondary" /> +880 1234-567890
+              <FaPhoneAlt className="text-secondary" /> +880 124-56890
             </li>
             <li className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-secondary" /> Bogura, Bangladesh
