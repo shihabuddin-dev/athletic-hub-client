@@ -1,13 +1,14 @@
 import React, { Suspense, useState } from "react";
 import MyBookingsTable from "../../components/booking/MyBookingsTable";
-import { myBookingsPromise } from "../../api/myBookingsPromise";
 import useAuth from "../../hooks/useAuth";
 import Spinner from "../../components/ui/Spinner";
 import MyBookingsCard from "../../components/booking/MyBookingsCard";
 import { FaThLarge, FaTable } from "react-icons/fa";
 import { Slide } from "react-awesome-reveal";
+import useBookingsApi from "../../api/useBookingsApi";
 
 const MyBookings = () => {
+  const { myBookingsPromise } = useBookingsApi();
   const { user } = useAuth();
   const [toggle, setToggle] = useState(true);
   return (

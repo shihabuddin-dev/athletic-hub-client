@@ -61,10 +61,10 @@ const FAQs = () => {
         {faqData.map((faq, idx) => (
           <div
             key={idx}
-            className={`rounded-md shadow-md border-l-4 transition-all duration-300 ${
+            className={`rounded-md transform shadow-md border-l-4 transition-all duration-800 ease-in-out ${
               openIndex === idx
                 ? "border-primary bg-base-100"
-                : "border-base-200 bg-base-200"
+                : "border-base-200 bg-secondary/5"
             }`}
           >
             <button

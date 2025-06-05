@@ -9,13 +9,13 @@ const axiosInstance = axios.create({
 const useAxiosSecure = () => {
   const { user, signOutUser } = useAuth();
 
-  // interceptor request
+  // request interceptor
   axiosInstance.interceptors.request.use((config) => {
     config.headers.Authorization = `Bearer ${user.accessToken}`;
     return config;
   });
 
-  // interceptor response
+  // response interceptor
   axiosInstance.interceptors.response.use(
     (response) => {
       return response;

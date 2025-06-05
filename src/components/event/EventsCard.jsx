@@ -43,7 +43,7 @@ const EventsCard = ({ event }) => {
             <img
               src={eventImage}
               alt={eventName}
-              className="w-full h-full rounded object-cover transition-transform duration-900 group-hover:scale-105"
+              className="w-full h-full rounded rounded-b-none border-b-2 border-secondary/70 object-cover transition-transform duration-900 group-hover:scale-105"
               loading="lazy"
             />
             {/* Gradient overlay */}
