@@ -20,6 +20,7 @@ import Support from "../pages/static/Support";
 import Blog from "../pages/static/Blog";
 import TermsAndConditions from "../pages/static/TermsAndConditions";
 import EventOrganizers from "../pages/static/EventOrganizers";
+import About from "../pages/about/About";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,7 @@ const router = createBrowserRouter([
       { path: "/events", Component: Events },
 
       // static pages
+      { path: "/about", Component: About },
       { path: "/blog", Component: Blog },
       { path: "/faq", Component: FAQs },
       { path: "/support", Component: Support },

@@ -16,6 +16,8 @@ import {
   MdAssignmentAdd,
   MdEvent,
   MdManageHistory,
+  MdOutlineInfo,
+  MdOutlinePermDeviceInformation,
 } from "react-icons/md";
 import ThemeToggle from "../ui/ThemeToggle";
 import userLogo from "../../assets/user-logo.png";
@@ -194,6 +196,12 @@ const Navbar = () => {
           </li>
 
           {user && <li>{ProfilePrivateLink}</li>}
+          <li>
+            <NavLink to="/about" className={linksClass}>
+              <MdOutlinePermDeviceInformation />
+              About
+            </NavLink>
+          </li>
         </ul>
 
         {/* Login / Avatar */}
@@ -290,6 +298,12 @@ const Navbar = () => {
             </li>
 
             {user && <li>{ProfilePrivateLink}</li>}
+            <li>
+              <NavLink to="/about" onClick={toggleMenu} className={linksClass}>
+                <MdOutlinePermDeviceInformation />
+                About
+              </NavLink>
+            </li>
             <li className="space-x-2">
               {user ? (
                 <div className="flex gap-4 items-center">
