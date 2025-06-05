@@ -1,11 +1,12 @@
 import React, { Suspense } from "react";
-import { myEventsPromise } from "../../api/myEventsPromise";
 import Spinner from "../../components/ui/Spinner";
 import useAuth from "../../hooks/useAuth";
 import MyEventsTable from "../../components/event/MyEventsTable";
 import { Slide } from "react-awesome-reveal";
+import useEventsApi from "../../hooks/useEventsApi";
 
 const ManageEvents = () => {
+  const { myEventsPromise } = useEventsApi();
   const { user } = useAuth();
   return (
     <div>

@@ -5,7 +5,7 @@ import Spinner from "../../components/ui/Spinner";
 import MyBookingsCard from "../../components/booking/MyBookingsCard";
 import { FaThLarge, FaTable } from "react-icons/fa";
 import { Slide } from "react-awesome-reveal";
-import useBookingsApi from "../../api/useBookingsApi";
+import useBookingsApi from "../../hooks/useBookingsApi";
 
 const MyBookings = () => {
   const { myBookingsPromise } = useBookingsApi();

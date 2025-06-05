@@ -12,7 +12,6 @@ import {
 import { MdAddToPhotos, MdEventAvailable } from "react-icons/md";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { myEventsPromise } from "../../api/myEventsPromise";
 import Spinner from "../../components/ui/Spinner";
 import MyEventsTable from "../../components/event/MyEventsTable";
 import DatePicker from "react-datepicker";
@@ -25,6 +24,8 @@ import {
   FaStar,
 } from "react-icons/fa";
 import { Slide } from "react-awesome-reveal";
+import { useNavigate } from "react-router";
+import useEventsApi from "../../hooks/useEventsApi";
 
 const inputBase =
   "w-full border-2 border-base-content/20 px-4 py-1.5 md:py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content";
@@ -45,6 +46,8 @@ const eventTypes = [
 ];
 
 const CreateEvent = () => {
+  const { myEventsPromise } = useEventsApi();
+  const navigate = useNavigate();
   const { user } = useAuth();
   const [form, setForm] = useState({
     eventName: "",
@@ -76,7 +79,6 @@ const CreateEvent = () => {
       })
       .catch((error) => console.log(error));
 
-    console.log(form);
     setTimeout(() => {
       Swal.fire({
         icon: "success",
@@ -84,13 +86,7 @@ const CreateEvent = () => {
         showConfirmButton: false,
         timer: 1500,
       });
-      setForm({
-        eventName: "",
-        eventType: "",
-        eventDate: "",
-        description: "",
-        eventImage: "",
-      });
+      navigate("/events");
     }, 1000);
   };
 
@@ -116,6 +112,21 @@ const CreateEvent = () => {
   return (
     <div className="space-y-8">
       <title>Create Event | Athletic Hub</title>
+      <div>
+        <Slide direction="right" delay={300} duration={1000}>
+          <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 text-center">
+            Host Your <span className="text-secondary">Next Event</span>
+          </h2>
+        </Slide>
+        <Slide direction="left" delay={300} duration={1000}>
+          <p className="text-accent text-center max-w-xl mx-auto">
+            Seamlessly create, manage, and share your sports events with{" "}
+            <span className="font-semibold text-secondary">Athletic Hub</span>.{" "}
+            Empower your community and make every event memorable!
+          </p>
+        </Slide>
+      </div>
+
       <div className="max-w-4xl mx-auto mt-10 p-8 bg-base-100 rounded border-2 border-secondary">
         <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center flex items-center justify-center gap-2">
           <MdAddToPhotos className="text-secondary text-3xl" />
