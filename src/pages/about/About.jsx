@@ -1,6 +1,6 @@
 import React from "react";
 import athleticLogo from "../../assets/athletic-logo.png";
-import { Slide } from "react-awesome-reveal";
+import { Fade, Slide } from "react-awesome-reveal";
 import { Link } from "react-router";
 import { FaArrowDown } from "react-icons/fa";
 
@@ -89,13 +89,16 @@ const About = () => {
             </ul>
           </div>
           <div className="flex justify-center animate-fade-in-right">
-            <div className="relative group">
-              <img
-                src={athleticLogo}
-                alt="Athletic Hub Logo"
-                className="w-54 md:w-72 h-54 md:h-72 object-contain rounded shadow-md border-5 border-secondary group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
+            <Fade>
+              {" "}
+              <div className="relative group">
+                <img
+                  src={athleticLogo}
+                  alt="Athletic Hub Logo"
+                  className="w-54 md:w-72 h-54 md:h-72 object-contain rounded shadow-md border-5 border-secondary group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </Fade>
           </div>
         </div>
         <div className="mt-20 bg-gradient-to-r from-primary/8 to-secondary/8 rounded p-10 shadow-md animate-fade-in-up">
@@ -138,9 +141,9 @@ const About = () => {
 
         <div className="mt-20 text-center animate-fade-in">
           <h2 className="text-3xl font-semibold text-primary mb-3">
-            Ready to Join the Movement?
+            Ready to Explore?
           </h2>
-          <p className="text-base-content/80 max-w-2xl mx-auto mb-8 ">
+          <p className="text-base-content/80 max-w-2xl mx-auto mb-6">
             Sign up today, create your first event, or explore what’s happening
             near you. Athletic Hub is your ticket to a more connected, active,
             and inspiring sports world.

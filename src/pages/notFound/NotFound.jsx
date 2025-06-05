@@ -6,7 +6,7 @@ import Button from "../../components/ui/Button";
 
 const NotFound = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center min-h-[70vh] bg-base-100 text-center px-4 py-10">
+    <div className="flex flex-col md:flex-row items-center justify-center bg-base-100 text-center px-4 py-12 md:py-24">
       <title>Not Found | Athletic Hub</title>
       <div>
         <Lottie

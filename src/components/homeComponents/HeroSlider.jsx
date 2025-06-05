@@ -18,32 +18,37 @@ const HeroSlider = () => {
     {
       id: 1,
       image: slider1,
-      title: "Book Your Next Athletic Event",
-      subtitle: "Athletic Hub connects you to local sports and competitions.",
+      title: "Summer Sports Fest 2025",
+      subtitle:
+        "Kick off your summer with thrilling competitions and community fun. Register now for football, cricket, and more!",
     },
     {
       id: 2,
       image: slider2,
-      title: "Join, Compete, and Win!",
-      subtitle: "Find, book, and manage your athletic journey easily.",
+      title: "Marathon for a Cause",
+      subtitle:
+        "Join our charity marathon and make every step count. All ages and abilities welcome!",
     },
     {
       id: 3,
       image: slider3,
-      title: "Discover Local Sports Events",
-      subtitle: "Browse events, meet athletes, and grow your network.",
+      title: "Junior Athletics Championship",
+      subtitle:
+        "Empowering young athletes to shine. Track, field, and team events for ages 8-16.",
     },
     {
       id: 4,
       image: slider4,
-      title: "Seamless Booking Experience",
-      subtitle: "Fast, secure, and reliable event registration for everyone.",
+      title: "Women in Sports Gala",
+      subtitle:
+        "Celebrate women’s achievements in sports. Inspiring talks, workshops, and friendly matches.",
     },
     {
       id: 5,
       image: slider5,
-      title: "Your Athletic Journey Starts Here",
-      subtitle: "Empowering athletes and organizers with modern tools.",
+      title: "Community Games Weekend",
+      subtitle:
+        "Bring your friends and family for a weekend of fun, games, and prizes. Everyone’s invited!",
     },
   ];
 

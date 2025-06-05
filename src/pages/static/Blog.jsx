@@ -2,6 +2,12 @@ import React from "react";
 import { Fade, Slide } from "react-awesome-reveal";
 import { FiEdit, FiCalendar, FiUser, FiArrowRight } from "react-icons/fi";
 
+import blog1 from '../../assets/slider/1.jpg'
+import blog2 from '../../assets/slider/2.jpg'
+import blog3 from '../../assets/slider/3.jpg'
+import blog4 from '../../assets/slider/4.jpg'
+import blog5 from '../../assets/slider/5.jpg'
+
 const blogPosts = [
   {
     title: "5 Tips to Maximize Your Sports Event Experience",
@@ -9,7 +15,7 @@ const blogPosts = [
     author: "Coach Riley",
     excerpt:
       "Discover how to get the most out of every event you attend, from preparation to post-game networking.",
-    image: "/src/assets/slider/1.jpg",
+    image: blog1,
     link: "#",
   },
   {
@@ -18,7 +24,7 @@ const blogPosts = [
     author: "Jordan Smith",
     excerpt:
       "Explore the impact of local sports on health, happiness, and community spirit in today's world.",
-    image: "/src/assets/slider/2.jpg",
+    image: blog2,
     link: "#",
   },
   {
@@ -27,7 +33,7 @@ const blogPosts = [
     author: "EventPro Team",
     excerpt:
       "A step-by-step guide for new organizers to plan, promote, and execute memorable sports events.",
-    image: "/src/assets/slider/3.jpg",
+    image: blog3,
     link: "#",
   },
   {
@@ -36,7 +42,7 @@ const blogPosts = [
     author: "Dr. Emily Chen",
     excerpt:
       "Learn the essentials of sports nutrition to fuel your body and maximize your results on the field.",
-    image: "/src/assets/slider/4.jpg",
+    image: blog4,
     link: "#",
   },
   {
@@ -45,7 +51,7 @@ const blogPosts = [
     author: "Coach Alex",
     excerpt:
       "Find out how to structure your training and rest for optimal performance and injury prevention.",
-    image: "/src/assets/slider/5.jpg",
+    image: blog5,
     link: "#",
   },
   {
@@ -54,7 +60,7 @@ const blogPosts = [
     author: "Samantha Lee",
     excerpt:
       "Celebrate the achievements and stories of women athletes making history in the world of sports.",
-    image: "/src/assets/slider/1.jpg",
+    image: blog2,
     link: "#",
   },
 ];
