@@ -159,15 +159,14 @@ const SignUp = () => {
 
         setUser(userInfo); // Save to context
 
-        // console.log("Google user info:", userInfo);
-
-        navigate(location?.state ? location.state : "/");
         Swal.fire({
           title: "Success!",
           text: "You are signed in successfully",
           icon: "success",
           showConfirmButton: false,
           timer: 1600,
+        }).then(() => {
+          window.location.replace(location?.state ? location.state : "/");
         });
       })
       .catch((error) => {
@@ -183,7 +182,10 @@ const SignUp = () => {
     <div className="flex gap-4 flex-col md:flex-row justify-center items-center max-w-5xl">
       <title>Sign Up | Athletic Hub </title>
       <div className="flex-1">
-        <Lottie animationData={signUp} className="w-full h-[200px] md:h-[400px]"></Lottie>
+        <Lottie
+          animationData={signUp}
+          className="w-full h-[200px] md:h-[400px]"
+        ></Lottie>
       </div>{" "}
       <form
         onSubmit={handleSignUp}

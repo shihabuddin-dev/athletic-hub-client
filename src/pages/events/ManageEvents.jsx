@@ -9,6 +9,7 @@ const ManageEvents = () => {
   const { user } = useAuth();
   return (
     <div>
+      <title>Manage Events | Athletic Hub</title>
       <Slide direction="left" delay={300} duration={1000}>
         <h2 className="text-center text-3xl text-primary md:text-4xl font-semibold mb-2">
           Manage <span className="text-secondary">Your Own</span> Events

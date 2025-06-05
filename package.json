@@ -15,7 +15,6 @@
     "react-awesome-reveal": "^4.3.1",
     "react-datepicker": "^8.4.0",
     "react-dom": "^19.1.0",
-    "react-scroll-parallax": "^3.4.5",
     "swiper": "^11.2.8"
   },
   "devDependencies": {

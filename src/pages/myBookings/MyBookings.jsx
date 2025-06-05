@@ -12,6 +12,7 @@ const MyBookings = () => {
   const [toggle, setToggle] = useState(true);
   return (
     <div>
+      <title>My Bookings | Athletic Hub</title>
       <Slide direction="left" delay={300} duration={1000}>
         <h2 className="text-center text-3xl text-primary md:text-4xl font-semibold mb-2">
           My <span className="text-secondary">Bookings</span>

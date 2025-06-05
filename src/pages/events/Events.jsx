@@ -19,6 +19,7 @@ const Events = () => {
 
   return (
     <div className="space-y-10 md:space-y-14">
+      <title>Events | Athletic Hub</title>
       <Fade>
         <header
           className="w-full rounded h-100 bg-cover bg-center py-16 flex items-center justify-center shadow-md relative transition-transform duration-700 hover:scale-101 brightness-95 hover:brightness-100"

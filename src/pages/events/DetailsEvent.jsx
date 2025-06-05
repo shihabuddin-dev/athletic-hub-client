@@ -9,12 +9,10 @@ import {
   FiClock,
   FiMapPin,
   FiUsers,
-  FiAward,
   FiUser,
   FiMail,
   FiHeart,
   FiShare2,
-  FiChevronRight,
   FiCheckCircle,
 } from "react-icons/fi";
 
@@ -83,6 +81,7 @@ const DetailsEvent = () => {
 
   return (
     <div className="max-w-5xl mx-auto my-6">
+      <title>Event Details | Athletic Hub</title>
       {/* Hero Section */}
       <div className="relative h-96 w-full overflow-hidden rounded shadow-lg">
         <img

@@ -59,6 +59,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/events/:id",
+        hydrateFallbackElement: <Spinner />,
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/events/${params.id}`),
         element: (
@@ -69,6 +70,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/updateEvent/:id",
+        hydrateFallbackElement: <Spinner />,
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/events/${params.id}`),
         element: (

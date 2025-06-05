@@ -87,14 +87,14 @@ const SignIn = () => {
           photoURL: currentUser.photoURL,
         };
         setUser(userInfo); // Save to context
-
-        navigate(location?.state ? location.state : "/");
         Swal.fire({
           title: "Success!",
           text: "You are signed in successfully",
           icon: "success",
           showConfirmButton: false,
           timer: 1600,
+        }).then(() => {
+          window.location.replace(location?.state ? location.state : "/");
         });
       })
       .catch((error) => {
