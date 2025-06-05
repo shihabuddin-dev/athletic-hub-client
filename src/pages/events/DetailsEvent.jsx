@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import Button from "../../components/ui/Button";
 import axios from "axios";
@@ -17,6 +17,7 @@ import {
 } from "react-icons/fi";
 
 const DetailsEvent = () => {
+  const navigate = useNavigate();
   const event = useLoaderData();
   const { user } = useAuth();
   const [booking, setBooking] = useState(false);
@@ -91,8 +92,11 @@ const DetailsEvent = () => {
           icon: "warning",
           title: "Already booked!",
           text: "You have already booked this event.",
-          showConfirmButton: true,
-        });
+          showCancelButton: true,
+          confirmButtonColor: "#5046E5",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "See My Bookings",
+        }).then(() => navigate("/myBookings"));
       })
       .finally(() => {
         setBooking(false);

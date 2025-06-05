@@ -21,7 +21,7 @@ const FeaturesEvents = () => {
       </Slide>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {events.map((event) => (
-          <EventsCard event={event} />
+          <EventsCard event={event} key={event._id} />
         ))}
       </div>
       <Link to="/events" className="flex justify-center">
