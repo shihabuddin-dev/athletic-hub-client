@@ -80,7 +80,7 @@ const HeroSlider = () => {
                   <Link to="/create-event">
                     <Button>Get Started</Button>
                   </Link>
-                  <Link to="/events">
+                  <Link to="/about">
                     <Button
                       variant="outline"
                       className="border-white text-white"

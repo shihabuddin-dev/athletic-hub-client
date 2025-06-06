@@ -148,7 +148,10 @@ const EventsCard = ({ event }) => {
 
               {/* CTA buttons */}
               <div className="flex flex-wrap gap-2">
-                <button className={miniButton}>Join Now</button>
+                <Link to="/signUp">
+                  {" "}
+                  <button className={miniButton}>Join Now</button>
+                </Link>
                 <Link to={`/events/${_id}`}>
                   <button className={`${miniButton} btn-outline`}>
                     <span>Details</span>

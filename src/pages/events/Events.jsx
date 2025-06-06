@@ -22,21 +22,20 @@ const Events = () => {
       <title>Events | Athletic Hub</title>
       <Fade>
         <header
-          className="w-full rounded h-100 bg-cover bg-center py-16 flex items-center justify-center shadow-md relative transition-transform duration-700 hover:scale-101 brightness-95 hover:brightness-100"
+          className="w-full rounded h-auto min-h-[220px] sm:min-h-[300px] md:min-h-[400px] bg-cover bg-center py-10 sm:py-16 flex items-center justify-center shadow-md relative transition-transform duration-700 hover:scale-101 brightness-95 hover:brightness-100"
           style={{ backgroundImage: `url("${bgEvents}")` }}
         >
-          <div className="absolute rounded inset-0 z-0 bg-gradient-to-br from-black/50 via-secondary/20 to-black/40"></div>
-          <div className="b from-black/40 via-black/10 to-white/0"></div>
-          <div className="w-full flex flex-col items-center justify-center py-8 relative z-10 text-white">
+          <div className="absolute rounded inset-0 z-0 bg-gradient-to-br from-black/60 via-secondary/20 to-black/40" />
+          <div className="w-full flex flex-col items-center justify-center py-4 sm:py-8 relative z-10 text-white">
             <Slide direction="left" delay={300} duration={1000}>
-              <h1 className="text-4xl md:text-5xl font-semibold text-center tracking-wide drop-shadow">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold text-center tracking-wide drop-shadow">
                 ALL Events
               </h1>
             </Slide>
             <br />
             <Slide direction="right" delay={300} duration={1000}>
-              <p>
-                The Ultimate Platform for Athletic Events Effortlessly discover,
+              <p className="px-2 text-sm sm:text-base max-w-xs sm:max-w-lg text-center">
+                The Ultimate Platform for Athletic Events. Effortlessly discover
                 and manage your spot in local sports events.
               </p>
             </Slide>
@@ -45,19 +44,19 @@ const Events = () => {
       </Fade>
 
       <Fade>
-        <form className="flex flex-col md:flex-row justify-center items-center gap-2">
+        <form className="flex flex-col sm:flex-row justify-center items-center gap-2 px-2">
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             required
             placeholder="Search by Event Name or Location"
-            className="md:w-sm border-2 border-base-content/40 px-4 py-1.5 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content"
+            className="w-full sm:w-auto border-2 border-base-content/40 px-4 py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content text-sm sm:text-base"
           />
-          <Button>Search</Button>
+          <Button className="w-full sm:w-auto">Search</Button>
         </form>
       </Fade>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 px-2">
         {events.map((event) => (
           <EventsCard key={event._id} event={event} />
         ))}

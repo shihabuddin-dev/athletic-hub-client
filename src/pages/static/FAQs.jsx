@@ -38,26 +38,26 @@ const FAQs = () => {
   };
 
   return (
-    <section className="max-w-3xl mx-auto px-4">
+    <section className="max-w-3xl mx-auto px-2 sm:px-4 md:px-6">
       <title>FAQs | Athletic Hub</title>
       <div className="flex flex-col items-center mb-10">
-        <div className="bg-gradient-to-r from-primary to-secondary p-4 rounded-full shadow-lg mb-4">
-          <FiHelpCircle className="text-white text-4xl" />
+        <div className="bg-gradient-to-r from-primary to-secondary p-3 sm:p-4 rounded-full shadow-lg mb-4">
+          <FiHelpCircle className="text-white text-3xl sm:text-4xl" />
         </div>
         <Slide direction="right" delay={300} duration={1000}>
-          <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 text-center">
             Frequently Asked <span className="text-secondary">Questions</span>
           </h2>
         </Slide>
         <Slide direction="left" delay={300} duration={1000}>
-          <p className="text-accent text-center max-w-xl">
+          <p className="text-accent text-center max-w-xs sm:max-w-xl text-sm sm:text-base">
             Everything you need to know about using{" "}
             <span className="font-semibold text-secondary">Athletic Hub</span>{" "}
             for booking, organizing, and enjoying sports events.
           </p>
         </Slide>
       </div>
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {faqData.map((faq, idx) => (
           <div
             key={idx}
@@ -68,23 +68,23 @@ const FAQs = () => {
             }`}
           >
             <button
-              className="w-full flex items-center justify-between px-6 py-4 focus:outline-none"
+              className="w-full flex items-center justify-between px-3 sm:px-6 py-3 sm:py-4 focus:outline-none"
               onClick={() => toggleFAQ(idx)}
               aria-expanded={openIndex === idx}
             >
-              <span className="text-lg font-semibold text-primary text-left">
+              <span className="text-base sm:text-lg font-semibold text-primary text-left">
                 {faq.question}
               </span>
-              <span className="ml-4 text-secondary">
+              <span className="ml-2 sm:ml-4 text-secondary">
                 {openIndex === idx ? (
-                  <FiChevronUp size={24} />
+                  <FiChevronUp size={22} />
                 ) : (
-                  <FiChevronDown size={24} />
+                  <FiChevronDown size={22} />
                 )}
               </span>
             </button>
             <div
-              className={`px-6 pb-4 text-accent text-base transition-all duration-300 ${
+              className={`px-3 sm:px-6 pb-3 sm:pb-4 text-accent text-sm sm:text-base transition-all duration-300 ${
                 openIndex === idx
                   ? "max-h-40 opacity-100"
                   : "max-h-0 opacity-0 overflow-hidden"
