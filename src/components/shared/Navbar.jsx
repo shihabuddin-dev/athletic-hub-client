@@ -1,5 +1,5 @@
 import { NavLink, Link } from "react-router";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   FaAddressBook,
   FaBars,
@@ -30,6 +30,21 @@ const Navbar = () => {
   const [showMobileProfile, setShowMobileProfile] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const profileRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (profileRef.current && !profileRef.current.contains(event.target)) {
+        setShowMobileProfile(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   // logout user
   const handleLogOut = () => {
     Swal.fire({
@@ -45,18 +60,16 @@ const Navbar = () => {
         signOutUser();
         Swal.fire({
           title: "Sign out!",
-          text: "You have been Sign out.",
+          text: "You have been signed out.",
           icon: "success",
-        })
-          .then(() => {})
-          .catch((error) => {
-            console.log(error);
-            Swal.fire({
-              title: "Error!",
-              text: "Sign failed.",
-              icon: "error",
-            });
+        }).catch((error) => {
+          console.log(error);
+          Swal.fire({
+            title: "Error!",
+            text: "Sign out failed.",
+            icon: "error",
           });
+        });
       }
     });
   };
@@ -64,190 +77,126 @@ const Navbar = () => {
   const linksClass =
     "hover:text-primary text-base-content flex items-center gap-1";
 
-  const ProfilePrivateLink = (
-    <div className="relative">
-      <button
-        onClick={() => setShowMobileProfile((prev) => !prev)}
-        className="hover:text-primary text-base-content flex items-center gap-1 cursor-pointer lg:hidden "
-        aria-expanded={showMobileProfile}
-        aria-controls="mobile-profile-dropdown"
-      >
-        <FaRegArrowAltCircleDown /> Profile
-      </button>
-      <ul
-        className={`dropdown menu w-52 rounded-box bg-base-100 shadow-sm absolute left-0 mt-2 z-50 border border-secondary ${
-          showMobileProfile ? "block" : "hidden"
-        } lg:hidden`}
-        id="mobile-profile-dropdown"
-      >
-        <li>
-          <NavLink
-            to="/bookEvent"
-            onClick={() => setShowMobileProfile(false)}
-            className={linksClass}
-          >
-            <MdAssignmentAdd />
-            Book Event
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/myBookings"
-            onClick={() => setShowMobileProfile(false)}
-            className={linksClass}
-          >
-            <FaAddressBook />
-            My Bookings
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/manageEvents"
-            onClick={() => setShowMobileProfile(false)}
-            className={linksClass}
-          >
-            <MdManageHistory />
-            Manage Events
-          </NavLink>
-        </li>
-      </ul>
-      {/* Desktop version (popover/hover) */}
-      <button
-        onClick={() => setShowMobileProfile((prev) => !prev)}
-        popoverTarget="popover-1"
-        className="hover:text-primary text-base-content hidden lg:flex items-center gap-1 cursor-pointer"
-        style={{ anchorName: "--anchor-1" }}
-      >
-        <FaRegArrowAltCircleDown /> Profile
-      </button>
-      <ul
-        className={`dropdown menu w-52 rounded-box bg-base-100 shadow-sm absolute left-0 mt-2 z-50 border border-secondary ${
-          showMobileProfile ? "block" : "hidden"
-        } `}
-        id="popover-1"
-        style={{ positionAnchor: "--anchor-1" }}
-      >
-        <li>
-          <NavLink
-            to="/bookEvent"
-            className={linksClass}
-            onClick={() => setShowMobileProfile(false)}
-          >
-            <MdAssignmentAdd />
-            Book Event
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/myBookings"
-            className={linksClass}
-            onClick={() => setShowMobileProfile(false)}
-          >
-            <FaAddressBook />
-            My Bookings
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="/manageEvents"
-            className={linksClass}
-            onClick={() => setShowMobileProfile(false)}
-          >
-            <MdManageHistory />
-            Manage Events
-          </NavLink>
-        </li>
-      </ul>
-    </div>
-  );
-
   return (
     <nav className="backdrop-blur bg-gradient-to-t from-secondary/8 via-base-100 to-secondary/8 fixed top-0 left-0 right-0 z-50 w-full border-b-2 border-secondary/15">
       <div className="max-w-7xl mx-auto py-2 px-4 md:px-6 lg:px-8 flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-1">
+        {/* Logo & Website Name */}
+        <Link to="/" className="flex items-center gap-2">
           <img
             src={athleticLogo}
-            alt="logo"
+            alt="Athletic Hub Logo"
             className="w-10 h-10 object-contain"
           />
-          <p className="text-2xl font-bold text-secondary">Athletic Hub</p>
+          <span className="text-2xl font-bold text-secondary tracking-tight">
+            Athletic Hub
+          </span>
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden lg:flex gap-5 font-semibold text-white">
+        <ul className="hidden lg:flex gap-5 font-semibold text-base-content items-center flex-1 justify-center">
           <li>
             <NavLink to="/" className={linksClass}>
-              <FaHome />
-              Home
+              <FaHome /> Home
             </NavLink>
           </li>
           <li>
             <NavLink to="/events" className={linksClass}>
-              <MdEvent />
-              Events
+              <MdEvent /> Events
             </NavLink>
           </li>
           <li>
             <NavLink to="/create-event" className={linksClass}>
-              <MdAddBusiness />
-              Create Event
+              <MdAddBusiness /> Create Event
             </NavLink>
           </li>
-
-          {user && <li>{ProfilePrivateLink}</li>}
           <li>
             <NavLink to="/about" className={linksClass}>
-              <MdOutlinePermDeviceInformation />
-              About
+              <MdOutlinePermDeviceInformation /> About
             </NavLink>
           </li>
         </ul>
 
-        {/* Login / Avatar */}
-        <div className="hidden space-x-3 lg:flex items-center">
-          {user && (
-            <Button onClick={handleLogOut} variant="danger">
-              Sign Out
-            </Button>
-          )}
-          {user ? (
-            <div className="relative z-10">
-              <div className="cursor-pointer group/avatar">
-                <img
-                  src={user?.photoURL ? user?.photoURL : userLogo}
-                  alt="profile"
-                  title={user?.displayName}
-                  className="w-10 h-10 rounded-full ring-1 ring-primary ring-offset-base-100 ring-offset-2"
-                />
-                <div
-                  className="absolute -left-15  mt-0 w-40 bg-base-100 border border-secondary rounded-md shadow-lg transition-opacity duration-200 opacity-0 invisible group-hover/avatar:opacity-100 group-hover/avatar:visible"
-                  style={{ pointerEvents: "auto" }}
-                >
-                  <p className="px-4 py-2 text-sm font-medium text-secondary">
-                    Hi, {user?.displayName}
-                  </p>
-                  <hr className="text-secondary border-dashed" />
-                  <Link to="/my-profile">
-                    <p className="px-4 hover:underline py-2 text-sm flex items-center gap-2 font-medium text-secondary">
-                      {" "}
-                      <FaRegUserCircle /> Your Profile
-                    </p>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <>
-              <Link to="/signin">
-                <Button className="border-none">Sign In</Button>
-              </Link>
-              {/* <Link to="/signup">
-                <Button>Sign Up</Button>
-              </Link> */}
-            </>
-          )}
+        {/* Desktop Right Side */}
+        <div className="hidden lg:flex items-center gap-3 min-w-[180px] justify-end">
           <ThemeToggle />
+          {!user && (
+            <Link to="/signin">
+              <Button className="border-none">Sign In</Button>
+            </Link>
+          )}
+          {user && (
+            <div className="relative" ref={profileRef}>
+              <div
+                className="flex items-center gap-2 cursor-pointer"
+                title={user?.displayName}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowMobileProfile((prev) => !prev);
+                }}
+              >
+                <img
+                  src={user?.photoURL || userLogo}
+                  alt="profile"
+                  className="w-9 h-9 rounded-full ring-2 ring-primary object-cover"
+                />
+              </div>
+              <ul
+                className={`menu w-52 rounded shadow bg-base-100 absolute right-0 mt-2 z-50 border border-secondary transition-all duration-200 ${
+                  showMobileProfile
+                    ? "opacity-100 visible translate-y-0 pointer-events-auto"
+                    : "opacity-0 invisible -translate-y-2 pointer-events-none"
+                }`}
+              >
+                <li>
+                  <NavLink
+                    to="/my-profile"
+                    className={linksClass}
+                    onClick={() => setShowMobileProfile(false)}
+                  >
+                    <FaRegUserCircle /> My Profile
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/bookEvent"
+                    className={linksClass}
+                    onClick={() => setShowMobileProfile(false)}
+                  >
+                    <MdAssignmentAdd /> Book Event
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/myBookings"
+                    className={linksClass}
+                    onClick={() => setShowMobileProfile(false)}
+                  >
+                    <FaAddressBook /> My Bookings
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/manageEvents"
+                    className={linksClass}
+                    onClick={() => setShowMobileProfile(false)}
+                  >
+                    <MdManageHistory /> Manage Events
+                  </NavLink>
+                </li>
+                <li className="border-t border-base-200 mt-1 pt-1">
+                  <button
+                    onClick={() => {
+                      handleLogOut();
+                      setShowMobileProfile(false);
+                    }}
+                    className="flex items-center gap-2 text-error font-semibold w-full px-2 py-1"
+                  >
+                    <FaSignOutAlt /> Sign Out
+                  </button>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
 
         {/* Mobile menu button */}
@@ -273,17 +222,15 @@ const Navbar = () => {
         aria-hidden={!isOpen}
       >
         <div className="px-4 pt-2 pb-4 bg-base-100 border-b border-base-300 shadow-lg rounded-b-sm">
-          <ul className="flex flex-col gap-4 font-semibold text-[#1a1a1a]">
+          <ul className="flex flex-col gap-4 font-semibold text-base-content">
             <li>
               <NavLink to="/" onClick={toggleMenu} className={linksClass}>
-                <FaHome />
-                Home
+                <FaHome /> Home
               </NavLink>
             </li>
             <li>
               <NavLink to="/events" onClick={toggleMenu} className={linksClass}>
-                <MdEvent />
-                Events
+                <MdEvent /> Events
               </NavLink>
             </li>
             <li>
@@ -292,55 +239,80 @@ const Navbar = () => {
                 onClick={toggleMenu}
                 className={linksClass}
               >
-                <MdAddBusiness />
-                Create Event
+                <MdAddBusiness /> Create Event
               </NavLink>
             </li>
-
-            {user && <li>{ProfilePrivateLink}</li>}
+            {user && (
+              <>
+                <li>
+                  <NavLink
+                    to="/bookEvent"
+                    onClick={toggleMenu}
+                    className={linksClass}
+                  >
+                    <MdAssignmentAdd /> Book Event
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/myBookings"
+                    onClick={toggleMenu}
+                    className={linksClass}
+                  >
+                    <FaAddressBook /> My Bookings
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/manageEvents"
+                    onClick={toggleMenu}
+                    className={linksClass}
+                  >
+                    <MdManageHistory /> Manage Events
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/my-profile"
+                    onClick={toggleMenu}
+                    className={linksClass}
+                  >
+                    <FaRegUserCircle /> My Profile
+                  </NavLink>
+                </li>
+                <li className="flex items-center gap-2 mt-2">
+                  <img
+                    src={user?.photoURL || userLogo}
+                    alt="profile"
+                    className="w-8 h-8 rounded-full border border-secondary"
+                  />
+                  <span className="text-sm text-secondary font-medium">
+                    {user?.displayName}
+                  </span>
+                  <button
+                    onClick={() => {
+                      handleLogOut();
+                      toggleMenu();
+                    }}
+                    className="flex items-center gap-2 text-sm text-error font-semibold"
+                  >
+                    <FaSignOutAlt /> Sign Out
+                  </button>
+                </li>
+              </>
+            )}
             <li>
               <NavLink to="/about" onClick={toggleMenu} className={linksClass}>
-                <MdOutlinePermDeviceInformation />
-                About
+                <MdOutlinePermDeviceInformation /> About
               </NavLink>
             </li>
-            <li className="space-x-2">
-              {user ? (
-                <div className="flex gap-4 items-center">
-                  <img
-                    src={user?.photoURL ? user?.photoURL : ""}
-                    alt="profile"
-                    className="w-9 h-9 rounded-full border border-secondary"
-                  />
-                  <div>
-                    <p className="text-sm text-secondary font-medium ">
-                      <Link
-                        onClick={toggleMenu}
-                        to="/my-profile"
-                        className="flex gap-1 items-center"
-                      >
-                        <FaRegUserCircle /> {user?.displayName} Profile
-                      </Link>
-                    </p>
-                    <button
-                      onClick={handleLogOut}
-                      className="flex items-center gap-2 text-sm text-secondary w-full"
-                    >
-                      <FaSignOutAlt /> Sign Out
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <>
-                  <Link to="/signin" onClick={toggleMenu}>
-                    <Button variant="outline">Sign In</Button>
-                  </Link>
-                  {/* <Link to="/signup" onClick={toggleMenu}>
-                    <Button>Sign Up</Button>
-                  </Link> */}
-                </>
-              )}
-            </li>
+            {!user && (
+              <li>
+                <Link to="/signin" onClick={toggleMenu}>
+                  <Button variant="outline">Sign In</Button>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
