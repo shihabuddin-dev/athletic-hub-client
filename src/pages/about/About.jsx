@@ -34,17 +34,17 @@ const About = () => {
     <div className="max-w-5xl mx-auto px-2 sm:px-4 md:px-8 relative">
       <title>About Us | Athletic Hub</title>
       {/* Decorative background shapes */}
-      <div className="absolute -top-10 -left-10 w-28 h-28 sm:w-40 sm:h-40 bg-gradient-to-br from-primary/30 to-secondary/20 rounded-full blur-2xl z-0 animate-pulse" />
-      <div className="absolute -bottom-10 -right-10 w-36 h-36 sm:w-56 sm:h-56 bg-gradient-to-tr from-secondary/30 to-primary/20 rounded-full blur-2xl z-0 animate-pulse" />
+      <div className="hidden md:inline absolute -top-10 -left-10 w-28 h-28 sm:w-40 sm:h-40 bg-gradient-to-br from-primary/30 to-secondary/20 rounded-full blur-2xl z-0 animate-pulse" />
+      <div className="hidden md:inline absolute -bottom-10 -right-10 w-36 h-36 sm:w-56 sm:h-56 bg-gradient-to-tr from-secondary/30 to-primary/20 rounded-full blur-2xl z-0 animate-pulse" />
       <div className="relative z-10">
         <div className="text-center mb-8 sm:mb-12">
           <Slide direction="right" delay={300} duration={1000}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 sm:mb-3 text-center drop-shadow-lg">
+            <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 sm:mb-3 text-center drop-shadow-lg">
               Discover <span className="text-secondary">Athletic</span> Hub
             </h2>
           </Slide>
           <Slide direction="left" delay={300} duration={1000}>
-            <p className="text-accent text-center max-w-xs sm:max-w-xl md:max-w-2xl mx-auto text-sm sm:text-base">
+            <p className="text-accent text-center max-w-xs sm:max-w-xl md:max-w-2xl mx-auto">
               Athletic Hub is your gateway to a world of sports. Effortlessly
               create, manage, and join events—anytime, anywhere.
             </p>
@@ -106,7 +106,9 @@ const About = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
             <div className="flex flex-col items-center text-center">
-              <span className="text-3xl sm:text-4xl mb-2 sm:mb-3 animate-bounce">🏅</span>
+              <span className="text-3xl sm:text-4xl mb-2 sm:mb-3 animate-bounce">
+                🏅
+              </span>
               <h3 className="font-semibold text-base sm:text-xl mb-1 sm:mb-2 text-secondary">
                 Elite Experience
               </h3>
@@ -116,7 +118,9 @@ const About = () => {
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
-              <span className="text-3xl sm:text-4xl mb-2 sm:mb-3 animate-bounce">🌍</span>
+              <span className="text-3xl sm:text-4xl mb-2 sm:mb-3 animate-bounce">
+                🌍
+              </span>
               <h3 className="font-semibold text-base sm:text-xl mb-1 sm:mb-2 text-secondary">
                 Global Community
               </h3>
@@ -126,7 +130,9 @@ const About = () => {
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
-              <span className="text-3xl sm:text-4xl mb-2 sm:mb-3 animate-bounce">💡</span>
+              <span className="text-3xl sm:text-4xl mb-2 sm:mb-3 animate-bounce">
+                💡
+              </span>
               <h3 className="font-semibold text-base sm:text-xl mb-1 sm:mb-2 text-secondary">
                 Cutting-Edge Features
               </h3>

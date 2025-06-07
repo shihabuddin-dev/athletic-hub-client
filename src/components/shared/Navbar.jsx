@@ -242,6 +242,11 @@ const Navbar = () => {
                 <MdAddBusiness /> Create Event
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/about" onClick={toggleMenu} className={linksClass}>
+                <MdOutlinePermDeviceInformation /> About
+              </NavLink>
+            </li>
             {user && (
               <>
                 <li>
@@ -280,32 +285,31 @@ const Navbar = () => {
                     <FaRegUserCircle /> My Profile
                   </NavLink>
                 </li>
+
                 <li className="flex items-center gap-2 mt-2">
                   <img
                     src={user?.photoURL || userLogo}
                     alt="profile"
-                    className="w-8 h-8 rounded-full border border-secondary"
+                    className="w-10 h-10 rounded-full border border-secondary"
                   />
-                  <span className="text-sm text-secondary font-medium">
-                    {user?.displayName}
-                  </span>
-                  <button
-                    onClick={() => {
-                      handleLogOut();
-                      toggleMenu();
-                    }}
-                    className="flex items-center gap-2 text-sm text-error font-semibold"
-                  >
-                    <FaSignOutAlt /> Sign Out
-                  </button>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-sm text-secondary font-medium">
+                      {user?.displayName}
+                    </span>
+                    <button
+                      onClick={() => {
+                        handleLogOut();
+                        toggleMenu();
+                      }}
+                      className="flex items-center gap-2 text-sm text-error font-semibold"
+                    >
+                      <FaSignOutAlt /> Sign Out
+                    </button>
+                  </div>
                 </li>
               </>
             )}
-            <li>
-              <NavLink to="/about" onClick={toggleMenu} className={linksClass}>
-                <MdOutlinePermDeviceInformation /> About
-              </NavLink>
-            </li>
+
             {!user && (
               <li>
                 <Link to="/signin" onClick={toggleMenu}>

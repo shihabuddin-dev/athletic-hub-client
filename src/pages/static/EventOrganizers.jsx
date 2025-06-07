@@ -142,7 +142,7 @@ const EventOrganizers = () => {
             <FiUsers className="text-white text-3xl sm:text-4xl" />
           </div>
           <Slide direction="left" delay={300} duration={1000}>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 sm:mb-3 text-center drop-shadow-lg">
+            <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 sm:mb-3 text-center drop-shadow-lg">
               Meet Our <span className="text-secondary">Event Organizers</span>
             </h2>
           </Slide>

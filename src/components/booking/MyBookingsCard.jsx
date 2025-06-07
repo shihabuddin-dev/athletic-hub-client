@@ -84,7 +84,7 @@ const MyBookingsCard = ({ myBookingsPromise }) => {
               </div>
               <div className="flex gap-2 mt-3">
                 <button
-                  className="badge bg-red-500 rounded flex-1 font-semibold text-white cursor-pointer"
+                  className="btn btn-xs bg-red-500 rounded flex-1 font-semibold text-white cursor-pointer"
                   onClick={() => handleDeleteBooking(booking._id)}
                   title="Cancel Booking"
                 >

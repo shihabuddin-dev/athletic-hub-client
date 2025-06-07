@@ -290,7 +290,7 @@ const DetailsEvent = () => {
                   </span>
                 ) : (
                   <span className="flex items-center gap-2">
-                    <FiUsers className="text-white" /> Reserve Your Spot
+                    <FiUsers className="text-white" /> Book Your Spot
                   </span>
                 )}
               </Button>

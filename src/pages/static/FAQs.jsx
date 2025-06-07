@@ -45,7 +45,7 @@ const FAQs = () => {
           <FiHelpCircle className="text-white text-3xl sm:text-4xl" />
         </div>
         <Slide direction="right" delay={300} duration={1000}>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 text-center">
             Frequently Asked <span className="text-secondary">Questions</span>
           </h2>
         </Slide>
