@@ -100,11 +100,14 @@ const AthleticStats = () => {
               <h3
                 className={`z-10 text-2xl md:text-3xl font-bold ${stat.text}`}
               >
+                {/* Fix: Use key prop on CountUp to force remount and avoid target null error */}
                 <CountUp
+                  key={stat.label}
                   start={0}
                   end={stat.count}
-                  enableScrollSpy
+                  enableScrollSpy={true}
                   duration={stat.duration}
+                  redraw={true}
                 />
                 +
               </h3>
