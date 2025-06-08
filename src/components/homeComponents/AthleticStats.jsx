@@ -98,7 +98,7 @@ const AthleticStats = () => {
                 {stat.icon}
               </span>
               <h3
-                className={`z-10 text-3xl md:text-4xl font-semibold ${stat.text}`}
+                className={`z-10 text-2xl md:text-3xl font-bold ${stat.text}`}
               >
                 <CountUp
                   start={0}

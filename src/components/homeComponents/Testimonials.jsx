@@ -121,7 +121,7 @@ const Testimonials = () => {
         >
           {testimonials.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className="h-64 bg-gradient-to-br from-secondary/10 via-base-100 to-secondary/8 p-5 rounded-lg overflow-hidden shadow-lg flex flex-col justify-between items-center duration-500 transition-transform hover:scale-105 hover:rounded-xl border border-base-300 pb-10">
+              <div className="h-64 bg-gradient-to-br from-secondary/10 via-base-100 to-secondary/8 p-5 rounded overflow-hidden shadow-lg flex flex-col justify-between items-center duration-500 transition-transform hover:scale-105 border border-base-300 pb-10">
                 <div className="flex flex-col items-center">
                   <img
                     src={item.photo}

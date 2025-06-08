@@ -53,7 +53,7 @@ const HeroSlider = () => {
   ];
 
   return (
-    <div className="mt-16 max-w-7xl mx-auto rounded-md h-[450px] shadow-xl overflow-hidden relative">
+    <div className="mt-16 max-w-7xl mx-auto rounded h-[450px] shadow-xl overflow-hidden relative">
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         pagination={{ clickable: true }}
