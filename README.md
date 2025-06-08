@@ -26,14 +26,24 @@ A next-generation, animated, and fully responsive event booking platform for ath
 
 - **React 19** & **Vite**
 - **Tailwind CSS 4** (custom design, no daisyUI in navbar)
-- **Framer Motion** & **react-awesome-reveal** (animations)
+- **Framer Motion** & **react-awesome-reveal** (animations, scroll and entrance animations)
 - **Swiper** (sliders)
-- **react-icons**
-- **react-datepicker**
+- **react-icons** (Icons)
+- **react-datepicker** (Pick Time)
 - **Lottie-react** (illustrations)
 - **SweetAlert2** (alerts)
 - **Firebase** (auth & backend)
 - **Axios** (API)
+
+---
+
+## 🖥️ Backend Tech Stack
+
+- **Express 5** (Node.js web framework)
+- **MongoDB 6** (database)
+- **firebase-admin** (Firebase Admin SDK)
+- **dotenv** (environment variable management)
+- **cors** (Cross-Origin Resource Sharing)
 
 ---
 

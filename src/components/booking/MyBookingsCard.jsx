@@ -88,7 +88,7 @@ const MyBookingsCard = ({ myBookingsPromise }) => {
                   onClick={() => handleDeleteBooking(booking._id)}
                   title="Cancel Booking"
                 >
-                  <FaTrashAlt className="inline mr-1" /> Delete
+                  <FaTrashAlt className="inline mr-1" /> Cancel
                 </button>
               </div>
             </div>

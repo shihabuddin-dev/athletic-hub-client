@@ -51,7 +51,7 @@ const Events = () => {
             onChange={(e) => setSearch(e.target.value)}
             required
             placeholder="Search by Event Name or Location"
-            className="w-full sm:w-auto border-2 border-base-content/40 px-4 py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content text-sm sm:text-base"
+            className="w-full sm:w-auto md:w-sm border-2 border-base-content/40 px-4 py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content text-sm sm:text-base"
           />
           <Button className="w-full sm:w-auto">Search</Button>
         </form>

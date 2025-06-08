@@ -147,6 +147,14 @@ const Navbar = () => {
                     : "opacity-0 invisible -translate-y-2 pointer-events-none"
                 }`}
               >
+                <div className="flex justify-center items-center flex-col py-1 ">  
+                  <img
+                  src={user?.photoURL || userLogo}
+                  alt="profile"
+                  className="w-10 h-10 rounded-full ring-2 ring-primary object-cover"
+                />
+                <span className="text-secondary">Hi, {user?.displayName}</span>
+                </div>
                 <li>
                   <NavLink
                     to="/my-profile"
@@ -294,7 +302,7 @@ const Navbar = () => {
                   />
                   <div className="flex flex-col gap-1">
                     <span className="text-sm text-secondary font-medium">
-                      {user?.displayName}
+                     Hi, {user?.displayName}
                     </span>
                     <button
                       onClick={() => {
