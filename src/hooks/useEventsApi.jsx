@@ -5,7 +5,7 @@ const useEventsApi = () => {
 
   const myEventsPromise = (email) => {
     return axiosSecure
-      .get(`${import.meta.env.VITE_API_URL}/events?email=${email}`)
+      .get(`${import.meta.env.VITE_API_URL}/my-events?email=${email}`)
       .then((res) => res.data);
   };
 
