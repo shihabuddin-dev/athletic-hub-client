@@ -66,7 +66,7 @@ const AthleticStats = () => {
   return (
     <div>
       {/* Header */}
-      <div className="text-center space-y-4">
+      <div className="text-center">
         <Slide direction="left" delay={300} duration={1000}>
           <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2">
             Why <span className="text-secondary">Choose </span>Athletic Hub?
@@ -85,7 +85,7 @@ const AthleticStats = () => {
           {statsData.map((stat, idx) => (
             <div
               key={idx}
-              className={`flex flex-col items-center justify-center py-6 px-6 bg-base-100 rounded space-y-2 border-2 ${stat.border} hover:shadow-lg hover:scale-103 duration-500 transform shadow min-w-[180px] min-h-[230px] w-full h-full relative overflow-hidden group`}
+              className={`flex flex-col items-center justify-center py-6 px-6 bg-base-100 rounded space-y-2 border-2 ${stat.border} hover:shadow-lg hover:scale-103 duration-500 transform shadow min-w-[180px] min-h-[220px] w-full h-full relative overflow-hidden group`}
               style={{ maxWidth: "270px", margin: "0 auto" }}
             >
               {/* Animated Accent */}
