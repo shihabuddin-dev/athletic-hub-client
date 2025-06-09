@@ -8,12 +8,12 @@ const FeaturesEvents = () => {
   const events = useLoaderData();
   return (
     <div>
-      <Slide direction="left" delay={300} duration={1000}>
+      <Slide triggerOnce direction="left" delay={300} duration={1000}>
         <h2 className="text-center text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2">
           Featured <span className="text-secondary">Events</span>
         </h2>
       </Slide>
-      <Slide direction="right" delay={300} duration={1000}>
+      <Slide triggerOnce direction="right" delay={300} duration={1000}>
         <p className="text-accent mb-10 max-w-2xl mx-auto text-center">
           Discover, join, and experience our most exciting, trending, and
           upcoming featured events happening near you now!

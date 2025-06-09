@@ -13,7 +13,7 @@ const TermsAndConditions = () => {
     <section className="mt-16 max-w-4xl mx-auto px-4 relative">
       {/* Decorative background blob */}
       <div className="absolute -top-24 -left-24 w-80 h-80 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-full blur-3xl opacity-60 pointer-events-none z-0"></div>
-      <Fade direction="up">
+      <Fade triggerOnce direction="up">
         <div className="flex flex-col items-center mb-6 relative z-10">
           <div className="bg-gradient-to-r from-primary to-secondary p-5 rounded-full shadow-xl mb-5 animate-bounce-slow">
             <FiShield className="text-white text-5xl" />
@@ -27,7 +27,7 @@ const TermsAndConditions = () => {
         </div>
       </Fade>
       <div className="space-y-8 relative z-10">
-        <Slide direction="left">
+        <Slide triggerOnce direction="left">
           <section className="bg-base-100 rounded-xl shadow-md p-6 border-l-4 border-primary/20">
             <h2 className="flex items-center gap-2 text-xl font-semibold text-secondary mb-2">
               <FiUserCheck /> 1. Acceptance of Terms
@@ -41,7 +41,7 @@ const TermsAndConditions = () => {
             </p>
           </section>
         </Slide>
-        <Slide direction="right">
+        <Slide triggerOnce direction="right">
           <section className="bg-base-100 rounded-xl shadow-md p-6 border-l-4 border-secondary/20">
             <h2 className="flex items-center gap-2 text-xl font-semibold text-primary mb-2">
               <FiEdit3 /> 2. Use of Service
@@ -63,7 +63,7 @@ const TermsAndConditions = () => {
             </ul>
           </section>
         </Slide>
-        <Slide direction="left">
+        <Slide triggerOnce direction="left">
           <section className="bg-base-100 rounded-xl shadow-md p-6 border-l-4 border-primary/20">
             <h2 className="flex items-center gap-2 text-xl font-semibold text-secondary mb-2">
               <FiEdit3 /> 3. Events &amp; Content
@@ -84,7 +84,7 @@ const TermsAndConditions = () => {
             </ul>
           </section>
         </Slide>
-        <Slide direction="right">
+        <Slide triggerOnce direction="right">
           <section className="bg-base-100 rounded-xl shadow-md p-6 border-l-4 border-secondary/20">
             <h2 className="flex items-center gap-2 text-xl font-semibold text-primary mb-2">
               <FiAlertTriangle /> 4. Account Termination
@@ -96,7 +96,7 @@ const TermsAndConditions = () => {
             </p>
           </section>
         </Slide>
-        <Slide direction="left">
+        <Slide triggerOnce direction="left">
           <section className="bg-base-100 rounded-xl shadow-md p-6 border-l-4 border-primary/20">
             <h2 className="flex items-center gap-2 text-xl font-semibold text-secondary mb-2">
               <FiShield /> 5. Intellectual Property
@@ -108,7 +108,7 @@ const TermsAndConditions = () => {
             </p>
           </section>
         </Slide>
-        <Slide direction="right">
+        <Slide triggerOnce direction="right">
           <section className="bg-base-100 rounded-xl shadow-md p-6 border-l-4 border-secondary/20">
             <h2 className="flex items-center gap-2 text-xl font-semibold text-primary mb-2">
               <FiAlertTriangle /> 6. Limitation of Liability
@@ -120,7 +120,7 @@ const TermsAndConditions = () => {
             </p>
           </section>
         </Slide>
-        <Slide direction="left">
+        <Slide triggerOnce direction="left">
           <section className="bg-base-100 rounded-xl shadow-md p-6 border-l-4 border-primary/20">
             <h2 className="flex items-center gap-2 text-xl font-semibold text-secondary mb-2">
               <FiEdit3 /> 7. Changes to Terms
@@ -132,7 +132,7 @@ const TermsAndConditions = () => {
             </p>
           </section>
         </Slide>
-        <Slide direction="up">
+        <Slide triggerOnce direction="up">
           <section className="bg-base-100 rounded-xl shadow-md p-6 border-l-4 border-secondary/20">
             <h2 className="flex items-center gap-2 text-xl font-semibold text-primary mb-2">
               <FiMail /> 8. Contact Us

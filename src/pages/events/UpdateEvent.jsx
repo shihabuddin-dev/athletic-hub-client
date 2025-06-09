@@ -108,12 +108,12 @@ const UpdateEvent = () => {
     <div>
       <title>Update Event | Athletic Hub</title>
       <div>
-        <Slide direction="down">
+        <Slide triggerOnce direction="down">
           <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 text-center">
             Update Your <span className="text-secondary">Event Details</span>
           </h2>
         </Slide>
-        <Slide direction="up">
+        <Slide triggerOnce direction="up">
           <p className="text-accent text-center max-w-xl mx-auto">
             Easily edit, enhance, and keep your sports events up to date with{" "}
             <span className="font-semibold text-secondary">Athletic Hub</span>.

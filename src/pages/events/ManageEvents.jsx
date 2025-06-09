@@ -11,12 +11,12 @@ const ManageEvents = () => {
   return (
     <div>
       <title>Manage Events | Athletic Hub</title>
-      <Slide direction="left" delay={300} duration={1000}>
+      <Slide triggerOnce direction="left" delay={300} duration={1000}>
         <h2 className="text-center text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2">
           Manage <span className="text-secondary">Your Own</span> Events
         </h2>
       </Slide>
-      <Slide direction="right" delay={300} duration={1000}>
+      <Slide triggerOnce direction="right" delay={300} duration={1000}>
         <p className="text-accent mb-10 max-w-2xl mx-auto text-center">
           Effortlessly manage, update, and track all your created events in one
           convenient place here.

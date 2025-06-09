@@ -15,7 +15,7 @@ const About = () => {
     delay = 0,
     direction = "up",
   }) => (
-    <Slide direction={direction} delay={delay}>
+    <Slide triggerOnce direction={direction} delay={delay}>
       <div className="bg-base-100 rounded-xl shadow-sm p-6 flex flex-col items-center hover:shadow-md transition-all border-l-4 border-secondary/30 hover:border-secondary">
         <span className="text-secondary text-3xl mb-3">{icon}</span>
         <h3 className="font-bold text-secondary mb-1">{title}</h3>
@@ -38,12 +38,12 @@ const About = () => {
       <div className="hidden md:inline absolute -bottom-10 -right-10 w-36 h-36 sm:w-56 sm:h-56 bg-gradient-to-tr from-secondary/30 to-primary/20 rounded-full blur-2xl z-0 animate-pulse" />
       <div className="relative z-10">
         <div className="text-center mb-8 sm:mb-12">
-          <Slide direction="right" delay={300} duration={1000}>
+          <Slide triggerOnce direction="right" delay={300} duration={1000}>
             <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 sm:mb-3 text-center drop-shadow-lg">
               Discover <span className="text-secondary">Athletic</span> Hub
             </h2>
           </Slide>
-          <Slide direction="left" delay={300} duration={1000}>
+          <Slide triggerOnce direction="left" delay={300} duration={1000}>
             <p className="text-accent text-center max-w-xs sm:max-w-xl md:max-w-2xl mx-auto">
               Athletic Hub is your gateway to a world of sports. Effortlessly
               create, manage, and join events—anytime, anywhere.
@@ -89,7 +89,7 @@ const About = () => {
             </ul>
           </div>
           <div className="flex justify-center animate-fade-in-right">
-            <Fade>
+            <Fade triggerOnce>
               <div className="relative group">
                 <img
                   src={athleticLogo}

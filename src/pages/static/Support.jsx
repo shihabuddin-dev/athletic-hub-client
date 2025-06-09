@@ -6,7 +6,7 @@ const Support = () => {
   return (
     <section className="max-w-2xl mx-auto px-4">
         <title>Support | Athletic Hub</title>
-      <Fade direction="up">
+      <Fade triggerOnce direction="up">
         <div className="flex flex-col items-center mb-10">
           <div className="bg-gradient-to-r from-primary to-secondary p-4 rounded-full shadow-lg mb-4">
             <FiHelpCircle className="text-white text-4xl" />
@@ -21,7 +21,7 @@ const Support = () => {
         </div>
       </Fade>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Slide direction="left">
+        <Slide triggerOnce direction="left">
           <div className="bg-base-100 rounded-xl shadow-md p-6 flex flex-col items-center hover:shadow-xl transition-all border-l-4 border-primary/30 hover:border-primary">
             <FiMail className="text-primary text-3xl mb-3" />
             <h3 className="font-bold text-primary mb-1">Email Us</h3>
@@ -36,7 +36,7 @@ const Support = () => {
             </a>
           </div>
         </Slide>
-        <Slide direction="up">
+        <Slide triggerOnce direction="up">
           <div className="bg-base-100 rounded-xl shadow-md p-6 flex flex-col items-center hover:shadow-xl transition-all border-l-4 border-secondary/30 hover:border-secondary">
             <FiPhone className="text-secondary text-3xl mb-3" />
             <h3 className="font-bold text-secondary mb-1">Call Us</h3>
@@ -51,7 +51,7 @@ const Support = () => {
             </a>
           </div>
         </Slide>
-        <Slide direction="right">
+        <Slide triggerOnce direction="right">
           <div className="bg-base-100 rounded-xl shadow-md p-6 flex flex-col items-center hover:shadow-xl transition-all border-l-4 border-primary/30 hover:border-primary">
             <FiMessageCircle className="text-primary text-3xl mb-3" />
             <h3 className="font-bold text-primary mb-1">Live Chat</h3>
@@ -67,7 +67,7 @@ const Support = () => {
           </div>
         </Slide>
       </div>
-      <Fade direction="up">
+      <Fade triggerOnce direction="up">
         <div className="mt-12 text-center text-accent text-sm">
           <span>
             For urgent issues, please mention{" "}

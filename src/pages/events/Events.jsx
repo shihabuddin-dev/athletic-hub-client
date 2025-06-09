@@ -20,20 +20,20 @@ const Events = () => {
   return (
     <div className="space-y-10 md:space-y-14">
       <title>Events | Athletic Hub</title>
-      <Fade>
+      <Fade triggerOnce>
         <header
           className="w-full rounded h-auto min-h-[220px] sm:min-h-[300px] md:min-h-[400px] bg-cover bg-center py-10 sm:py-16 flex items-center justify-center shadow-md relative transition-transform duration-700 hover:scale-101 brightness-95 hover:brightness-100"
           style={{ backgroundImage: `url("${bgEvents}")` }}
         >
           <div className="absolute rounded inset-0 z-0 bg-gradient-to-br from-black/60 via-secondary/20 to-black/40" />
           <div className="w-full flex flex-col items-center justify-center py-4 sm:py-8 relative z-10 text-white">
-            <Slide direction="left" delay={300} duration={1000}>
+            <Slide triggerOnce direction="left" delay={300} duration={1000}>
               <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold text-center tracking-wide drop-shadow">
                 ALL Events
               </h1>
             </Slide>
             <br />
-            <Slide direction="right" delay={300} duration={1000}>
+            <Slide triggerOnce direction="right" delay={300} duration={1000}>
               <p className="px-2 text-sm sm:text-base max-w-xs sm:max-w-lg text-center">
                 The Ultimate Platform for Athletic Events. Effortlessly discover
                 and manage your spot in local sports events.
@@ -43,7 +43,7 @@ const Events = () => {
         </header>
       </Fade>
 
-      <Fade>
+      <Fade triggerOnce>
         <form className="flex flex-col sm:flex-row justify-center items-center gap-2 px-2">
           <input
             type="text"

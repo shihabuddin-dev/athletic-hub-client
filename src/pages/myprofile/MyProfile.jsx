@@ -39,7 +39,7 @@ const MyProfile = () => {
   };
 
   return (
-    <Fade>
+    <Fade triggerOnce>
       <div className="flex justify-center items-center min-h-[70vh]">
         <title>My Profile | Athletic Hub</title>
         <div className="card w-full max-w-md bg-base-100 shadow-md border-t-4 border-b-4 border-secondary p-6">

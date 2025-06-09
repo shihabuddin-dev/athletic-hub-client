@@ -93,18 +93,18 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 text-center">
-      <Slide direction="left" delay={300} duration={1000}>
+      <Slide triggerOnce direction="left" delay={300} duration={1000}>
         <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2">
           What Our <span className="text-secondary">Users Say</span>
         </h2>
       </Slide>
-      <Slide direction="right" delay={300} duration={1000}>
+      <Slide triggerOnce direction="right" delay={300} duration={1000}>
         <p className="text-accent mb-12 max-w-2xl mx-auto">
           Hear directly from our happy users who found the perfect event or
           community through Athletic Hub. Real stories, real experiences!
         </p>
       </Slide>
-      <Fade direction="down">
+      <Fade triggerOnce direction="down">
         <Swiper
           modules={[Navigation, Pagination, Autoplay]}
           spaceBetween={20}

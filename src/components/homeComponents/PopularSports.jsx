@@ -80,12 +80,12 @@ const sports = [
 
 const PopularSports = () => (
   <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-    <Slide direction="left" delay={300} duration={1000}>
+    <Slide triggerOnce direction="left" delay={300} duration={1000}>
       <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 text-center">
         <span className="text-secondary">Popular</span> Sports
       </h2>
     </Slide>
-    <Slide direction="right" delay={300} duration={1000}>
+    <Slide triggerOnce direction="right" delay={300} duration={1000}>
       <p className="text-accent mb-12 max-w-2xl mx-auto text-center">
         Explore, enjoy your favorite sports activities with friends, family, and
         our vibrant community today!
@@ -97,7 +97,7 @@ const PopularSports = () => (
         // Alternate between Fade and Slide (directional)
         if (idx % 2 === 0) {
           return (
-            <Fade key={sport.name} duration={700} delay={idx * 80}>
+            <Fade triggerOnce key={sport.name} duration={700} delay={idx * 80}>
               <div className="group relative flex flex-col items-center bg-base-100 rounded p-6 shadow-md hover:shadow-xl transition-all duration-900 border border-base-200 cursor-pointer overflow-hidden hover:-translate-y-1">
                 {/* Gradient background overlay on hover */}
                 <div
@@ -121,7 +121,7 @@ const PopularSports = () => (
           const directions = ["left", "right", "up", "down"];
           const direction = directions[(idx / 2) % directions.length];
           return (
-            <Slide
+            <Slide triggerOnce
               key={sport.name}
               direction={direction}
               duration={700}

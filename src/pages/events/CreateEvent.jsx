@@ -113,12 +113,12 @@ const CreateEvent = () => {
     <div className="space-y-8">
       <title>Create Event | Athletic Hub</title>
       <div>
-        <Slide direction="right" delay={300} duration={1000}>
+        <Slide triggerOnce direction="right" delay={300} duration={1000}>
           <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 text-center">
             Host Your <span className="text-secondary">Next Event</span>
           </h2>
         </Slide>
-        <Slide direction="left" delay={300} duration={1000}>
+        <Slide triggerOnce direction="left" delay={300} duration={1000}>
           <p className="text-accent text-center max-w-xl mx-auto">
             Seamlessly create, manage, and share your sports events with{" "}
             <span className="font-semibold text-secondary">Athletic Hub</span>.{" "}
@@ -335,12 +335,12 @@ const CreateEvent = () => {
         </form>
       </div>
       <div className="mt-20">
-        <Slide direction="left" delay={300} duration={1000}>
+        <Slide triggerOnce direction="left" delay={300} duration={1000}>
           <h2 className="text-center text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2">
             My <span className="text-secondary">Created</span> Events
           </h2>
         </Slide>
-        <Slide direction="right" delay={300} duration={1000}>
+        <Slide triggerOnce direction="right" delay={300} duration={1000}>
           <p className="text-accent mb-8 max-w-2xl mx-auto text-center">
             Effortlessly view, manage, and track all the events you have created
             in one convenient place.

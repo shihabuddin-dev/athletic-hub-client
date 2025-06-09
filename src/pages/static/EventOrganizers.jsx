@@ -136,17 +136,17 @@ const organizers = [
 const EventOrganizers = () => {
   return (
     <section className="max-w-6xl mx-auto px-2 sm:px-4 md:px-6">
-      <Fade direction="up">
+      <Fade triggerOnce direction="up">
         <div className="flex flex-col items-center mb-8 sm:mb-12">
           <div className="bg-gradient-to-r from-primary to-secondary p-3 sm:p-4 rounded-full shadow-lg mb-4 animate-bounce-slow">
             <FiUsers className="text-white text-3xl sm:text-4xl" />
           </div>
-          <Slide direction="left" delay={300} duration={1000}>
+          <Slide triggerOnce direction="left" delay={300} duration={1000}>
             <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 sm:mb-3 text-center drop-shadow-lg">
               Meet Our <span className="text-secondary">Event Organizers</span>
             </h2>
           </Slide>
-          <Slide direction="right" delay={300} duration={1000}>
+          <Slide triggerOnce direction="right" delay={300} duration={1000}>
             <p className="text-accent text-center max-w-xs sm:max-w-xl md:max-w-2xl">
               The heart of Athletic Hub! Our organizers are dedicated to
               creating memorable, inclusive, and exciting sports events for
@@ -157,7 +157,11 @@ const EventOrganizers = () => {
       </Fade>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
         {organizers.map((org, idx) => (
-          <Slide key={org.email} direction={idx % 2 === 0 ? "left" : "right"}>
+          <Slide
+            triggerOnce
+            key={org.email}
+            direction={idx % 2 === 0 ? "left" : "right"}
+          >
             <div className="group bg-base-100 rounded shadow-md hover:shadow-lg border-b-4 border-secondary transition-all duration-500 overflow-hidden flex flex-col items-center p-5 sm:p-6 md:p-8 relative hover:-translate-y-1">
               {/* Decorative badge */}
               <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-secondary p-1.5 sm:p-2 rounded-full shadow-lg">
@@ -182,7 +186,9 @@ const EventOrganizers = () => {
                   ({org.events} events)
                 </span>
               </div>
-              <p className="text-accent text-center mb-4 text-xs sm:text-sm">{org.bio}</p>
+              <p className="text-accent text-center mb-4 text-xs sm:text-sm">
+                {org.bio}
+              </p>
               <a
                 href={`mailto:${org.email}`}
                 className="btn btn-xs sm:btn-sm bg-gradient-to-r from-primary to-secondary text-white rounded shadow hover:scale-105 transition flex items-center gap-2"

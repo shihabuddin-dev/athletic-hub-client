@@ -14,12 +14,12 @@ const MyBookings = () => {
   return (
     <div>
       <title>My Bookings | Athletic Hub</title>
-      <Slide direction="left" delay={300} duration={1000}>
+      <Slide triggerOnce direction="left" delay={300} duration={1000}>
         <h2 className="text-center text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2">
           My <span className="text-secondary">Bookings</span>
         </h2>
       </Slide>
-      <Slide direction="right" delay={300} duration={1000}>
+      <Slide triggerOnce direction="right" delay={300} duration={1000}>
         <p className="text-accent mb-6 max-w-2xl mx-auto text-center">
           View, manage, and keep track of all your event bookings in one
           convenient and organized place.

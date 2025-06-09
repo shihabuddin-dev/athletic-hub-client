@@ -67,12 +67,12 @@ const AthleticStats = () => {
     <div>
       {/* Header */}
       <div className="text-center">
-        <Slide direction="left" delay={300} duration={1000}>
+        <Slide triggerOnce direction="left" delay={300} duration={1000}>
           <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2">
             Why <span className="text-secondary">Choose </span>Athletic Hub?
           </h2>
         </Slide>
-        <Slide direction="right" delay={300} duration={1000}>
+        <Slide triggerOnce direction="right" delay={300} duration={1000}>
           <p className="text-accent mb-10 max-w-2xl mx-auto">
             The all-in-one platform for athletic event booking and management.
           </p>
@@ -80,7 +80,7 @@ const AthleticStats = () => {
       </div>
 
       {/* Stats Cards */}
-      <Fade delay={500} duration={1500}>
+      <Fade triggerOnce delay={500} duration={1500}>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-8">
           {statsData.map((stat, idx) => (
             <div

@@ -44,12 +44,12 @@ const FAQs = () => {
         <div className="bg-gradient-to-r from-primary to-secondary p-3 sm:p-4 rounded-full shadow-lg mb-4">
           <FiHelpCircle className="text-white text-3xl sm:text-4xl" />
         </div>
-        <Slide direction="right" delay={300} duration={1000}>
+        <Slide triggerOnce direction="right" delay={300} duration={1000}>
           <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2 text-center">
             Frequently Asked <span className="text-secondary">Questions</span>
           </h2>
         </Slide>
-        <Slide direction="left" delay={300} duration={1000}>
+        <Slide triggerOnce direction="left" delay={300} duration={1000}>
           <p className="text-accent text-center max-w-xs sm:max-w-xl text-sm sm:text-base">
             Everything you need to know about using{" "}
             <span className="font-semibold text-secondary">Athletic Hub</span>{" "}

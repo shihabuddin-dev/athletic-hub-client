@@ -69,17 +69,17 @@ const Blog = () => {
   return (
     <section className="max-w-6xl mx-auto px-4">
       <title>Blog | Athletic Hub</title>
-      <Fade direction="up">
+      <Fade triggerOnce direction="up">
         <div className="flex flex-col items-center mb-12">
           <div className="bg-gradient-to-r from-primary to-secondary p-4 rounded-full shadow-lg mb-4 animate-bounce-slow">
             <FiEdit className="text-white text-4xl" />
           </div>
-          <Slide direction="right" delay={300} duration={1000}>
+          <Slide triggerOnce direction="right" delay={300} duration={1000}>
             <h2 className="text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-3 text-center drop-shadow-lg">
               Latest <span className="text-secondary">Blog</span> Posts
             </h2>
           </Slide>
-          <Slide direction="left" delay={300} duration={1000}>
+          <Slide triggerOnce direction="left" delay={300} duration={1000}>
             <p className="text-accent text-center max-w-2xl">
               Stay updated with tips, stories, and guides from the Athletic Hub
               community. Dive into our latest articles to boost your sports
@@ -90,7 +90,7 @@ const Blog = () => {
       </Fade>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         {blogPosts.map((post, idx) => (
-          <Slide
+          <Slide triggerOnce
             key={idx}
             direction={idx % 2 === 0 ? "left" : "right"}
             triggerOnce
