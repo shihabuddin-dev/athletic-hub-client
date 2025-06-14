@@ -2,6 +2,10 @@ import React, { use, useState } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import axios from "axios";
+import Lottie from "lottie-react";
+import notFoundIn from "../../assets/lotti/notFoundIn.json";
+import { Link } from "react-router";
+import Button from "../ui/Button";
 
 const MyBookingsTable = ({ myBookingsPromise }) => {
   const myBookings = use(myBookingsPromise);
@@ -50,12 +54,26 @@ const MyBookingsTable = ({ myBookingsPromise }) => {
 
   return (
     <div className="max-w-6xl mx-auto px-4">
-      <div className="overflow-x-auto shadow-md rounded">
+      <div className="overflow-x-auto shadow rounded">
         <table className="min-w-full bg-base-200 overflow-x-scroll text-left border border-secondary/10">
           {bookings.length === 0 ? (
-            <p className="text-center bg-base-100 text-red-500 text-xl md:text-2xl py-4">
-              Bookings Data Not Found
-            </p>
+            <div className="bg-base-100">
+              <p className="pt-4 md:pt-6 text-center text-red-500 text-xl md:text-2xl">
+                Bookings Data Not Found
+              </p>
+
+              <div>
+                <Lottie
+                  animationData={notFoundIn}
+                  className="w-full max-w-md h-[100px] md:h-[200px] mx-auto"
+                />
+              </div>
+              <div className="text-center pb-4 md:pb-6">
+                <Link to="/events">
+                  <Button variant="outline">Book Event</Button>
+                </Link>
+              </div>
+            </div>
           ) : (
             <thead className="bg-secondary/10 text-secondary text-sm">
               <tr>

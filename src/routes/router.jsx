@@ -21,6 +21,7 @@ import Blog from "../pages/static/Blog";
 import TermsAndConditions from "../pages/static/TermsAndConditions";
 import EventOrganizers from "../pages/static/EventOrganizers";
 import About from "../pages/about/About";
+import BookEvent from "../pages/bookEvent/BookEvent";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,7 @@ const router = createBrowserRouter([
       { path: "/howItWorks", Component: HowItWorks },
       { path: "/terms&Conditions", Component: TermsAndConditions },
       { path: "/eventOrganizers", Component: EventOrganizers },
+      { path: "/bookEvent", Component:BookEvent },
 
       // private routes Protected
       {

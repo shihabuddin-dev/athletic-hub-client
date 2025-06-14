@@ -1,8 +1,11 @@
 import axios from "axios";
+import Lottie from "lottie-react";
 import { use, useState } from "react";
 import { FaEdit, FaEye, FaTrashAlt } from "react-icons/fa";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import notFoundIn from "../../assets/lotti/notFoundIn.json";
+import Button from "../ui/Button";
 
 const MyEventsTable = ({ myEventsPromise }) => {
   const myEvents = use(myEventsPromise);
@@ -54,9 +57,23 @@ const MyEventsTable = ({ myEventsPromise }) => {
       <div className="overflow-x-auto shadow-md rounded">
         <table className="min-w-full bg-base-200 overflow-x-scroll text-left border border-secondary/10">
           {events.length === 0 ? (
-            <p className="text-center bg-base-100 text-red-500 text-xl md:text-2xl py-4">
-              Event Data Not Found
-            </p>
+            <div className="bg-base-100 shadow rounded">
+              <p className="pt-4 md:pt-6 text-center text-red-500 text-xl md:text-2xl">
+                Event Data Not Found
+              </p>
+
+              <div>
+                <Lottie
+                  animationData={notFoundIn}
+                  className="w-full max-w-md h-[100px] md:h-[200px] mx-auto"
+                />
+              </div>
+              <div className="text-center pb-4 md:pb-6">
+                <Link to="/create-event">
+                  <Button variant="outline">Create Event</Button>
+                </Link>
+              </div>
+            </div>
           ) : (
             <thead className="bg-secondary/10 text-secondary text-sm">
               <tr>

@@ -3,6 +3,10 @@ import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Fade } from "react-awesome-reveal";
+import Lottie from "lottie-react";
+import notFoundIn from "../../assets/lotti/notFoundIn.json";
+import { Link } from "react-router";
+import Button from "../ui/Button";
 
 const MyBookingsCard = ({ myBookingsPromise }) => {
   const myBookings = use(myBookingsPromise);
@@ -43,8 +47,22 @@ const MyBookingsCard = ({ myBookingsPromise }) => {
 
   if (!bookings.length) {
     return (
-      <div className="text-center bg-base-100 text-red-500 text-xl md:text-2xl py-4 rounded shadow-md">
-        Bookings Data Not Found
+      <div className="bg-base-100 shadow rounded">
+        <p className="pt-4 md:pt-6 text-center text-red-500 text-xl md:text-2xl">
+          Bookings Data Not Found
+        </p>
+
+        <div>
+          <Lottie
+            animationData={notFoundIn}
+            className="w-full max-w-md h-[100px] md:h-[200px] mx-auto"
+          />
+        </div>
+        <div className="text-center pb-4 md:pb-6">
+          <Link to="/events">
+            <Button variant="outline">Book Event</Button>
+          </Link>
+        </div>
       </div>
     );
   }
