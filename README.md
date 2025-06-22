@@ -51,7 +51,7 @@ A next-generation, animated, and fully responsive event booking platform for ath
 
 ```bash
 # 1. Clone the repo
- git clone https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-shihabuddin-dev
+ git clone https://github.com/shihabuddin-dev/athletic-hub-client
  cd athletic-hub-client
 
 # 2. Install dependencies
