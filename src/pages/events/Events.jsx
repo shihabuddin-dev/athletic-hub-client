@@ -3,7 +3,9 @@ import React, { useEffect, useState } from "react";
 import Button from "../../components/ui/Button";
 import bgEvents from "../../assets/bg-events.jpg";
 import EventsCard from "../../components/event/EventsCard";
+import EventsTable from "../../components/event/EventsTable";
 import { Fade, Slide } from "react-awesome-reveal";
+import { FaTable, FaThLarge } from "react-icons/fa";
 
 const sortOptions = [
   { value: "date", label: "Date (Upcoming)" },
@@ -17,6 +19,7 @@ const Events = () => {
   const [sortBy, setSortBy] = useState("date");
   const [eventType, setEventType] = useState("");
   const [allEventTypes, setAllEventTypes] = useState([]);
+  const [viewMode, setViewMode] = useState("card"); // 'card' is now the default
 
   useEffect(() => {
     axios(`${import.meta.env.VITE_API_URL}/events?searchParams=${search}`).then(
@@ -83,7 +86,8 @@ const Events = () => {
           />
           <Button className="w-full sm:w-auto">Search</Button>
         </form>
-        {/* Sorting and Filtering Controls */}
+        
+        {/* Sorting, Filtering, and View Toggle Controls */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-4 px-2">
           <div>
             <label className="mr-2 font-medium text-base-content">Sort by:</label>
@@ -93,7 +97,7 @@ const Events = () => {
               className="border rounded px-2 py-1 focus:outline-none focus:border-secondary"
             >
               {sortOptions.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
+                <option key={opt.value} value={opt.value} className="bg-secondary text-white">{opt.label}</option>
               ))}
             </select>
           </div>
@@ -104,19 +108,42 @@ const Events = () => {
               onChange={e => setEventType(e.target.value)}
               className="border rounded px-2 py-1 focus:outline-none focus:border-secondary"
             >
-              <option value="">All</option>
+              <option value="" className="bg-secondary">All</option>
               {allEventTypes.map(type => (
-                <option key={type} value={type}>{type}</option>
+                <option key={type} value={type} className="bg-secondary text-white">{type}</option>
               ))}
             </select>
           </div>
+          {/* Toggle Button */}
+          <div className="flex gap-2 items-center">
+            <p>View By</p>
+            <button
+              type="button"
+              className={`btn btn-sm flex items-center gap-1 ${viewMode === "card" ? "btn-primary" : "btn-outline"}`}
+              onClick={() => setViewMode("card")}
+            >
+              <FaThLarge /> Card
+            </button>
+            <button
+              type="button"
+              className={`btn btn-sm flex items-center gap-1 ${viewMode === "table" ? "btn-primary" : "btn-outline"}`}
+              onClick={() => setViewMode("table")}
+            >
+              <FaTable /> Table
+            </button>
+          </div>
         </div>
       </Fade>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 px-2">
-        {getFilteredSortedEvents().map((event) => (
-          <EventsCard key={event._id} event={event} />
-        ))}
-      </div>
+      {/* Event Display */}
+      {viewMode === "table" ? (
+        <EventsTable events={getFilteredSortedEvents()} />
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 px-2">
+          {getFilteredSortedEvents().map((event) => (
+            <EventsCard key={event._id} event={event} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
