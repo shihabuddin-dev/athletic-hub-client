@@ -5,17 +5,45 @@ import bgEvents from "../../assets/bg-events.jpg";
 import EventsCard from "../../components/event/EventsCard";
 import { Fade, Slide } from "react-awesome-reveal";
 
+const sortOptions = [
+  { value: "date", label: "Date (Upcoming)" },
+  { value: "name", label: "Name (A-Z)" },
+  { value: "location", label: "Location (A-Z)" },
+];
+
 const Events = () => {
   const [events, setEvents] = useState([]);
   const [search, setSearch] = useState("");
+  const [sortBy, setSortBy] = useState("date");
+  const [eventType, setEventType] = useState("");
+  const [allEventTypes, setAllEventTypes] = useState([]);
 
   useEffect(() => {
     axios(`${import.meta.env.VITE_API_URL}/events?searchParams=${search}`).then(
       (res) => {
         setEvents(res.data);
+        // Extract unique event types for filtering
+        const types = Array.from(new Set(res.data.map(e => e.eventType).filter(Boolean)));
+        setAllEventTypes(types);
       }
     );
   }, [search]);
+
+  // Sorting and filtering logic
+  const getFilteredSortedEvents = () => {
+    let filtered = [...events];
+    if (eventType) {
+      filtered = filtered.filter(e => e.eventType === eventType);
+    }
+    if (sortBy === "date") {
+      filtered.sort((a, b) => new Date(a.eventDate) - new Date(b.eventDate));
+    } else if (sortBy === "name") {
+      filtered.sort((a, b) => a.eventName.localeCompare(b.eventName));
+    } else if (sortBy === "location") {
+      filtered.sort((a, b) => a.location.localeCompare(b.location));
+    }
+    return filtered;
+  };
 
   return (
     <div className="space-y-10 md:space-y-14">
@@ -55,9 +83,37 @@ const Events = () => {
           />
           <Button className="w-full sm:w-auto">Search</Button>
         </form>
+        {/* Sorting and Filtering Controls */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-4 px-2">
+          <div>
+            <label className="mr-2 font-medium text-base-content">Sort by:</label>
+            <select
+              value={sortBy}
+              onChange={e => setSortBy(e.target.value)}
+              className="border rounded px-2 py-1 focus:outline-none focus:border-secondary"
+            >
+              {sortOptions.map(opt => (
+                <option key={opt.value} value={opt.value}>{opt.label}</option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label className="mr-2 font-medium text-base-content">Filter by Type:</label>
+            <select
+              value={eventType}
+              onChange={e => setEventType(e.target.value)}
+              className="border rounded px-2 py-1 focus:outline-none focus:border-secondary"
+            >
+              <option value="">All</option>
+              {allEventTypes.map(type => (
+                <option key={type} value={type}>{type}</option>
+              ))}
+            </select>
+          </div>
+        </div>
       </Fade>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 px-2">
-        {events.map((event) => (
+        {getFilteredSortedEvents().map((event) => (
           <EventsCard key={event._id} event={event} />
         ))}
       </div>

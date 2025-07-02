@@ -20,7 +20,7 @@ const EventsCard = ({ event }) => {
     participantLimit,
     difficulty,
     highlights,
-    description,
+    // description,
     eventImage,
     creatorName,
     creatorPhoto,
@@ -120,9 +120,9 @@ const EventsCard = ({ event }) => {
           </div>
 
           {/* Description */}
-          <p className="text-base-content/80 text-sm mb-5 line-clamp-3">
+          {/* <p className="text-base-content/80 text-sm mb-5 line-clamp-3">
             {description}
-          </p>
+          </p> */}
 
           {/* Footer */}
           <div className="mt-auto pt-4 border-t border-base-200">
