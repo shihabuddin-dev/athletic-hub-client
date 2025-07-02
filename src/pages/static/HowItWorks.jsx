@@ -21,9 +21,9 @@ const HowItWorks = () => (
       </p>
     </Slide>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-center">
       {/* Left: Steps 1 & 2 */}
-      <div className="flex flex-col gap-4 sm:gap-8">
+      <div className="flex flex-col gap-4 sm:gap-6">
         <Slide triggerOnce direction="left" delay={300} duration={1000}>
           <div className="flex items-start gap-3 sm:gap-4 bg-secondary/8 rounded-md shadow-md p-4 sm:p-6 border-l-4 hover:border-secondary border-secondary/15 hover:scale-102 transition-all">
             <div className="text-xl sm:text-2xl font-bold text-secondary">
@@ -62,14 +62,14 @@ const HowItWorks = () => (
             <img
               src={athleticLogo}
               alt="How Athletic Hub Works"
-              className="w-40 h-40 md:w-64 md:h-64 p-2 object-contain rounded-md shadow-md border-4 border-secondary/15 bg-secondary/8 transition-all duration-300 hover:grayscale-30"
+              className="w-40 h-40 md:w-64 md:h-64 p-2 object-contain rounded-md shadow-md border-4 border-secondary/15 bg-secondary/8 transition-all duration-400 hover:grayscale-30 hover:scale-110"
             />
           </div>
         </Fade>
       </div>
       {/* Right: Steps 3 & 4 */}
       <Slide triggerOnce direction="right" delay={300} duration={1000}>
-        <div className="flex flex-col gap-4 sm:gap-8">
+        <div className="flex flex-col gap-4 sm:gap-6">
           <div className="flex items-start gap-3 sm:gap-4 bg-secondary/8 rounded-md shadow-md p-4 sm:p-6 border-l-4 hover:border-secondary border-secondary/15 hover:scale-102 transition-all">
             <div className="  text-xl sm:text-2xl font-bold text-secondary">
               3
@@ -85,7 +85,7 @@ const HowItWorks = () => (
             </div>
           </div>
           <div className="flex items-start gap-3 sm:gap-4 bg-secondary/8 rounded-md shadow-md p-4 sm:p-6 border-l-4 hover:border-primary border-primary/15 hover:scale-102 transition-all">
-            <div className="  text-xl sm:text-2xl font-bold text-primary">
+            <div className="text-xl sm:text-2xl font-bold text-primary">
               4
             </div>
             <div>
@@ -93,8 +93,7 @@ const HowItWorks = () => (
                 Join & Compete
               </h3>
               <p className="text-accent text-xs sm:text-sm">
-                Attend the event, connect with fellow athletes, and enjoy the
-                thrill of competition!
+                Attend the event, connect with fellow athletes, and enjoy competition!
               </p>
             </div>
           </div>

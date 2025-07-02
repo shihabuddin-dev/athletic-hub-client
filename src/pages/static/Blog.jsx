@@ -3,10 +3,11 @@ import { Fade, Slide } from "react-awesome-reveal";
 import { FiEdit, FiCalendar, FiUser, FiArrowRight } from "react-icons/fi";
 
 import blog1 from '../../assets/slider/1.jpg'
-import blog2 from '../../assets/slider/2.jpg'
+import blog2 from '../../assets/slider/2.1.jpg'
 import blog3 from '../../assets/slider/3.jpg'
 import blog4 from '../../assets/slider/4.jpg'
 import blog5 from '../../assets/slider/5.jpg'
+import blog6 from '../../assets/slider/2.jpg'
 
 const blogPosts = [
   {
@@ -16,7 +17,7 @@ const blogPosts = [
     excerpt:
       "Discover how to get the most out of every event you attend, from preparation to post-game networking.",
     image: blog1,
-    link: "#",
+
   },
   {
     title: "Why Community Sports Matter More Than Ever",
@@ -25,7 +26,7 @@ const blogPosts = [
     excerpt:
       "Explore the impact of local sports on health, happiness, and community spirit in today's world.",
     image: blog2,
-    link: "#",
+
   },
   {
     title: "How to Organize a Successful Athletic Event",
@@ -34,7 +35,7 @@ const blogPosts = [
     excerpt:
       "A step-by-step guide for new organizers to plan, promote, and execute memorable sports events.",
     image: blog3,
-    link: "#",
+
   },
   {
     title: "Nutrition for Peak Performance: What Every Athlete Should Know",
@@ -43,7 +44,7 @@ const blogPosts = [
     excerpt:
       "Learn the essentials of sports nutrition to fuel your body and maximize your results on the field.",
     image: blog4,
-    link: "#",
+
   },
   {
     title: "Balancing Training and Recovery: The Secret to Success",
@@ -52,7 +53,7 @@ const blogPosts = [
     excerpt:
       "Find out how to structure your training and rest for optimal performance and injury prevention.",
     image: blog5,
-    link: "#",
+
   },
   {
     title: "The Rise of Women in Sports: Breaking Barriers Together",
@@ -60,8 +61,8 @@ const blogPosts = [
     author: "Samantha Lee",
     excerpt:
       "Celebrate the achievements and stories of women athletes making history in the world of sports.",
-    image: blog2,
-    link: "#",
+    image: blog6,
+
   },
 ];
 
@@ -93,7 +94,6 @@ const Blog = () => {
           <Slide triggerOnce
             key={idx}
             direction={idx % 2 === 0 ? "left" : "right"}
-            triggerOnce
           >
             <div className="group bg-base-100 rounded shadow-lg hover:shadow-2xl border-b-4 border-primary/20 hover:border-primary transition-all duration-300 overflow-hidden flex flex-col h-full">
               <div className="relative h-48 w-full overflow-hidden">
@@ -102,7 +102,7 @@ const Blog = () => {
                   alt={post.title}
                   className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
                 />
-                <span className="absolute top-3 left-3 bg-primary/90 text-white px-3 py-1 rounded-full text-xs font-semibold shadow">
+                <span className="absolute top-3 left-3 bg-primary/90 text-white px-3 py-1 rounded-md text-xs font-semibold shadow">
                   <FiCalendar className="inline mr-1" /> {post.date}
                 </span>
               </div>
@@ -116,7 +116,6 @@ const Blog = () => {
                 </div>
                 <p className="text-accent mb-4 flex-1">{post.excerpt}</p>
                 <a
-                  href={post.link}
                   className="inline-flex items-center gap-2 text-secondary font-semibold hover:underline mt-auto"
                 >
                   Read More <FiArrowRight />
