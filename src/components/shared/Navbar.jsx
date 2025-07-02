@@ -3,8 +3,9 @@ import { useState, useEffect, useRef } from "react";
 import {
   FaAddressBook,
   FaBars,
+  FaBlog,
   FaHome,
-  FaRegArrowAltCircleDown,
+  FaQuestion,
   FaRegUserCircle,
   FaSignOutAlt,
   FaTimes,
@@ -16,7 +17,6 @@ import {
   MdAssignmentAdd,
   MdEvent,
   MdManageHistory,
-  MdOutlineInfo,
   MdOutlinePermDeviceInformation,
 } from "react-icons/md";
 import ThemeToggle from "../ui/ThemeToggle";
@@ -104,14 +104,25 @@ const Navbar = () => {
               <MdEvent /> Events
             </NavLink>
           </li>
-          <li>
+         {user&& <li>
             <NavLink to="/create-event" className={linksClass}>
               <MdAddBusiness /> Create Event
+            </NavLink>
+          </li>}
+
+          <li>
+            <NavLink to="/blog" className={linksClass}>
+              <FaBlog /> Blog
             </NavLink>
           </li>
           <li>
             <NavLink to="/about" className={linksClass}>
               <MdOutlinePermDeviceInformation /> About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/faq" className={linksClass}>
+              <FaQuestion /> FAQ
             </NavLink>
           </li>
         </ul>
@@ -241,7 +252,25 @@ const Navbar = () => {
                 <MdEvent /> Events
               </NavLink>
             </li>
+           
             <li>
+              <NavLink to="/about" onClick={toggleMenu} className={linksClass}>
+                <MdOutlinePermDeviceInformation /> About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/blog" onClick={toggleMenu} className={linksClass}>
+                <FaBlog /> Blog
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/faq" onClick={toggleMenu} className={linksClass}>
+                <FaQuestion /> FAQ
+              </NavLink>
+            </li>
+            {user && (
+              <>
+               <li>
               <NavLink
                 to="/create-event"
                 onClick={toggleMenu}
@@ -250,13 +279,6 @@ const Navbar = () => {
                 <MdAddBusiness /> Create Event
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/about" onClick={toggleMenu} className={linksClass}>
-                <MdOutlinePermDeviceInformation /> About
-              </NavLink>
-            </li>
-            {user && (
-              <>
                 <li>
                   <NavLink
                     to="/bookEvent"

@@ -3,6 +3,7 @@ import HeroSlider from "../../components/homeComponents/HeroSlider";
 import Testimonials from "../../components/homeComponents/Testimonials";
 import PopularSports from "../../components/homeComponents/PopularSports";
 import AthleticStats from "../../components/homeComponents/AthleticStats";
+import HowItWorks from "../static/HowItWorks";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <FeaturesEvents />
       <PopularSports />
       <AthleticStats />
+      <HowItWorks/>
       <Testimonials />
     </div>
   );

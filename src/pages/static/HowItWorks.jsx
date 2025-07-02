@@ -26,7 +26,7 @@ const HowItWorks = () => (
       <div className="flex flex-col gap-4 sm:gap-8">
         <Slide triggerOnce direction="left" delay={300} duration={1000}>
           <div className="flex items-start gap-3 sm:gap-4 bg-secondary/8 rounded-md shadow-md p-4 sm:p-6 border-l-4 hover:border-secondary border-secondary/15 hover:scale-102 transition-all">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-secondary/15 text-xl sm:text-2xl font-bold text-secondary shadow-sm">
+            <div className="text-xl sm:text-2xl font-bold text-secondary">
               1
             </div>
             <div>
@@ -40,7 +40,7 @@ const HowItWorks = () => (
             </div>
           </div>
           <div className="flex items-start gap-3 sm:gap-4 bg-secondary/8 rounded-md shadow-md p-4 sm:p-6 border-l-4 hover:border-primary border-primary/15 hover:scale-102 transition-all">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-primary/10 text-xl sm:text-2xl font-bold text-primary shadow-sm">
+            <div className="  text-xl sm:text-2xl font-bold text-primary">
               2
             </div>
             <div>
@@ -71,7 +71,7 @@ const HowItWorks = () => (
       <Slide triggerOnce direction="right" delay={300} duration={1000}>
         <div className="flex flex-col gap-4 sm:gap-8">
           <div className="flex items-start gap-3 sm:gap-4 bg-secondary/8 rounded-md shadow-md p-4 sm:p-6 border-l-4 hover:border-secondary border-secondary/15 hover:scale-102 transition-all">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-secondary/15 text-xl sm:text-2xl font-bold text-secondary shadow-sm">
+            <div className="  text-xl sm:text-2xl font-bold text-secondary">
               3
             </div>
             <div>
@@ -85,7 +85,7 @@ const HowItWorks = () => (
             </div>
           </div>
           <div className="flex items-start gap-3 sm:gap-4 bg-secondary/8 rounded-md shadow-md p-4 sm:p-6 border-l-4 hover:border-primary border-primary/15 hover:scale-102 transition-all">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-primary/10 text-xl sm:text-2xl font-bold text-primary shadow-sm">
+            <div className="  text-xl sm:text-2xl font-bold text-primary">
               4
             </div>
             <div>

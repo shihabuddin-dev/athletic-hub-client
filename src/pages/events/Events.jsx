@@ -82,7 +82,7 @@ const Events = () => {
             onChange={(e) => setSearch(e.target.value)}
             required
             placeholder="Search by Event Name or Location"
-            className="w-full sm:w-auto md:w-sm border-2 border-base-content/40 px-4 py-2 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content text-sm sm:text-base"
+            className="w-full sm:w-auto md:w-sm border-2 border-base-content/40 px-4 py-1.5 rounded-md focus:outline-none focus:border-secondary transition duration-200 bg-base-100 text-base-content text-sm sm:text-base"
           />
           <Button className="w-full sm:w-auto">Search</Button>
         </form>
@@ -97,7 +97,7 @@ const Events = () => {
               className="border rounded px-2 py-1 focus:outline-none focus:border-secondary"
             >
               {sortOptions.map(opt => (
-                <option key={opt.value} value={opt.value} className="bg-secondary text-white">{opt.label}</option>
+                <option key={opt.value} value={opt.value} className="text-black">{opt.label}</option>
               ))}
             </select>
           </div>
@@ -108,15 +108,15 @@ const Events = () => {
               onChange={e => setEventType(e.target.value)}
               className="border rounded px-2 py-1 focus:outline-none focus:border-secondary"
             >
-              <option value="" className="bg-secondary">All</option>
+              <option value="" className="text-black">All</option>
               {allEventTypes.map(type => (
-                <option key={type} value={type} className="bg-secondary text-white">{type}</option>
+                <option key={type} value={type} className="text-black">{type}</option>
               ))}
             </select>
           </div>
           {/* Toggle Button */}
           <div className="flex gap-2 items-center">
-            <p>View By</p>
+          <label className="mr-2 font-medium text-base-content">Sort by:</label>
             <button
               type="button"
               className={`btn btn-sm flex items-center gap-1 ${viewMode === "card" ? "btn-primary" : "btn-outline"}`}
