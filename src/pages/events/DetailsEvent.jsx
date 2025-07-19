@@ -14,6 +14,7 @@ import {
   FiHeart,
   FiShare2,
   FiCheckCircle,
+  FiLogIn,
 } from "react-icons/fi";
 
 const DetailsEvent = () => {
@@ -39,11 +40,14 @@ const DetailsEvent = () => {
     creatorPhoto,
   } = event || {};
 
-  const participantName = user?.displayName || "";
-  const participantEmail = user?.email || "";
+  const participantName = user?.displayName || "Unknown User";
+  const participantEmail = user?.email || "Unknown User";
 
   const handleBookNow = () => {
-    if (!user) return;
+    if (!user) {
+      navigate("/signIn");
+      return;
+    }
     if (isBooked) {
       Swal.fire({
         icon: "warning",
@@ -274,28 +278,38 @@ const DetailsEvent = () => {
                 </div>
               </div>
 
-              <Button
-                className="w-full rounded shadow-md flex items-center justify-center gap-2"
-                onClick={handleBookNow}
-                disabled={booking}
-              >
-                {booking ? (
-                  <span className="flex items-center gap-2">
-                    <FiClock className="animate-spin" /> Processing...
-                  </span>
-                ) : isBooked ? (
-                  <span className="flex items-center gap-2">
-                    <FiCheckCircle className="text-white " /> Booked
-                    Successfully
-                  </span>
-                ) : (
-                  <span className="flex items-center gap-2">
-                    <FiUsers className="text-white" /> Book Now
-                  </span>
-                )}
-              </Button>
+              {/* Book/Login Button */}
+              {user ? (
+                <Button
+                  className="w-full rounded shadow-md flex items-center justify-center gap-2"
+                  onClick={handleBookNow}
+                  disabled={booking}
+                >
+                  {booking ? (
+                    <span className="flex items-center gap-2">
+                      <FiClock className="animate-spin" /> Processing...
+                    </span>
+                  ) : isBooked ? (
+                    <span className="flex items-center gap-2">
+                      <FiCheckCircle className="text-white " /> Booked
+                      Successfully
+                    </span>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <FiUsers className="text-white" /> Book Now
+                    </span>
+                  )}
+                </Button>
+              ) : (
+                <Button
+                  className="w-full rounded shadow-md flex items-center justify-center gap-2"
+                  onClick={() => navigate("/signIn")}
+                >
+                  <FiLogIn className="text-white" /> Login to Book
+                </Button>
+              )}
 
-              {isBooked && (
+              {isBooked && user && (
                 <div className="mt-4 p-3 bg-green-50 rounded border border-green-100">
                   <p className="text-green-700 text-sm flex items-center gap-2">
                     <FiCheckCircle className="text-green-600" /> Confirmation

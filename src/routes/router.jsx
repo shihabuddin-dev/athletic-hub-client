@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       { path: "/howItWorks", Component: HowItWorks },
       { path: "/terms&Conditions", Component: TermsAndConditions },
       { path: "/eventOrganizers", Component: EventOrganizers },
-      { path: "/bookEvent", Component:BookEvent },
+      { path: "/bookEvent", Component: BookEvent },
 
       // private routes Protected
       {
@@ -81,9 +81,7 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API_URL}/events/${params.id}`),
         element: (
-          <PrivateRoutes>
-            <DetailsEvent />
-          </PrivateRoutes>
+          <DetailsEvent />
         ),
       },
       {

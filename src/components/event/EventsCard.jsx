@@ -9,7 +9,7 @@ import {
 } from "react-icons/fi";
 import { Link } from "react-router";
 
-const EventsCard = ({ event }) => {
+const EventsCard = ({ event, hideFooter }) => {
   const {
     _id,
     eventName,
@@ -72,7 +72,11 @@ const EventsCard = ({ event }) => {
         <div className="card-body flex-1 flex flex-col p-6">
           {/* Event title and year */}
           <div className="flex justify-between items-start mb-2">
-            <h3 className="card-title text-2xl font-bold line-clamp-2 leading-tight text-primary">
+            <h3
+              className={`card-title font-bold line-clamp-2 leading-tight text-primary ${
+                hideFooter ? "text-lg" : "text-2xl"
+              }`}
+            >
               {eventName}
             </h3>
             <span className="text-sm text-base-content/60">
@@ -125,42 +129,44 @@ const EventsCard = ({ event }) => {
           </p> */}
 
           {/* Footer */}
-          <div className="mt-auto pt-4 border-t border-base-200">
-            <div className="flex flex-wrap gap-3 justify-center sm:justify-between items-center">
-              {/* Creator info */}
-              <div className="flex items-center gap-3">
-                <div className="avatar">
-                  <div className="w-10 h-10 rounded-full ring-1 ring-primary ring-offset-base-100 ring-offset-2">
-                    <img
-                      src={creatorPhoto}
-                      alt={creatorName}
-                      className="w-full h-full object-cover"
-                    />
+          {!hideFooter && (
+            <div className="mt-auto pt-4 border-t border-base-200">
+              <div className="flex flex-wrap gap-3 justify-center sm:justify-between items-center">
+                {/* Creator info */}
+                <div className="flex items-center gap-3">
+                  <div className="avatar">
+                    <div className="w-10 h-10 rounded-full ring-1 ring-primary ring-offset-base-100 ring-offset-2">
+                      <img
+                        src={creatorPhoto}
+                        alt={creatorName}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-xs text-base-content/60">Organized by</p>
+                    <p className="text-sm font-semibold text-primary">
+                      {creatorName}
+                    </p>
                   </div>
                 </div>
-                <div>
-                  <p className="text-xs text-base-content/60">Organized by</p>
-                  <p className="text-sm font-semibold text-primary">
-                    {creatorName}
-                  </p>
+
+                {/* CTA buttons */}
+                <div className="flex flex-wrap gap-2">
+                  <Link to="/signUp">
+                    {" "}
+                    <button className={miniButton}>Join Now</button>
+                  </Link>
+                  <Link to={`/events/${_id}`}>
+                    <button className={`${miniButton} btn-outline`}>
+                      <span>Details</span>
+                      <FiArrowRight size={14} />
+                    </button>
+                  </Link>
                 </div>
               </div>
-
-              {/* CTA buttons */}
-              <div className="flex flex-wrap gap-2">
-                <Link to="/signUp">
-                  {" "}
-                  <button className={miniButton}>Join Now</button>
-                </Link>
-                <Link to={`/events/${_id}`}>
-                  <button className={`${miniButton} btn-outline`}>
-                    <span>Details</span>
-                    <FiArrowRight size={14} />
-                  </button>
-                </Link>
-              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </Fade>
