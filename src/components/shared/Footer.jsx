@@ -30,8 +30,7 @@ const Footer = () => {
             The Ultimate Platform for Athletic Events
           </p>
           <p className="text-sm text-base-content/80">
-            Effortlessly discover, book, and manage your spot in local sports
-            events.
+            Effortlessly discover, book, and manage your spot in local events.
             <br />
             <span className="text-secondary font-semibold">
               Empowering athletes, organizers, and sports fans to connect and
