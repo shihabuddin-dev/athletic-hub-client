@@ -7,6 +7,7 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
   FaLinkedin,
+  FaDev,
 } from "react-icons/fa";
 import { Link } from "react-router";
 import athleticLogo from "../../assets/athletic-logo.png";
@@ -39,7 +40,16 @@ const Footer = () => {
           </p>
           <div className="flex gap-3 mt-3">
             <a
-              href="https://facebook.com"
+              href="https://shihab-dev.web.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-125 transition-transform text-secondary bg-base-100 p-2 rounded-full border border-secondary"
+              aria-label="Website"
+            >
+              <FaDev size={18} />
+            </a>
+            <a
+              href="https://www.facebook.com/shihabuddinReal/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-125 transition-transform text-secondary bg-base-100 p-2 rounded-full border border-secondary"
@@ -48,7 +58,7 @@ const Footer = () => {
               <FaFacebookF size={18} />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://x.com/shihabuddinReal"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-125 transition-transform text-secondary bg-base-100 p-2 rounded-full border border-secondary"
@@ -57,7 +67,7 @@ const Footer = () => {
               <FaTwitter size={18} />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/shihabuddin.real"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-125 transition-transform text-secondary bg-base-100 p-2 rounded-full border border-secondary"
@@ -66,7 +76,7 @@ const Footer = () => {
               <FaInstagram size={18} />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/shihab-dev/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-125 transition-transform text-secondary bg-base-100 p-2 rounded-full border border-secondary"
@@ -103,20 +113,21 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to="/myBookings"
+                to="/howItWorks"
                 className="hover:text-secondary font-medium"
               >
-                My Bookings
+                How It Works
               </Link>
             </li>
             <li>
               <Link
-                to="/my-profile"
+                to="/terms&Conditions"
                 className="hover:text-secondary font-medium"
               >
-                See Profile
+                Terms & Conditions
               </Link>
             </li>
+          
           </ul>
         </div>
 
@@ -140,21 +151,22 @@ const Footer = () => {
                 Support
               </Link>
             </li>
-            <li>
-              <Link
-                to="/howItWorks"
+            
+              <li>
+              <a
+                href="https://michalsnik.github.io/aos/"
                 className="hover:text-secondary font-medium"
               >
-                How It Works
-              </Link>
+                Animation (Aos)
+              </a>
             </li>
             <li>
-              <Link
-                to="/terms&Conditions"
+              <a
+                href="https://www.freepik.com/"
                 className="hover:text-secondary font-medium"
               >
-                Terms & Conditions
-              </Link>
+                Freepik
+              </a>
             </li>
           </ul>
         </div>
@@ -171,6 +183,9 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-secondary" /> Bogura, Bangladesh
+            </li>
+            <li className="flex items-center gap-2">
+              <FaDev className="text-secondary" /> Develop by <a href="https://shihab-dev.web.app/" target="blank" className="text-secondary">Shihab</a>
             </li>
           </ul>
         </div>
