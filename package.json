@@ -16,6 +16,7 @@
     "react-countup": "^6.5.3",
     "react-datepicker": "^8.4.0",
     "react-dom": "^19.1.0",
+    "react-fast-marquee": "^1.6.5",
     "swiper": "^11.2.8"
   },
   "devDependencies": {
