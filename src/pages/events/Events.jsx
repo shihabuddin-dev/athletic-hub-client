@@ -138,7 +138,7 @@ const Events = () => {
       {viewMode === "table" ? (
         <EventsTable events={getFilteredSortedEvents()} />
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 px-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 px-2">
           {getFilteredSortedEvents().map((event) => (
             <EventsCard key={event._id} event={event} />
           ))}

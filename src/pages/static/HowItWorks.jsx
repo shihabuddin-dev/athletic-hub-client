@@ -4,7 +4,6 @@ import athleticLogo from "../../assets/athletic-logo.png";
 
 const HowItWorks = () => (
   <section className="max-w-7xl mx-auto px-2 sm:px-4 md:px-8">
-    <title>How It Works | Athletic Hub</title>
     <Slide triggerOnce direction="left" delay={300} duration={1000}>
       <h2 className="text-center text-3xl md:text-4xl font-semibold md:font-bold text-primary mb-2">
         How <span className="text-secondary">Athletic Hub</span> Works

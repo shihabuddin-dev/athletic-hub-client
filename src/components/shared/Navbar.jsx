@@ -75,13 +75,13 @@ const Navbar = () => {
   };
 
   const linksClass =
-    "hover:text-primary text-base-content flex items-center gap-1";
+    "hover:text-secondary text-base-content flex items-center gap-1";
 
   return (
     <nav className="backdrop-blur bg-gradient-to-t from-secondary/8 via-base-100 to-secondary/8 fixed top-0 left-0 right-0 z-50 w-full border-b-2 border-secondary/15">
       <div className="max-w-7xl mx-auto py-2 px-4 md:px-6 lg:px-8 flex justify-between items-center">
         {/* Logo & Website Name */}
-        <Link to="/" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-1">
           <img
             src={athleticLogo}
             alt="Athletic Hub Logo"

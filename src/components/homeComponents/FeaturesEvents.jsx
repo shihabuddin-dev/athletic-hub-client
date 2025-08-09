@@ -22,7 +22,7 @@ const FeaturesEvents = () => {
       <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-5">
         {events.map((event) => (
           <Link to={`/events/${event._id}`} key={event._id} className="block group cursor-pointer h-full">
-            <EventsCard event={event} hideFooter={true} />
+            <EventsCard event={event} />
           </Link>
         ))}
       </div>

@@ -1,67 +1,54 @@
 import { Fade } from "react-awesome-reveal";
 import {
-  FiCalendar,
-  FiClock,
-  FiMapPin,
-  FiUsers,
-  FiAward,
   FiArrowRight,
 } from "react-icons/fi";
 import { Link } from "react-router";
 
-const EventsCard = ({ event, hideFooter }) => {
+const EventsCard = ({ event }) => {
   const {
     _id,
     eventName,
     eventType,
     eventDate,
-    eventTime,
-    location,
-    participantLimit,
-    difficulty,
-    highlights,
-    // description,
+    description,
     eventImage,
-    creatorName,
-    creatorPhoto,
   } = event || {};
 
   const formattedDate = new Date(eventDate).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
   });
-  const formattedYear = new Date(eventDate).getFullYear();
   const miniButton =
     "btn btn-primary btn-sm rounded px-3 shadow-md hover:shadow-lg hover:bg-primary-focus transition-all";
 
   return (
     <Fade triggerOnce>
-      <div className="card bg-gradient-to-br from-base-100 via-base-200 to-secondary/10 shadow-md hover:shadow-md border border-base-200/50 hover:border-secondary/30 transition-all duration-900 flex flex-col h-full group transform hover:-translate-y-2 rounded">
+      <div className="bg-gradient-to-br from-base-100 via-base-200 to-secondary/10 shadow-md hover:shadow-lg border border-base-200/50 hover:border-secondary/30 transition-all duration-900 flex flex-col h-full group transform hover:-translate-y-2 rounded w-full max-w-[340px] min-w-[260px] min-h-[350px] max-h-[480px] mx-auto">
         {/* Image container */}
         <Fade triggerOnce>
-          <figure className="relative h-52 overflow-hidden rounded rounded-b-none">
+          <figure className="relative h-38 sm:h-42 overflow-hidden rounded-t">
             <img
               src={eventImage}
               alt={eventName}
-              className="w-full h-full rounded rounded-b-none border-b-2 border-secondary/70 object-cover transition-transform duration-900 group-hover:scale-105"
+              className="w-full h-full object-cover rounded-t border-b-2 border-secondary/70 transition-transform duration-900 group-hover:scale-105"
               loading="lazy"
             />
             {/* Gradient overlay */}
             <div className="absolute transition transform duration-700 inset-0 hover:bg-gradient-to-t hover:from-secondary/50 hover:via-transparent hover:to-transparent" />
 
             {/* Date ribbon */}
-            <div className="absolute top-4 left-4 flex flex-col items-center justify-center bg-primary text-white text-center px-3 py-2 rounded shadow-md">
-              <span className="text-lg font-bold leading-none">
+            <div className="absolute top-3 left-3 flex flex-col items-center justify-center bg-secondary text-white text-center px-2 py-1 rounded shadow-md">
+              <span className="text-xs leading-none">
                 {formattedDate.split(" ")[1]}
               </span>
-              <span className="text-xs uppercase tracking-wider">
+              <span className="text-xs">
                 {formattedDate.split(" ")[0]}
               </span>
             </div>
 
             {/* Event badges */}
-            <div className="absolute top-4 right-4 flex flex-col gap-2 items-end">
-              <span className="badge badge-secondary rounded badge-lg text-white px-2 py-2 shadow-md">
+            <div className="absolute top-3 right-3 flex flex-col gap-2 items-end">
+              <span className="badge badge-sm badge-primary rounded text-white px-2 py-1 shadow-md text-xs">
                 {eventType}
               </span>
             </div>
@@ -69,104 +56,33 @@ const EventsCard = ({ event, hideFooter }) => {
         </Fade>
 
         {/* Content */}
-        <div className="card-body flex-1 flex flex-col p-6">
+        <div className="flex-1 flex flex-col p-4 sm:p-6">
           {/* Event title and year */}
-          <div className="flex justify-between items-start mb-2">
+          <div className="min-h-[48px] flex items-center">
             <h3
-              className={`card-title font-bold line-clamp-2 leading-tight text-primary ${
-                hideFooter ? "text-lg" : "text-2xl"
-              }`}
+              className="font-bold line-clamp-2 leading-tight text-secondary text-lg text-center w-full"
             >
               {eventName}
             </h3>
-            <span className="text-sm text-base-content/60">
-              {formattedYear}
-            </span>
           </div>
 
-          {/* Highlights */}
-          {highlights && (
-            <div className="flex items-center bg-secondary/10 rounded px-3 py-2 mb-3">
-              <FiAward className="text-secondary mr-2" size={16} />
-              <span className="text-sm font-medium text-secondary line-clamp-1">
-                {highlights.slice(0, 35)}
-                {highlights.length > 35 ? "..." : ""}
-              </span>
-            </div>
+          {/* Short Description */}
+          {description && (
+            <p className="text-base-content/80 text-sm mb-4 line-clamp-2 text-center">
+              {description.length > 80 ? description.slice(0, 80) + '...' : description}
+            </p>
           )}
 
-          {/* Meta info */}
-          <div className="grid grid-cols-2 gap-3 mb-4">
-            <div className="flex items-center">
-              <FiMapPin className="text-primary mr-2" size={16} />
-              <span className="text-sm font-medium text-base-content line-clamp-1">
-                {location}
-              </span>
-            </div>
-            <div className="flex items-center">
-              <FiClock className="text-primary mr-2" size={16} />
-              <span className="text-sm font-medium text-base-content">
-                {eventTime}
-              </span>
-            </div>
-            <div className="flex items-center">
-              <FiCalendar className="text-primary mr-2" size={16} />
-              <span className="text-sm font-medium text-base-content">
-                {difficulty}
-              </span>
-            </div>
-            <div className="flex items-center">
-              <FiUsers className="text-primary mr-2" size={16} />
-              <span className="text-sm font-medium text-base-content">
-                {participantLimit} spots
-              </span>
-            </div>
+          {/* CTA buttons */}
+          <div className="flex flex-wrap gap-2 justify-center">
+            <Link to={`/events/${_id}`}>
+              <button className={miniButton}>
+                <span>See more</span>
+                <FiArrowRight size={14} />
+              </button>
+            </Link>
           </div>
 
-          {/* Description */}
-          {/* <p className="text-base-content/80 text-sm mb-5 line-clamp-3">
-            {description}
-          </p> */}
-
-          {/* Footer */}
-          {!hideFooter && (
-            <div className="mt-auto pt-4 border-t border-base-200">
-              <div className="flex flex-wrap gap-3 justify-center sm:justify-between items-center">
-                {/* Creator info */}
-                <div className="flex items-center gap-3">
-                  <div className="avatar">
-                    <div className="w-10 h-10 rounded-full ring-1 ring-primary ring-offset-base-100 ring-offset-2">
-                      <img
-                        src={creatorPhoto}
-                        alt={creatorName}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-xs text-base-content/60">Organized by</p>
-                    <p className="text-sm font-semibold text-primary">
-                      {creatorName}
-                    </p>
-                  </div>
-                </div>
-
-                {/* CTA buttons */}
-                <div className="flex flex-wrap gap-2">
-                  <Link to="/signUp">
-                    {" "}
-                    <button className={miniButton}>Join Now</button>
-                  </Link>
-                  <Link to={`/events/${_id}`}>
-                    <button className={`${miniButton} btn-outline`}>
-                      <span>Details</span>
-                      <FiArrowRight size={14} />
-                    </button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </Fade>
