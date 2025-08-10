@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from "react";
 
+
 const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState(() => {
+  // Detect system preference on first load
+  const getInitialTheme = () => {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") return true;
     if (savedTheme === "light") return false;
-    // Default to light mode if no theme is set
-    localStorage.setItem("theme", "light");
+    // If no theme saved, use system preference
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return true;
+    }
     return false;
-  });
+  };
+
+  const [isDark, setIsDark] = useState(getInitialTheme);
 
   useEffect(() => {
     const theme = isDark ? "dark" : "light";
@@ -16,7 +22,25 @@ const ThemeToggle = () => {
     localStorage.setItem("theme", theme);
   }, [isDark]);
 
-  const toggleTheme = () => setIsDark(!isDark);
+  // Listen for system theme changes
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = () => {
+      if (!localStorage.getItem("theme")) {
+        setIsDark(media.matches);
+      }
+    };
+    media.addEventListener('change', handleChange);
+    return () => media.removeEventListener('change', handleChange);
+  }, []);
+
+  const toggleTheme = () => {
+    setIsDark((prev) => {
+      const newVal = !prev;
+      localStorage.setItem("theme", newVal ? "dark" : "light");
+      return newVal;
+    });
+  };
 
   return (
     <label className="swap swap-rotate">
